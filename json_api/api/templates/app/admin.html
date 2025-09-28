@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Отправка текста и картинки</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 30px auto;
+      padding: 20px;
+    }
+    .hidden { display: none; }
+    input, textarea, button {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      box-sizing: border-box;
+    }
+    button {
+      background: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover { background: #45a049; }
+    .preview {
+      max-width: 200px;
+      margin: 10px 0;
+    }
+    .status {
+      margin-top: 15px;
+      padding: 12px;
+      border-radius: 4px;
+    }
+    .success { background: #d4edda; color: #155724; }
+    .error { background: #f8d7da; color: #721c24; }
+  </style>
+</head>
+<body>
+
+  <!-- Авторизация -->
+  <div id="auth-section">
+    <h2>Авторизация</h2>
+    <input type="text" id="username" placeholder="Логин" required>
+    <input type="password" id="password" placeholder="Пароль" required>
+    <button onclick="login()">Войти</button>
+  </div>
+
+  <!-- Основная форма -->
+  <div id="main-section" class="hidden">
+    <h2>Создать запись</h2>
+    <input type="text" id="title" placeholder="Заголовок">
+    <textarea id="description" placeholder="Описание" rows="3"></textarea>
+    <input type="file" id="image" accept="image/*" onchange="previewImage(event)">
+    <img id="image-preview" class="preview hidden" alt="Предпросмотр">
+
+    <button onclick="submitData()">Отправить</button>
+    <div id="status" class="hidden"></div>
+
+    <!-- Опционально: отображение результата -->
+    <div id="result" class="hidden" style="margin-top: 20px; padding: 15px; border: 1px solid #ccc;">
+      <h3>Отправлено:</h3>
+      <p><strong>Заголовок:</strong> <span id="res-title"></span></p>
+      <p><strong>Описание:</strong> <span id="res-desc"></span></p>
+      <p><strong>Картинка:</strong> <img id="res-img" style="max-width:100px;"></p>
+    </div>
+  </div>
+
+  <script>
+    // === Авторизация (упрощённая) ===
+    function login() {
+      const user = document.getElementById('username').value.trim();
+      const pass = document.getElementById('password').value;
+      if (!user || !pass) {
+        alert('Введите логин и пароль');
+        return;
+      }
+      localStorage.setItem('user', user);
+      showMain();
+    }
+
+    function showMain() {
+      document.getElementById('auth-section').classList.add('hidden');
+      document.getElementById('main-section').classList.remove('hidden');
+    }
+
+    if (localStorage.getItem('user')) showMain();
+
+    // === Предпросмотр картинки ===
+    function previewImage(event) {
+      const preview = document.getElementById('image-preview');
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = e => {
+          preview.src = e.target.result;
+          preview.classList.remove('hidden');
+        };
+        reader.readAsDataURL(file);
+      } else {
+        preview.classList.add('hidden');
+      }
+    }
+
+    // === Отправка данных ===
+    async function submitData() {
+      const title = document.getElementById('title').value.trim();
+      const desc = document.getElementById('description').value.trim();
+      const fileInput = document.getElementById('image');
+      const file = fileInput.files[0];
+
+      if (!title && !desc && !file) {
+        showStatus('Нет данных для отправки', 'error');
+        return;
+      }
+
+      const formData = new FormData();
+      if (title) formData.append('title', title);
+      if (desc) formData.append('desc', desc); // именно 'desc', как в JSON
+      if (file) formData.append('image', file);
+
+      try {
+        showStatus('Отправка...', 'success');
+
+        const response = await fetch('/api/post_news', {
+          method: 'POST',
+          body: formData
+          // Content-Type не указываем — браузер сам установит multipart/form-data
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+          showStatus('Успешно отправлено!', 'success');
+
+          // Отображаем результат
+          document.getElementById('res-title').textContent = result.title || '';
+          document.getElementById('res-desc').textContent = result.desc || '';
+          const imgEl = document.getElementById('res-img');
+          if (result.img_path) {
+            imgEl.src = result.img_path.startsWith('http') 
+              ? result.img_path 
+              : window.location.origin + result.img_path;
+            imgEl.classList.remove('hidden');
+          }
+          document.getElementById('result').classList.remove('hidden');
+
+          // Очистка формы
+          document.getElementById('title').value = '';
+          document.getElementById('description').value = '';
+          fileInput.value = '';
+          document.getElementById('image-preview').classList.add('hidden');
+        } else {
+          showStatus(`Ошибка: ${result.error || response.statusText}`, 'error');
+        }
+      } catch (err) {
+        console.error('Ошибка:', err);
+        showStatus('Не удалось отправить данные', 'error');
+      }
+    }
+
+    function showStatus(text, type) {
+      const el = document.getElementById('status');
+      el.textContent = text;
+      el.className = `status ${type}`;
+      el.classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>

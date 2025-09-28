@@ -6,35 +6,35 @@ import uuid
 def generate_id():
     return str(uuid.uuid4())
 
-async def add_item_to_json(new_item):
+import json
+import os
+
+def add_item_to_json(new_item, filename='news.json'):
     """
-    Добавляет новый словарь в список словарей в JSON-файле.
+    Добавляет словарь new_item в JSON-файл, содержащий список словарей.
     
-    :param file_path: путь к JSON-файлу (например, 'data.json')
-    :param new_item: словарь для добавления, например {'id': 3, 'name': 'Charlie'}
+    :param new_item: словарь для добавления (например, {"title": "...", "desc": "...", "img_path": "..."})
+    :param filename: путь к JSON-файлу (по умолчанию 'news.json')
     """
-    # Если файл не существует — создаём пустой список
-    file_path = "news.json"
-    if not os.path.exists(file_path):
-        data = []
-    else:
-        # Читаем существующие данные
-        with open(file_path, 'r', encoding='utf-8') as f:
+    # Если файл существует — загружаем данные, иначе создаём пустой список
+    if os.path.exists(filename):
+        with open(filename, 'r', encoding='utf-8') as f:
             try:
                 data = json.load(f)
-                # Убеждаемся, что это список
+                # Убеждаемся, что данные — это список
                 if not isinstance(data, list):
-                    raise ValueError("JSON-файл должен содержать список (массив)")
+                    data = []
             except json.JSONDecodeError:
-                # Если файл повреждён или пуст — начинаем с пустого списка
+                # Если файл повреждён — начинаем с пустого списка
                 data = []
+    else:
+        data = []
 
     # Добавляем новый элемент
-    new_item['id'] = generate_id()
     data.append(new_item)
 
-    # Записываем обратно в файл
-    with open(file_path, 'w', encoding='utf-8') as f:
+    # Сохраняем обратно в файл
+    with open(filename, 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
 
 async def get_item_by_id(target_id):
