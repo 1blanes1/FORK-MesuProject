@@ -7,11 +7,18 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      max-width: 600px;
+      max-width: 800px;
       margin: 30px auto;
       padding: 20px;
     }
     .hidden { display: none; }
+    .form-section {
+      margin-bottom: 40px;
+      padding: 20px;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      background: #fafafa;
+    }
     input, textarea, button {
       width: 100%;
       padding: 10px;
@@ -36,6 +43,9 @@
     }
     .success { background: #d4edda; color: #155724; }
     .error { background: #f8d7da; color: #721c24; }
+    h2 {
+      margin-top: 0;
+    }
   </style>
 </head>
 <body>
@@ -48,28 +58,50 @@
     <button onclick="login()">Войти</button>
   </div>
 
-  <!-- Основная форма -->
-  <div id="main-section" class="hidden">
-    <h2>Создать запись</h2>
-    <input type="text" id="title" placeholder="Заголовок">
-    <textarea id="description" placeholder="Описание" rows="3"></textarea>
-    <input type="file" id="image" accept="image/*" onchange="previewImage(event)">
-    <img id="image-preview" class="preview hidden" alt="Предпросмотр">
+  <!-- Форма 1 -->
+  <div id="main-section-news" class="hidden form-section">
+    <h2>Добавить новость</h2>
+    <input type="text" id="title-news" placeholder="Заголовок">
+    <textarea id="description-news" placeholder="Описание" rows="3"></textarea>
+    <input type="url" id="url-news" placeholder="Ссылка (необязательно)">
+    <input type="file" id="image-news" accept="image/*" onchange="previewImage(event, 'image-preview-news')">
+    <img id="image-preview-news" class="preview hidden" alt="Предпросмотр">
 
-    <button onclick="submitData()">Отправить</button>
-    <div id="status" class="hidden"></div>
+    <button onclick="submitData('news')">Отправить</button>
+    <div id="status-news" class="hidden"></div>
 
-    <!-- Опционально: отображение результата -->
-    <div id="result" class="hidden" style="margin-top: 20px; padding: 15px; border: 1px solid #ccc;">
+    <div id="result-news" class="hidden" style="margin-top: 20px; padding: 15px; border: 1px solid #ccc;">
       <h3>Отправлено:</h3>
-      <p><strong>Заголовок:</strong> <span id="res-title"></span></p>
-      <p><strong>Описание:</strong> <span id="res-desc"></span></p>
-      <p><strong>Картинка:</strong> <img id="res-img" style="max-width:100px;"></p>
+      <p><strong>Заголовок:</strong> <span id="res-title-news"></span></p>
+      <p><strong>Описание:</strong> <span id="res-desc-news"></span></p>
+      <p><strong>Ссылка:</strong> <a id="res-url-news" href="#" target="_blank" style="color: #1a0dab; text-decoration: underline;" class="hidden"></a></p>
+      <p><strong>Картинка:</strong> <img id="res-img-news" style="max-width:100px; display: none;"></p>
+    </div>
+  </div>
+
+  <!-- Форма 2 -->
+  <div id="main-section-history_line" class="hidden form-section">
+    <h2>Добавить историческую линию</h2>
+    <input type="text" id="title-history_line" placeholder="Заголовок">
+    <textarea id="description-history_line" placeholder="Описание" rows="3"></textarea>
+    <input type="url" id="url-history_line" placeholder="Ссылка (необязательно)">
+    <input type="file" id="image-history_line" accept="image/*" onchange="previewImage(event, 'image-preview-history_line')">
+    <img id="image-preview-history_line" class="preview hidden" alt="Предпросмотр">
+
+    <button onclick="submitData('history_line')">Отправить</button>
+    <div id="status-history_line" class="hidden"></div>
+
+    <div id="result-history_line" class="hidden" style="margin-top: 20px; padding: 15px; border: 1px solid #ccc;">
+      <h3>Отправлено:</h3>
+      <p><strong>Заголовок:</strong> <span id="res-title-history_line"></span></p>
+      <p><strong>Описание:</strong> <span id="res-desc-history_line"></span></p>
+      <p><strong>Ссылка:</strong> <a id="res-url-history_line" href="#" target="_blank" style="color: #1a0dab; text-decoration: underline;" class="hidden"></a></p>
+      <p><strong>Картинка:</strong> <img id="res-img-history_line" style="max-width:100px; display: none;"></p>
     </div>
   </div>
 
   <script>
-    // === Авторизация (упрощённая) ===
+    // === Авторизация ===
     function login() {
       const user = document.getElementById('username').value.trim();
       const pass = document.getElementById('password').value;
@@ -83,14 +115,15 @@
 
     function showMain() {
       document.getElementById('auth-section').classList.add('hidden');
-      document.getElementById('main-section').classList.remove('hidden');
+      document.getElementById('main-section-news').classList.remove('hidden');
+      document.getElementById('main-section-history_line').classList.remove('hidden');
     }
 
     if (localStorage.getItem('user')) showMain();
 
-    // === Предпросмотр картинки ===
-    function previewImage(event) {
-      const preview = document.getElementById('image-preview');
+    // === Предпросмотр картинки (универсальный) ===
+    function previewImage(event, previewId) {
+      const preview = document.getElementById(previewId);
       const file = event.target.files[0];
       if (file) {
         const reader = new FileReader();
@@ -104,65 +137,79 @@
       }
     }
 
-    // === Отправка данных ===
-    async function submitData() {
-      const title = document.getElementById('title').value.trim();
-      const desc = document.getElementById('description').value.trim();
-      const fileInput = document.getElementById('image');
+    // === Отправка данных (универсальная по номеру формы) ===
+    async function submitData(formNum) {
+      const title = document.getElementById(`title-${formNum}`).value.trim();
+      const desc = document.getElementById(`description-${formNum}`).value.trim();
+      const url = document.getElementById(`url-${formNum}`).value.trim();
+      const fileInput = document.getElementById(`image-${formNum}`);
       const file = fileInput.files[0];
 
-      if (!title && !desc && !file) {
-        showStatus('Нет данных для отправки', 'error');
+      if (!title && !desc && !url && !file) {
+        showStatus(formNum, 'Нет данных для отправки', 'error');
         return;
       }
 
       const formData = new FormData();
       if (title) formData.append('title', title);
-      if (desc) formData.append('desc', desc); // именно 'desc', как в JSON
+      if (desc) formData.append('desc', desc);
+      if (url) formData.append('url', url);
       if (file) formData.append('image', file);
 
       try {
-        showStatus('Отправка...', 'success');
+        showStatus(formNum, 'Отправка...', 'success');
 
-        const response = await fetch('/api/post_news', {
+        const response = await fetch('/api/post_'+formNum, {
           method: 'POST',
           body: formData
-          // Content-Type не указываем — браузер сам установит multipart/form-data
         });
 
         const result = await response.json();
 
         if (response.ok) {
-          showStatus('Успешно отправлено!', 'success');
+          showStatus(formNum, 'Успешно отправлено!', 'success');
 
           // Отображаем результат
-          document.getElementById('res-title').textContent = result.title || '';
-          document.getElementById('res-desc').textContent = result.desc || '';
-          const imgEl = document.getElementById('res-img');
+          document.getElementById(`res-title-${formNum}`).textContent = result.title || '';
+          document.getElementById(`res-desc-${formNum}`).textContent = result.desc || '';
+          
+          const resUrlEl = document.getElementById(`res-url-${formNum}`);
+          if (result.url) {
+            resUrlEl.href = result.url;
+            resUrlEl.textContent = result.url;
+            resUrlEl.classList.remove('hidden');
+          } else {
+            resUrlEl.classList.add('hidden');
+          }
+
+          const imgEl = document.getElementById(`res-img-${formNum}`);
           if (result.img_path) {
             imgEl.src = result.img_path.startsWith('http') 
               ? result.img_path 
               : window.location.origin + result.img_path;
-            imgEl.classList.remove('hidden');
+            imgEl.style.display = 'inline';
+          } else {
+            imgEl.style.display = 'none';
           }
-          document.getElementById('result').classList.remove('hidden');
+          document.getElementById(`result-${formNum}`).classList.remove('hidden');
 
           // Очистка формы
-          document.getElementById('title').value = '';
-          document.getElementById('description').value = '';
+          document.getElementById(`title-${formNum}`).value = '';
+          document.getElementById(`description-${formNum}`).value = '';
+          document.getElementById(`url-${formNum}`).value = '';
           fileInput.value = '';
-          document.getElementById('image-preview').classList.add('hidden');
+          document.getElementById(`image-preview-${formNum}`).classList.add('hidden');
         } else {
-          showStatus(`Ошибка: ${result.error || response.statusText}`, 'error');
+          showStatus(formNum, `Ошибка: ${result.error || response.statusText}`, 'error');
         }
       } catch (err) {
         console.error('Ошибка:', err);
-        showStatus('Не удалось отправить данные', 'error');
+        showStatus(formNum, 'Не удалось отправить данные', 'error');
       }
     }
 
-    function showStatus(text, type) {
-      const el = document.getElementById('status');
+    function showStatus(formNum, text, type) {
+      const el = document.getElementById(`status-${formNum}`);
       el.textContent = text;
       el.className = `status ${type}`;
       el.classList.remove('hidden');

@@ -15,14 +15,22 @@ def my_page(request):
     return render(request, 'app/index.html')
 def admin(request):
     return render(request, 'app/admin.html')
+def history_page(request):
+    return render(request, 'app/history_page.html')
 
 @csrf_exempt
 def get_news(request):
     if request.method == 'GET':
         filepath = os.path.join(settings.BASE_DIR,'media','jsons', 'news.json')
-
         news = read_json(filepath)
         return JsonResponse(news, safe=False)
+    
+@csrf_exempt
+def get_history_lines(request):
+    if request.method == 'GET':
+        filepath = os.path.join(settings.BASE_DIR,'media','jsons', 'history_lines.json')
+        history_line = read_json(filepath)
+        return JsonResponse(history_line, safe=False)
 
 @csrf_exempt
 @require_http_methods(["POST"])
@@ -30,7 +38,9 @@ def post_news(request):
     try:
         title = request.POST.get('title', '').strip()
         desc = request.POST.get('desc', '').strip()
+        url = request.POST.get('url', '').strip()
         image = request.FILES.get('image')
+        
 
         img_path = ""
 
@@ -51,6 +61,7 @@ def post_news(request):
         data = {
             "title": title,
             "desc": desc,
+            "url": url,
             "img_path": img_path
         }
         filepath = os.path.join(settings.BASE_DIR,'media','jsons', 'news.json')
@@ -61,6 +72,48 @@ def post_news(request):
 
     except Exception as e:
         return JsonResponse({"error": str(e)}, status=500)
+
+@csrf_exempt
+@require_http_methods(["POST"])    
+def post_history_line(request):
+    try:
+        title = request.POST.get('title', '').strip()
+        desc = request.POST.get('desc', '').strip()
+        url = request.POST.get('url', '').strip()
+        image = request.FILES.get('image')
+        
+
+        img_path = ""
+
+        # Сохраняем изображение, если оно есть
+        if image:
+            # Формируем путь: uploads/имя_файла
+            upload_to = 'uploads'
+            full_path = os.path.join(upload_to, image.name)
+
+            # Безопасность: избегаем перезаписи и путей вроде '../../etc/passwd'
+            full_path = default_storage.get_available_name(full_path)
+
+            # Сохраняем файл
+            path = default_storage.save(full_path, ContentFile(image.read()))
+            img_path = default_storage.url(path)  # Например: '/media/uploads/photo.jpg'
+
+        # Подготавливаем данные
+        data = {
+            "title": title,
+            "desc": desc,
+            "url": url,
+            "img_path": img_path
+        }
+        filepath = os.path.join(settings.BASE_DIR,'media','jsons', 'history_lines.json')
+        # Сохраняем в JSON (твоя функция)
+        add_item_to_json(data, filepath)
+
+        return JsonResponse(data)
+
+    except Exception as e:
+        return JsonResponse({"error": str(e)}, status=500)
+
 # @csrf_exempt
 # def post(request):
 #     if request.method == 'POST':
