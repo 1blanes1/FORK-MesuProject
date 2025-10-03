@@ -16,8 +16,12 @@ urlpatterns = [
     # ^ api для подгрузки всех новостей из news.json на главную страницу
     path('api/post_news', views.post_news, name='post_news'),
     # ^ api для записи новостей в news.json
-    path('api/post_history_line', views.post_history_line, name='post_history_line') 
+    path('api/post_history_line', views.post_history_line, name='post_history_line'),
     # ^  api для добавления в history_lines.json
+    path('api/post_partners', views.post_partner, name='post_partners'),
+    # ^ api для добавления в партнёры
+    path('partners', views.get_partners, name='partners')
+    # ^ api для запроса списка партёнров
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
