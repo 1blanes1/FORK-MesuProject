@@ -34,7 +34,7 @@ def add_item_to_json(new_item, filename='news.json'):
     data.append(new_item)
 
     # Сохраняем обратно в файл
-    with open(filename, 'w', encoding='utf-8') as f:
+    with open(filename, 'w', encoding='utf-8') as f: 
         json.dump(data, f, ensure_ascii=False, indent=2)
 
 async def get_item_by_id(target_id):
