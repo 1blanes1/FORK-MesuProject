@@ -1,4 +1,4 @@
-путь к html'кам - json_api\api\templates\app
+Путь к html'кам - json_api\api\templates\app
 вы работаете в этой папке
 1. все html'ки остаются в этой папке
 2. создаются папки css и js и в них уже пишутся соответственные блоки 
