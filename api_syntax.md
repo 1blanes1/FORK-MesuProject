@@ -1,3 +1,4 @@
+<<<<<<< HEAD
     path('', views.my_page, name='page'),
     # ^ основная страница
     path('admin', views.admin, name='admin'),
@@ -48,3 +49,11 @@ API для добавления информации в соответствую
     'api/post_partners'
 записывают в json отправленные данные, пример отправки на js смотри в файле admin.html - func sumbitData(formData)
 ------------------------------------------------------------------
+=======
+для новостей fetch('/api/get_news') ->
+{
+    title: "Literaly that Russia",
+    description: "Russia is the best country",
+    img_path: "media/uploads/image.png"
+}
+>>>>>>> back

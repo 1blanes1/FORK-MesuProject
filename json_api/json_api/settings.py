@@ -25,6 +25,13 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-e669@k4!3mj0+&*=jwmkatq!p6a)a2@u57dyl05s4kfij(b^p8'
 
+
+# URL для статических файлов (в браузере)
+STATIC_URL = '/static/'
+
+# Путь в файловой системе, куда collectstatic будет собирать все статические файлы
+STATIC_ROOT = '/app/staticfiles'
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
