@@ -28,19 +28,16 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 SECRET_KEY = 'django-insecure-e669@k4!3mj0+&*=jwmkatq!p6a)a2@u57dyl05s4kfij(b^p8'
 
 
-# URL для статических файлов (в браузере)
-STATIC_URL = '/static/app'
-
 # Путь в файловой системе, куда collectstatic будет собирать все статические файлы
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'staticfiles'),  # общие статические файлы
+    BASE_DIR / 'static',  # ← новая папка static/ в корне проекта
 ]
-DEBUG = False                                                           
+DEBUG = True                                                        
 
 if DEBUG:
-    STATICFILES_DIRS = [ os.path.join(BASE_DIR, 'staticfiles')]  
+    STATICFILES_DIRS = [ os.path.join(BASE_DIR, '/staticfiles')]  
 
 
 
