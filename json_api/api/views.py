@@ -12,7 +12,7 @@ from django.conf import settings
 
 
 def my_page(request):
-    return render(request, 'app/index.html')
+    return render(request, 'app/index2.html')
 def admin(request):
     return render(request, 'app/admin.html')
 def history_page(request):
