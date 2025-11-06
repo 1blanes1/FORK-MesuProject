@@ -1,0 +1,18 @@
+# docker-compose.yml
+version: '3.8'
+
+services:
+  web:  # ← имя сервиса — ОНО ВАЖНО!
+    build: .
+    command: gunicorn --bind 0.0.0.0:8000 json_api.wsgi:application
+    expose:
+      - 8000
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - web
