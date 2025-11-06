@@ -32,15 +32,15 @@ SECRET_KEY = 'django-insecure-e669@k4!3mj0+&*=jwmkatq!p6a)a2@u57dyl05s4kfij(b^p8
 STATIC_URL = '/static/app'
 
 # Путь в файловой системе, куда collectstatic будет собирать все статические файлы
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/app')
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static/app'),  # общие статические файлы
+    os.path.join(BASE_DIR, 'staticfiles'),  # общие статические файлы
 ]
 DEBUG = True                                                            
 
 if DEBUG:
-    STATICFILES_DIRS = [ os.path.join(BASE_DIR, 'static')]  
+    STATICFILES_DIRS = [ os.path.join(BASE_DIR, 'staticfiles')]  
 
 
 
@@ -81,7 +81,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, 'static'),  # ← для глобальных шаблонов (необязательно)
+            os.path.join(BASE_DIR, 'staticfiles'),  # ← для глобальных шаблонов (необязательно)
         ],
         'APP_DIRS': True,  # ← позволяет Django искать шаблоны в папке app/templates
         'OPTIONS': {
