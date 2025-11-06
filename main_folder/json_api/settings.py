@@ -81,7 +81,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, 'templates'),  # ← для глобальных шаблонов (необязательно)
+            os.path.join(BASE_DIR, 'static'),  # ← для глобальных шаблонов (необязательно)
         ],
         'APP_DIRS': True,  # ← позволяет Django искать шаблоны в папке app/templates
         'OPTIONS': {
