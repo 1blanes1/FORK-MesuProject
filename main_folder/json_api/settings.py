@@ -32,12 +32,12 @@ SECRET_KEY = 'django-insecure-e669@k4!3mj0+&*=jwmkatq!p6a)a2@u57dyl05s4kfij(b^p8
 STATIC_URL = '/static/app'
 
 # Путь в файловой системе, куда collectstatic будет собирать все статические файлы
-STATIC_ROOT = os.path.join(BASE_DIR, 'static/app')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'staticfiles'),  # общие статические файлы
 ]
-DEBUG = True                                                            
+DEBUG = False                                                           
 
 if DEBUG:
     STATICFILES_DIRS = [ os.path.join(BASE_DIR, 'staticfiles')]  
