@@ -12,11 +12,11 @@ from django.conf import settings
 
 
 def my_page(request):
-    return render(request, 'app/index.html')
+    return render(request, 'index2.html')
 def admin(request):
-    return render(request, 'app/admin.html')
+    return render(request, 'admin.html')
 def history_page(request):
-    return render(request, 'app/history_page.html')
+    return render(request, 'history_page.html')
 
 @csrf_exempt
 def get_partners(request):
