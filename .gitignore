@@ -1,4 +1,5 @@
 *.pyc
+*.cpython-310.pyc
 json_api\
 main_folder\api\__pycache__
 main_folder\json_api\__pycache__
