@@ -32,12 +32,10 @@ SECRET_KEY = 'django-insecure-e669@k4!3mj0+&*=jwmkatq!p6a)a2@u57dyl05s4kfij(b^p8
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [
-    BASE_DIR / 'static',  # ← новая папка static/ в корне проекта
+    BASE_DIR / 'api/static',  # ← новая папка static/ в корне проекта
 ]
 DEBUG = True                                                        
 
-if DEBUG:
-    STATICFILES_DIRS = [ os.path.join(BASE_DIR, '/staticfiles')]  
 
 
 
