@@ -177,11 +177,12 @@
         }
 
         .image-menu {
-            height: 40px; /* или как в макете */
+            height: 50px; /* или как в макете */
             width: auto;
             display: block;
             transform: rotate(-139.37deg);
-            margin-left: 205px; /*СДЕЛАЛ КОСТЫЛЕМ*/
+            margin-right: -30px;
+            margin-top: -10px;  /*СДЕЛАЛ КОСТЫЛЕМ*/
             
             /* Если нужно ограничить max-width — добавьте */
         }
