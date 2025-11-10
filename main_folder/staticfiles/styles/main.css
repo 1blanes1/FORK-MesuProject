@@ -7,6 +7,8 @@
 
         body {
             overflow-x: hidden;
+            font-family: "Raleway";
+            font-weight: 700;
         }
 
         /* .container {
@@ -103,6 +105,7 @@
             left: 50%;
             transform: translate(-50%, -50%);
             z-index: 3;
+            color: white;
         }
 
         .hero-title {
@@ -195,7 +198,142 @@
             font-size: 0.8rem;
         }
 
-        
+        main {
+            background-color: #EDF2F2;
+        }
+
+        .news {
+            height: 505;
+            width: 100%;
+            background-color: #669BBD;
+            color: #FFF;
+        }
+
+        .news-wrapper {
+            display: flex;
+            gap: 100;
+        }
+
+        .news-item {
+
+        }
+
+        .historical-lines {
+            height: 879px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .historical-lines-dec {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .historical-lines h2,
+        .lines-wrapper {
+            position: relative;
+            z-index: 1;
+        }
+
+        .historical-lines h2 {
+            margin: 43px 0px 60px;
+            font-size: 30px;
+        }
+
+        .lines-wrapper {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            position: relative
+        }
+
+        .slides-container {
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            gap: 60px;
+            width: 100%;
+            max-width: 960px;
+            /* Убираем стандартный скроллбар */
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE and Edge */
+        }
+
+        /* Скрываем скроллбар в WebKit браузерах */
+        .slides-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .historical-line {
+            flex: 0 0 auto;
+            scroll-snap-align: start;
+            height: 420px;
+            width: 280px;
+            padding: 15px 22px 15px;
+            border-radius: 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #C2121F;
+            color:#fff;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .historical-line img {
+            margin-bottom: 20px;
+        }
+
+        .historical-line h3 {
+            margin: 0;
+            margin-bottom: 20px;
+        }
+
+        .historical-line p {
+            margin: 0;
+            font-family: "Exo 2";
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .lines-btn {
+            background-color: #fff;
+            border: none;
+            border-radius: 20px;
+            height: 43px;
+            width: 58px;
+            display: flex;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .lines-btn:hover {
+            background-color: #669BBD;
+            transform: scale(0.94) translateY(1px); /* + смещение вниз */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* тень для глубины */
+        }
+
+        .lines-btn:hover img {
+            transform: scale(0.92);
+        }
+
+        .lines-prev-btn {
+            margin-right: 25px;
+            padding: 9px 11px 9px 7px;
+        }
+
+        .lines-next-btn {
+            margin-left: 25px;
+            padding: 9px 7px 9px 11px;
+        }
 
         /* Responsive Design */
         @media (max-width: 768px) {
