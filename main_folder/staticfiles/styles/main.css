@@ -181,8 +181,8 @@
             width: auto;
             display: block;
             transform: rotate(-139.37deg);
-            margin-right: -30px;
-            margin-top: -10px;  /*СДЕЛАЛ КОСТЫЛЕМ*/
+            margin-right: -24px;
+            margin-top: -10px;
             
             /* Если нужно ограничить max-width — добавьте */
         }
