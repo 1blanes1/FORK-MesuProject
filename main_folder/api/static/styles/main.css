@@ -139,13 +139,13 @@
         .mobile-menu {
             position: fixed;
             top: 0;
-            left: -300px;
-            width: 300px;
+            left: -351px;
+            width: 351px;
             height: 100vh;  /* height: 55vh;*/
             background-color: #404040;
             z-index: 1000;
             transition: all 0.3s ease;
-            padding: 60px 20px 20px;
+            padding: 30px 30px 20px;
             overflow-y: auto;
         }
 
@@ -153,13 +153,37 @@
             left: 0;
         }
 
+
+
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px; /* отступ от меню */
+            width: 100%;
+        }
+
+
+
+
         .close-btn {
-            position: absolute;
-            top: 20px;
-            right: 20px; /* left: 20px;*/
-            font-size: 2rem;
+            /* position: absolute; */
+            /* top: 20px;
+            left: 30px; left: 20px; */
+            font-size: 3.5rem;
+            line-height: 1;
             color: #fff;
             cursor: pointer;
+        }
+
+        .image-menu {
+            height: 40px; /* или как в макете */
+            width: auto;
+            display: block;
+            transform: rotate(-139.37deg);
+            margin-left: 205px; /*СДЕЛАЛ КОСТЫЛЕМ*/
+            
+            /* Если нужно ограничить max-width — добавьте */
         }
 
         .mobile-menu ul {
@@ -167,12 +191,13 @@
         }
 
         .mobile-menu li {
-            margin-bottom: 15px;
+            margin-bottom: 20px; /*15 px */
         }
 
         .mobile-menu a {
             font-family: "Raleway", sans-serif;
-            font-optical-sizing: auto;
+            /* font-optical-sizing: auto; */
+            font-size: 20px;
             font-weight: 700;
             font-style: normal;
 
@@ -180,7 +205,7 @@
             color: #fff;
             text-decoration: none;
 
-            font-size: 1.1rem;
+       
             display: flex;
             align-items: center;
             padding: 10px;
@@ -195,7 +220,7 @@
         .mobile-menu a::before {
             content: "►►";
             margin-right: 10px;
-            font-size: 0.8rem;
+            font-size: 20px;
         }
 
         main {
