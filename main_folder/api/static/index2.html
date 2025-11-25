@@ -2,218 +2,246 @@
 
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Та САМАЯ Россия</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Та САМАЯ Россия</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'styles/main.css' %}">
 </head>
+
 <body>
-    <header>
-        <div class="intro">
-            <div class="video">
-                <iframe src="https://kinescope.io/embed/3attdmsCAUxiQ2ocDB7Cco" 
-                allow="autoplay; fullscreen; picture-in-picture; encrypted-media;
-                gyroscope; accelerometer; clipboard-write; screen-wake-lock;"
-                frameborder="0" allowfullscreen style="position: absolute;
+  <header>
+    <div class="intro">
+      <div class="video">
+        <iframe src="https://kinescope.io/embed/3attdmsCAUxiQ2ocDB7Cco" allow="autoplay; fullscreen; picture-in-picture; encrypted-media;
+                gyroscope; accelerometer; clipboard-write; screen-wake-lock;" frameborder="0" allowfullscreen style="position: absolute;
                 width: 100%; height: 100%; top: 0; left: 0;"></iframe>
-                
-            </div>
+
+      </div>
 
 
-            <div class="header-top">
-                <div class="menu-toggle" id="menuToggle">
-                    <img src="{% static 'img/menu_button.png' %}" alt="Кнопка меню">
-                </div>
-                <img src="{% static 'img/logo.png' %}" alt="Логотип" class="logo">
-            </div>
-
-            <div class="hero-content">
-                <h1 class="hero-title">Та САМАЯ Россия</h1>
-                <p class="hero-subtitle">Кластер международных исторических проектов</p>
-            </div>
+      <div class="header-top">
+        <div class="menu-toggle" id="menuToggle">
+          <img src="{% static 'img/menu_button.png' %}" alt="Кнопка меню">
         </div>
+        <img src="{% static 'img/logo.png' %}" alt="Логотип" class="logo">
+      </div>
 
-         <div class="mobile-menu" id="mobileMenu">
-        <div class="mobile-menu-header">
-            <span class="close-btn" id="closeBtn">×</span>
-            <img src="{% static 'img/image_in_menu.png' %}" alt="Картинка" class="image-menu">
-        </div>
-        <ul>
-            <li><a href="#home">Главная</a></li>
-            <li><a href="#team">Команда проекта</a></li>
-            <li><a href="#news">Новости</a></li>
-            <li><a href="#history">Исторические линии</a></li>
-            <li><a href="#map">Интерактивная карта</a></li>
-            <li><a href="#partners">Партнёры</a></li>
-            <li><a href="#contacts">Контакты</a></li>
-        </ul>
+      <div class="hero-content">
+        <h1 class="hero-title">Та САМАЯ Россия</h1>
+        <p class="hero-subtitle">Кластер международных исторических проектов</p>
+      </div>
     </div>
-    </header>
-    <main>
-        <section class="news">
-            <h2>Новости</h2>
-            <div class="news-wrapper">
-                <div class="news-item">
-                    <a href="https://vk.com/wall-203318144_602">
-                        <img src="{% static 'img/news-1.png' %}">
-                        <h3>5 РЕГИОНОВ РОССИЙСКОЙ ФЕДЕРАЦИИ</h3>
-                    </a>
-                </div>
-                <div class="news-item">
-                    <a href="https://vk.com/wall-203318144_594">
-                        <img src="{% static 'img/news-2.png' %}">
-                        <h3>"Проекты объединились в международный кластер"</h3>
-                    </a>
-                </div>
-                <div class="news-item">
-                    <a href="https://vk.com/wall-203318144_599">
-                        <img src="{% static 'img/news-3.png' %}">
-                        <h3>Прямой эфир "Брестская крепость"</h3>
-                    </a>
-                </div>
-            </div>
-            <button>Все новости</button>
-        </section>
-        <section class="historical-lines">
-            <div class="historical-lines-dec">
-                <div class="bg-dec third"></div>
-            </div>
 
-            <style>        
-            .historical-lines::before {
-                content: '';
-                position: absolute;
-                top: 70px;
-                left: 400px;
-                width: 244.95px;
-                height: 161.67px;
-                background-image: url('{% static "img/hl-circles.png" %}');
-                background-size: contain;
-                background-repeat: no-repeat;
-                z-index: 0;
-            }
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-header">
+        <span class="close-btn" id="closeBtn">×</span>
+        <img src="{% static 'img/image_in_menu.png' %}" alt="Картинка" class="image-menu">
+      </div>
+      <ul>
+        <li><a href="#home">Главная</a></li>
+        <li><a href="#team">Команда проекта</a></li>
+        <li><a href="#news">Новости</a></li>
+        <li><a href="#history">Исторические линии</a></li>
+        <li><a href="#map">Интерактивная карта</a></li>
+        <li><a href="#partners">Партнёры</a></li>
+        <li><a href="#contacts">Контакты</a></li>
+      </ul>
+    </div>
+  </header>
+  <main>
+    <div class="about-main">
+      <img src="{% static 'img/pattern.png' %}" alt="Декоративный фон" class="background-pattern">
 
-            .historical-lines::after {
-                content: '';
-                position: absolute;
-                bottom: 0px;
-                left: 0px;
-                width: 132.97px;
-                height: 130.29px;
-                background-image: url('{% static "img/hl-tape.png" %}');
-                background-size: contain;
-                background-repeat: no-repeat;
-                z-index: 0;
-            }
+      <div class="content-wrapper">
+        <div class="text-block">
+          <h2>О нас</h2>
+          <p>
+            Та САМАЯ Россия — это проект, направленный на сохранение и трансляцию исторического наследия Российской
+            Федерации в формате виртуальных экскурсий из музейно-выставочных комплексов России и стран СНГ.
+          </p>
+          <a href="#team" class="team-button">
+            <img src="{% static 'img/main-page/team_button.png' %}" width="214" height="51" alt="Команда проекта">
+          </a>
+        </div>
 
-            .historical-lines-dec .bg-dec.third {
-                position: absolute;
-                bottom: 0px;
-                right: 0px;
-                width: 142px;
-                height: 99px;
-                background-image: url('{% static "img/hl-film.png" %}');
-                background-size: contain;
-                background-repeat: no-repeat;
-            }
-            </style>
+        <div class="logo-container">
+          <img src="{% static 'img/main-page/embleme1.png' %}" alt="Международный исторический проект Та САМАЯ Россия"
+            class="project-logo">
+        </div>
+      </div>
+    </div>
 
-            <h2>Исторические линии</h2>
-            <div class="lines-wrapper">
-                <button class="lines-btn lines-prev-btn" id="prevBtn">
-                    <img src="{% static 'img/arrow_left.png' %}" alt="Назад" width="40" height="25">
-                </button>
-                <div class="slides-container">
-                    <div class="historical-line">
-                        <img src="{% static 'img/oil_icon.png' %}" width="95.07" height="95.07">
-                        <h3>Та САМАЯ нефть</h3>
-                        <p>Рассказывает о истории открытия нефти в Западной Сибири в 60-х годах геологами во главе с Ф.К. Салмановым.
-                            Реализован в 2021-2023 годах
-                            Российская Федерация, Республика Азербайджан
-                        </p>
-                    </div>
-                    <div class="historical-line">
-                        <img src="{% static 'img/star_icon.png' %}" width="95.07" height="95.07">
-                        <h3>Те САМЫЕ Города-герои</h3>
-                        <p>Рассказывает о городах, удостоенных высшему званию "Город-герой" в годы Великой Отечественной войны.
-                            Реализуется с 2025 года
-                            Российская Федерация, Республика Беларусь
-                        </p>
-                    </div>
-                    <div class="historical-line">
-                        <img src="{% static 'img/rocket_icon.png' %}" width="95.07" height="95.07">
-                        <h3>Тот САМЫЙ полёт</h3>
-                        <p>Рассказывает о людях и событиях, благодаря которым осуществился первый полёт человека в космос.
-                            Будет реализован в 2026 году
-                            Российская Федерация, Республика Казахстан
-                        </p>
-                    </div>
-                    <!-- Для примера v -->
-                    <div class="historical-line">
-                        <img src="{% static 'img/rocket_icon.png' %}" width="95.07" height="95.07">
-                        <h3>Тот САМЫЙ полёт</h3>
-                        <p>Рассказывает о людях и событиях, благодаря которым осуществился первый полёт человека в космос.
-                            Будет реализован в 2026 году
-                            Российская Федерация, Республика Казахстан
-                        </p>
-                    </div>
-                    <!-- Для примера ^ -->
-                </div>
-                <button class="lines-btn lines-next-btn" id="nextBtn">
-                    <img src="{% static 'img/arrow_right.png' %}" alt="Вперёд" width="40" height="25">
-                </button>
-            </div>
-        </section>
-    </main>
-    <footer>
 
-    </footer>
+    
+    <section class="news">
+      <h2>Новости</h2>
+      <div class="news-wrapper">
+        <div class="news-item">
+          <a href="https://vk.com/wall-203318144_602">
+            <img src="{% static 'img/news-1.png' %}">
+            <h3>5 РЕГИОНОВ РОССИЙСКОЙ ФЕДЕРАЦИИ</h3>
+          </a>
+        </div>
+        <div class="news-item">
+          <a href="https://vk.com/wall-203318144_594">
+            <img src="{% static 'img/news-2.png' %}">
+            <h3>"Проекты объединились в международный кластер"</h3>
+          </a>
+        </div>
+        <div class="news-item">
+          <a href="https://vk.com/wall-203318144_599">
+            <img src="{% static 'img/news-3.png' %}">
+            <h3>Прямой эфир "Брестская крепость"</h3>
+          </a>
+        </div>
+      </div>
+      <button>Все новости</button>
+    </section>
+    <section class="historical-lines">
+      <div class="historical-lines-dec">
+        <div class="bg-dec third"></div>
+      </div>
 
-    <script>
-        // Mobile menu toggle
-        const menuToggle = document.getElementById('menuToggle');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const closeBtn = document.getElementById('closeBtn');
+      <style>
+        .historical-lines::before {
+          content: '';
+          position: absolute;
+          top: 70px;
+          left: 400px;
+          width: 244.95px;
+          height: 161.67px;
+          background-image: url('{% static "img/hl-circles.png" %}');
+          background-size: contain;
+          background-repeat: no-repeat;
+          z-index: 0;
+        }
 
-        menuToggle.addEventListener('click', function() {
-            mobileMenu.classList.toggle('active');
-        });
+        .historical-lines::after {
+          content: '';
+          position: absolute;
+          bottom: 0px;
+          left: 0px;
+          width: 132.97px;
+          height: 130.29px;
+          background-image: url('{% static "img/hl-tape.png" %}');
+          background-size: contain;
+          background-repeat: no-repeat;
+          z-index: 0;
+        }
 
-        closeBtn.addEventListener('click', function() {
-            mobileMenu.classList.remove('active');
-        });
+        .historical-lines-dec .bg-dec.third {
+          position: absolute;
+          bottom: 0px;
+          right: 0px;
+          width: 142px;
+          height: 99px;
+          background-image: url('{% static "img/hl-film.png" %}');
+          background-size: contain;
+          background-repeat: no-repeat;
+        }
+      </style>
 
-        // Close menu when clicking on links
-        const menuLinks = document.querySelectorAll('.mobile-menu a');
-        menuLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                mobileMenu.classList.remove('active');
-            });
-        });
+      <h2>Исторические линии</h2>
+      <div class="lines-wrapper">
+        <button class="lines-btn lines-prev-btn" id="prevBtn">
+          <img src="{% static 'img/arrow_left.png' %}" alt="Назад" width="40" height="25">
+        </button>
+        <div class="slides-container">
+          <div class="historical-line">
+            <img src="{% static 'img/oil_icon.png' %}" width="95.07" height="95.07">
+            <h3>Та САМАЯ нефть</h3>
+            <p>Рассказывает о истории открытия нефти в Западной Сибири в 60-х годах геологами во главе с Ф.К.
+              Салмановым.
+              Реализован в 2021-2023 годах
+              Российская Федерация, Республика Азербайджан
+            </p>
+          </div>
+          <div class="historical-line">
+            <img src="{% static 'img/star_icon.png' %}" width="95.07" height="95.07">
+            <h3>Те САМЫЕ Города-герои</h3>
+            <p>Рассказывает о городах, удостоенных высшему званию "Город-герой" в годы Великой Отечественной войны.
+              Реализуется с 2025 года
+              Российская Федерация, Республика Беларусь
+            </p>
+          </div>
+          <div class="historical-line">
+            <img src="{% static 'img/rocket_icon.png' %}" width="95.07" height="95.07">
+            <h3>Тот САМЫЙ полёт</h3>
+            <p>Рассказывает о людях и событиях, благодаря которым осуществился первый полёт человека в космос.
+              Будет реализован в 2026 году
+              Российская Федерация, Республика Казахстан
+            </p>
+          </div>
+          <!-- Для примера v -->
+          <div class="historical-line">
+            <img src="{% static 'img/rocket_icon.png' %}" width="95.07" height="95.07">
+            <h3>Тот САМЫЙ полёт</h3>
+            <p>Рассказывает о людях и событиях, благодаря которым осуществился первый полёт человека в космос.
+              Будет реализован в 2026 году
+              Российская Федерация, Республика Казахстан
+            </p>
+          </div>
+          <!-- Для примера ^ -->
+        </div>
+        <button class="lines-btn lines-next-btn" id="nextBtn">
+          <img src="{% static 'img/arrow_right.png' %}" alt="Вперёд" width="40" height="25">
+        </button>
+      </div>
+    </section>
+  </main>
+  <footer>
 
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 70,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
+  </footer>
 
-    </script>
-    <script src="{% static 'scripts/script.js' %}"></script>
+  <script>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const closeBtn = document.getElementById('closeBtn');
+
+    menuToggle.addEventListener('click', function () {
+      mobileMenu.classList.toggle('active');
+    });
+
+    closeBtn.addEventListener('click', function () {
+      mobileMenu.classList.remove('active');
+    });
+
+    // Close menu when clicking on links
+    const menuLinks = document.querySelectorAll('.mobile-menu a');
+    menuLinks.forEach(link => {
+      link.addEventListener('click', function () {
+        mobileMenu.classList.remove('active');
+      });
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 70,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+  </script>
+  <script src="{% static 'scripts/script.js' %}"></script>
 </body>
+
 </html>
