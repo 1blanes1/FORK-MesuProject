@@ -231,7 +231,8 @@ header {
 }
 
 main {
-  background-color: #EDF2F2;
+  /* background-color: #EDF2F2;
+  В main цвет не задаем, перекрываем боковой фон */
 }
 
 /* about-us */
