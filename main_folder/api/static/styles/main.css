@@ -25,6 +25,7 @@ header {
   flex-direction: column;
   justify-content: space-between;
   /* padding: 20px; */
+  z-index: 40; /*сделано для кружочков*/
 }
 
 .intro {
@@ -235,56 +236,99 @@ main {
   В main цвет не задаем, перекрываем боковой фон */
 }
 
-/* about-us */
-.about-main {
-  position: relative;
+.fone {
+  background-image: url('../img/pattern.png');
+  background-repeat: repeat; /* узор будет повторяться по всей странице */
+  background-size: auto; /* не масштабировать, если это бесшовный паттерн */
+  background-position: top left;
+  background-attachment: fixed;   /* ← ЭТО КЛЮЧЕВОЕ СВОЙСТВО */
+  margin: 0;
+  padding: 0;
+}
 
+/* Общий стиль для любого раздела */
+.section-about-us {
+  position: relative;
+  /* min-height: 100vh;  */
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
+  /* padding: 20px; */
   box-sizing: border-box;
+  /* overflow: hidden; */
 }
 
-
-.background-pattern {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: repeat;
-  z-index: -1;
-}
-
-
-
-.background-pattern {
-  object-fit: cover;
-  object-position: center;
-}
-
-
+/* Контент-блок — белый/светлый прямоугольник поверх фона */
 .content-wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1700px;
+  max-width: 1720px;
   width: 100%;
-  background-color: #f8f9fa;
-  padding: 100px 60px;
-  gap: 50px;
+  background-color: rgb(237, 242, 242);
   box-sizing: border-box;
   z-index: 1;
 }
 
+.about-us{
+  position: relative;
+  padding: 160px 60px;
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+/* Кружочки сверху слева */
+.about-us::before {
+  content: "";
+  position: absolute;
+  top: -40px;
+  left: -25px;
+  transform: rotate(0deg);
+  width: 300px;
+  height: 200px;
+  
+  background-image: url('../img/main-page/rounds.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+
+/* Звёздочка сверху справа */
+.about-us::after {
+  content: "";
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  width: 79px;
+  height: 90px;
+  background-image: url('../img/main-page/star.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+
+/* Восклицательный знак снизу слева */
+.about-us .text-block::before {
+  content: "";
+  position: absolute;
+  bottom: -50px;
+  left: 30px;
+  width: 69px;
+  height: 157.5px;
+  background-image: url('../img/main-page/attention.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+
+
+
+
+/* Стили текста, кнопки, логотипа — оставьте как есть */
 .text-block {
   flex: 1;
-  max-width: 600px;
+  max-width: 520px;
   text-align: left;
-
-  /* margin-left: 160px; */
-
+  margin-left: 180px;
+  
 }
 
 .text-block h2 {
@@ -322,18 +366,16 @@ main {
   transform: scale(1.02);
 }
 
-
-/* Блок с логотипом */
 .logo-container {
   flex: 0 0 auto;
   text-align: center;
-  margin-right: 100px;
 }
 
 .project-logo {
-  max-width: 354px;
+  max-width: 351px;
   height: auto;
   filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.1));
+  margin-right: 70px;
 }
 
 
@@ -476,11 +518,78 @@ main {
   padding: 9px 7px 9px 11px;
 }
 
-/* Responsive Design */
+/* Адаптивность — мобильные устройства */
 @media (max-width: 768px) {
+  .content-wrapper {
+    flex-direction: column;
+    gap: 30px;
+    padding: 30px 20px;
+    max-width: 95%;
+    border-radius: 15px;
+  }
+
+  .about-us{
+    padding: 0 5px;
+  }
+
+  .text-block {
+    max-width: 100%;
+    text-align: center;
+    margin-left: 0;
+  }
+
+  .text-block h2 {
+    font-size: 24px;
+  }
+
+  .text-block p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .team-button {
+    padding: 8px 20px;
+    font-size: 14px;
+  }
+
+  .project-logo {
+    max-width: 250px;
+  }
 
 
 
+  .about-us::before,
+  .about-us::after,
+  .text-block::before {
+    display: none; /* скрываем декорации на мобильных */
+  }
+
+
+ 
+}
+
+
+/* Адаптивность — планшеты */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .content-wrapper {
+    gap: 30px;
+    padding: 20px 0;
+  }
+
+  .text-block {
+    max-width: 500px;
+    margin-left: 0;
+  }
+
+  .project-logo {
+    max-width: 300px;
+    margin-right: 0;
+  }
+}
+
+/* Адаптивность — мобильные устройства */
+@media (max-width: 768px) {
+  /* header */
   .hero-title {
     font-size: 2rem;
   }
@@ -506,53 +615,20 @@ main {
     font-size: 2rem;
   }
 
-
-
-
   .menu-toggle {
     margin-left: 30px;
     margin-top: 20px;
   }
 
   .logo {
-    max-width: 170px;
-    /* min-width: 140px;
-    min-height: 50px; */
+    min-width: 140px;
+    min-height: 50px;
     margin-top: 15px;
-
-  }
-}
-
-
- @media (max-width: 480px) {
-.hero-content {
-    width: 100%;
-    max-width: none; /* сбрасываем возможные ограничения */
-    padding: 20px;   /* если нужно — оставляем отступы */
-    box-sizing: border-box; /* чтобы padding не увеличивал ширину */
+    margin-right: 25px;
   }
 
-  .hero-title {
-    position: relative;
-    font-size: 2rem;
 
-  }
-
-  .hero-subtitle {
-    font-size: 1.2rem;
-  }
-
-  .section-title {
-    font-size: 1.5rem;
-  }
-
-  .section-content p {
-    font-size: 1rem;
-  }
-} 
-
-/* Адаптивность — мобильные устройства */
-@media (max-width: 768px) {
+   /* about-us */
   .background-container {
     padding-left: 15px;
     padding-right: 15px;
@@ -578,10 +654,6 @@ main {
     line-height: 24px;
   }
 
-  .background-pattern{
-    display: none;
-  }
-
   .logo-container {
     display: none;
   }
@@ -595,22 +667,35 @@ main {
   .background-container::after {
     display: none;
   }
-
-  
 }
 
-/* Адаптивность — планшеты */
-@media (max-width: 1024px) and (min-width: 769px) {
-  .content-wrapper {
-    gap: 30px;
-    padding: 30px 0;
+
+
+
+/* маленькие экраны */
+@media (max-width: 480px) {
+  .hero-content {
+    width: 100%;
+    max-width: none; /* сбрасываем возможные ограничения */
+    padding: 20px;   /* если нужно — оставляем отступы */
+    box-sizing: border-box; /* чтобы padding не увеличивал ширину */
   }
 
-  .text-block {
-    max-width: 500px;
+  .hero-title {
+    position: relative;
+    font-size: 2rem;
+
   }
 
-  .project-logo {
-    max-width: 300px;
+  .hero-subtitle {
+    font-size: 1.2rem;
   }
-}
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .section-content p {
+    font-size: 1rem;
+  }
+};
