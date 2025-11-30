@@ -421,7 +421,7 @@ main {
   align-items: center;
 }
 
-.news-items a {
+.news-item a {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -550,55 +550,83 @@ main {
   padding: 9px 7px 9px 11px;
 }
 
-/* Адаптивность — мобильные устройства */
-@media (max-width: 768px) {
-  .content-wrapper {
-    flex-direction: column;
-    gap: 30px;
-    padding: 30px 20px;
-    max-width: 95%;
-    border-radius: 15px;
-  }
-
-  .about-us{
-    padding: 0 5px;
-  }
-
-  .text-block {
-    max-width: 100%;
-    text-align: center;
-    margin-left: 0;
-  }
-
-  .text-block h2 {
-    font-size: 24px;
-  }
-
-  .text-block p {
-    font-size: 14px;
-    line-height: 1.5;
-  }
-
-  .team-button {
-    padding: 8px 20px;
-    font-size: 14px;
-  }
-
-  .project-logo {
-    max-width: 250px;
-  }
 
 
 
-  .about-us::before,
-  .about-us::after,
-  .text-block::before {
-    display: none; /* скрываем декорации на мобильных */
-  }
 
 
- 
+/* MAP */
+
+/* Стили для нового раздела */
+.section-interactive-map {
+  position: relative;
+  /* min-height: 100vh;  */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* padding: 20px; */
+  box-sizing: border-box;
+  /* overflow: hidden; */
 }
+
+
+
+/* Пунктирные линии */
+.dotted-line {
+  width: 100%;
+  height: 24px;
+  background-repeat: repeat-x;
+
+  background-size: auto 100%;
+}
+
+.dotted-line.top {
+  background-image: url('../img/main-page/line.svg');
+  margin-bottom: 80px;
+}
+
+.dotted-line.bottom {
+  background-image: url('../img/main-page/line.svg'); /* замените на ваш файл */
+  margin-top: 80px;
+}
+
+.map-background {
+  position: relative;
+  width: 100%;
+  max-width: 1200px; /* лучше ограничить, чтобы не растягивалось */
+  height: 360px;
+  background-image: url('../img/main-page/map.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+/* Кнопка — теперь поверх фона */
+.map-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  transition: transform 0.2s ease;
+}
+
+.map-button img {
+  max-width: 340px;
+  height: auto;
+  max-height: 100%;
+}
+
+.map-button:hover {
+  transform: translate(-50%, -50%) scale(1.02);
+}
+
+
+
 
 
 /* Адаптивность — планшеты */
@@ -613,14 +641,30 @@ main {
     margin-left: 0;
   }
 
+  
+
   .project-logo {
     max-width: 300px;
     margin-right: 0;
   }
+
+  .map-background {
+    height: 320px;
+  }
+
+  .map-button img {
+    max-width: 320px;
+    padding-top: 20px;
+  }
+
+  
 }
 
 /* Адаптивность — мобильные устройства */
 @media (max-width: 768px) {
+
+
+  
   /* header */
   .hero-title {
     font-size: 2rem;
@@ -653,10 +697,10 @@ main {
   }
 
   .logo {
-    min-width: 140px;
-    min-height: 50px;
+    max-width: 170px;
+    /* min-width: 140px;
+    min-height: 50px; */
     margin-top: 15px;
-    margin-right: 25px;
   }
 
 
@@ -670,20 +714,35 @@ main {
     flex-direction: column;
     gap: 30px;
     padding: 20px 0;
+    max-width: 95%;
   }
 
-  .text-block {
-    max-width: 100%;
+  .about-us{
+    padding: 0 5px;
+  }
+
+  .text-block{
+    width: 100%;
+    max-width: none; /* сбрасываем возможные ограничения */
+    padding: 0 10px;   /* если нужно — оставляем отступы */
+    box-sizing: border-box;
+    text-align: center;
+    margin-left: 0;
   }
 
   .text-block h2 {
-    font-size: 24px;
+    font-size: 26px;
     line-height: 28px;
   }
 
   .text-block p {
-    font-size: 16px;
+    font-size: 18px;
     line-height: 24px;
+  }
+
+  .team-button {
+    padding: 8px 20px;
+    font-size: 14px;
   }
 
   .logo-container {
@@ -694,11 +753,37 @@ main {
     max-width: 280px;
   }
 
+  .about-us::before,
+  .about-us::after,
+  .text-block::before {
+    display: none; /* скрываем декорации на мобильных */
+  }
+
   /* Скрываем декорации на мобильных, если они мешают */
   .background-container::before,
   .background-container::after {
     display: none;
   }
+
+
+  .map-background {
+    height: 300px;
+  }
+
+
+  .map-button img {
+    max-width: 270px;
+    padding-top: 20px; 
+  }
+
+  .dotted-line.top {
+  margin-bottom: 20px;
+}
+
+  .dotted-line.bottom {
+    margin-top: 20px;
+  } 
+
 }
 
 
@@ -730,4 +815,42 @@ main {
   .section-content p {
     font-size: 1rem;
   }
+
+  .text-block{
+    width: 100%;
+    max-width: none; /* сбрасываем возможные ограничения */
+    padding: 0 5px;   /* если нужно — оставляем отступы */
+    box-sizing: border-box;
+  }
+
+  .text-block h2 {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .text-block p {
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+
+  .fone{
+    background-image: none;
+    background-color: rgb(237, 242, 242);
+  }
+
+
+.map-button img {
+    max-width: 180px;
+    padding-top: 20px; /* ограничиваем ширину кнопки */
+  }
+
+  .dotted-line.top {
+  margin-bottom: 20px;
+}
+
+.dotted-line.bottom {
+  margin-top: 20px;
+}
+
 };
