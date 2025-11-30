@@ -236,6 +236,7 @@ main {
   В main цвет не задаем, перекрываем боковой фон */
 }
 
+/* Контейнер с фоном */
 .fone {
   background-image: url('../img/pattern.png');
   background-repeat: repeat; /* узор будет повторяться по всей странице */
@@ -378,24 +379,55 @@ main {
   margin-right: 70px;
 }
 
-
-
-
-
-/* news */
 .news {
-  height: 505;
+  color: #FFF;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.news-container {
+  max-width: 1720px;
   width: 100%;
   background-color: #669BBD;
-  color: #FFF;
+  box-sizing: border-box;
+  z-index: 1;
+  padding: 30px 60px;
+  color: white;
+}
+
+.news h2 {
+  font-size: 30px;
+  line-height: 24px;
+  margin-bottom: 60px;
+  margin-left: 40px;
+}
+
+.news img {
+  filter: drop-shadow(10px -10px #496C82);
 }
 
 .news-wrapper {
   display: flex;
-  gap: 100;
+  justify-content: space-between;
+  align-items: center;
 }
 
-/* .news-item {} */
+.news-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.news-item a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  text-decoration: none; /* убираем подчеркивание ссылки */
+}
 
 .historical-lines {
   height: 879px;

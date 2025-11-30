@@ -81,42 +81,41 @@
               <img src="{% static 'img/main-page/embleme1.png' %}" alt="Логотип" class="project-logo">
             </div>
           </div>
-
         </div>
       </div>
+      
+      <section class="news">
+        <div class="news-container">
+          <h2>Новости</h2>
+          <div class="news-wrapper">
+            <div class="news-item">
+              <a href="https://vk.com/wall-203318144_602">
+                <img src="{% static 'img/main-page/news_1.png' %}" width="362" height="205">
+                <h3>5 РЕГИОНОВ РОССИЙСКОЙ ФЕДЕРАЦИИ</h3>
+              </a>
+            </div>
+            <div class="news-item">
+              <a href="https://vk.com/wall-203318144_594">
+                <img src="{% static 'img/main-page/news_2.png' %}" width="200" height="205">
+                <h3>"Проекты объединились в международный кластер"</h3>
+              </a>
+            </div>
+            <div class="news-item">
+              <a href="https://vk.com/wall-203318144_599">
+                <img src="{% static 'img/main-page/news_3.png' %}" width="370" height="211">
+                <h3>Прямой эфир "Брестская крепость"</h3>
+              </a>
+            </div>
+          </div>
+          <button>Все новости</button>
+        </div>
+      </section>
     </div>
 
-
-    
-    <section class="news">
-      <h2>Новости</h2>
-      <div class="news-wrapper">
-        <div class="news-item">
-          <a href="https://vk.com/wall-203318144_602">
-            <img src="{% static 'img/news-1.png' %}">
-            <h3>5 РЕГИОНОВ РОССИЙСКОЙ ФЕДЕРАЦИИ</h3>
-          </a>
-        </div>
-        <div class="news-item">
-          <a href="https://vk.com/wall-203318144_594">
-            <img src="{% static 'img/news-2.png' %}">
-            <h3>"Проекты объединились в международный кластер"</h3>
-          </a>
-        </div>
-        <div class="news-item">
-          <a href="https://vk.com/wall-203318144_599">
-            <img src="{% static 'img/news-3.png' %}">
-            <h3>Прямой эфир "Брестская крепость"</h3>
-          </a>
-        </div>
-      </div>
-      <button>Все новости</button>
-    </section>
     <section class="historical-lines">
       <div class="historical-lines-dec">
         <div class="bg-dec third"></div>
       </div>
-
       <style>
         .historical-lines::before {
           content: '';
@@ -155,7 +154,6 @@
           background-repeat: no-repeat;
         }
       </style>
-
       <h2>Исторические линии</h2>
       <div class="lines-wrapper">
         <button class="lines-btn lines-prev-btn" id="prevBtn">
