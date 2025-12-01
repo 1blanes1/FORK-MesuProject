@@ -588,22 +588,30 @@ main {
 /* Historical lines */
 
 .historical-lines {
-  height: 879px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  color: black;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
   overflow: hidden;
 }
 
-.historical-lines-dec {
-  position: absolute;
-  top: 0;
-  left: 0;
+.historical-lines-container {
+  max-width: 1720px;
   width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 0;
+  box-sizing: border-box;
+  z-index: 1;
+  padding: 30px 20px 15px;
+  background-color: #EDF2F2;
+  position: relative;
+}
+
+.historical-lines-decor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .historical-lines h2,
@@ -621,7 +629,8 @@ main {
   display: flex;
   flex-direction: row;
   align-items: center;
-  position: relative
+  position: relative;
+  margin-bottom: 200px;
 }
 
 .slides-container {
