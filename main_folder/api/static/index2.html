@@ -64,13 +64,13 @@
             <div class="text-block">
               <h2>О нас</h2>
               <p>Та САМАЯ Россия — это проект, направленный на
-                
+
                 сохранение и трансляцию исторического наследия
-                
+
                 Российской Федерации в формате виртуальных
-                
+
                 экскурсий из музейно-выставочных комплексов
-                
+
                 России и стран СНГ
               </p>
               <a href="#team" class="team-button">
@@ -83,7 +83,7 @@
           </div>
         </div>
       </div>
-      
+
       <section class="news">
         <div class="news-container">
           <h2>Новости</h2>
@@ -185,7 +185,7 @@
               Российская Федерация, Республика Казахстан
             </p>
           </div>
-           <!-- Для примера v -->
+          <!-- Для примера v -->
           <div class="historical-line">
             <img src="{% static 'img/rocket_icon.png' %}" width="95.07" height="95.07">
             <h3>Тот САМЫЙ полёт</h3>
@@ -194,35 +194,102 @@
               Российская Федерация, Республика Казахстан
             </p>
           </div>
-           <!-- Для примера ^ -->
+          <!-- Для примера ^ -->
         </div>
         <button class="lines-btn lines-next-btn" id="nextBtn">
           <img src="{% static 'img/arrow_right.png' %}" alt="Вперёд" width="40" height="25">
         </button>
       </div>
     </section>
-    
+
     <!-- Новый раздел: Интерактивная карта -->
-      <section class="section-interactive-map">
-        <div class="content-wrapper">
-          <!-- Верхняя пунктирная линия -->
-          <div class="dotted-line top"></div>
+    <section class="section-interactive-map">
+      <div class="content-wrapper">
+        <!-- Верхняя пунктирная линия -->
+        <div class="dotted-line top"></div>
 
-          <!-- Основной контент -->
-          <div class="map-background">
-            <!-- Кнопка поверх фона -->
-            <div class="map-button">
-              <a href="#map" class="map-button">
-                <img src="{% static 'img/main-page/map_button.png' %}" alt="Интерактивная карта">
-              </a>
-            </div>
-
+        <!-- Основной контент -->
+        <div class="map-background">
+          <!-- Кнопка поверх фона -->
+          <div class="map-button">
+            <a href="#map" class="map-button">
+              <img src="{% static 'img/main-page/map_button.png' %}" alt="Интерактивная карта">
+            </a>
           </div>
 
-          <!-- Нижняя пунктирная линия -->
-          <div class="dotted-line bottom"></div>
         </div>
-      </section>
+
+        <!-- Нижняя пунктирная линия -->
+        <div class="dotted-line bottom"></div>
+      </div>
+    </section>
+
+    <section class="section-partners">
+      <div class="content-wrapper">
+        <h2 class="partners-title">Партнёры</h2>
+
+        <div class="partners-grid">
+          <!-- Логотип 1 -->
+          <a href="https://brest-fortress.by" target="_blank" class="partner-logo">
+            <img src="{% static 'img/main-page/partners/brest.png' %}"
+             data-hover="{% static 'img/main-page/partners/brest-color.png' %}"
+              alt="Брестская крепость" class="logo-img">
+          </a>
+
+          <!-- Логотип 2 -->
+          <a href="https://victorymuseum.ru/publicyouthchamber/" target="_blank" class="partner-logo">
+            <img src="{% static 'img/main-page/partners/muzei_pobedi.png' %}"
+              data-hover="{% static 'img/main-page/partners/muzei_pobedi-color.png' %}"
+               alt="Музей победы" class="logo-img">
+          </a>
+
+          <!-- Логотип 3 -->
+          <a href="https://urfu.ru/ru/" target="_blank" class="partner-logo">
+            <img src="{% static 'img/main-page/partners/urfu.png' %}"
+             data-hover="{% static 'img/main-page/partners/urfu-color.png' %}"
+              alt="Уральский федеральный университет" class="logo-img">
+          </a>
+
+          <!-- Логотип 4 -->
+          <a href="https://victorymuseum.ru/publicyouthchamber/" target="_blank" class="partner-logo">
+            <img src="{% static 'img/main-page/partners/muzei_VOV.png' %}"
+             data-hover="{% static 'img/main-page/partners/muzei_VOV-color.png' %}"
+              alt="Музей ВОВ" class="logo-img">
+          </a>
+
+          <!-- Логотип 5 -->
+          <a href="https://www.dumahmao.ru/publicyouthchamber/" target="_blank" class="partner-logo">
+            <img src="{% static 'img/main-page/partners/dumaXMAO.png' %}"
+             data-hover="{% static 'img/main-page/partners/dumaXMAO-color.png' %}"
+              alt="Молодежный парламент при думе ХМАО" class="logo-img">
+          </a>
+
+          <!-- Логотип 6 -->
+          <a href="https://urengoy-dobycha.gazprom.ru/" target="_blank" class="partner-logo">
+            <img src="{% static 'img/main-page/partners/gaz_prom_urengoi.png' %}"
+              data-hover="{% static 'img/main-page/partners/gaz_prom_urengoi-color.png' %}"
+               alt="ГАЗПРОМ добыча Уренгой"
+              class="logo-img">
+          </a>
+
+          <!-- Логотип 7 -->
+          <a href="https://nadymdobycha.gazprom.ru/" target="_blank" class="partner-logo">
+            <img src="{% static 'img/main-page/partners/gaz_prom_nadim.png' %}"
+              data-hover="{% static 'img/main-page/partners/gaz_prom_nadim-color.png' %}"
+               alt="ГАЗПРОМ добыча Надым" class="logo-img">
+          </a>
+
+          <!-- Логотип 8 -->
+          <a href="https://wsec.edu.az/ru/azerbaydzhan/azerbaydzhanskiy-gosudarstvennyy-neft-i-promyshlennyy-universitet.php"
+            target="_blank" class="partner-logo">
+            <img src="{% static 'img/main-page/partners/asuopai.png' %}"
+             data-hover="{% static 'img/main-page/partners/asuopai-color.png' %}"
+              alt="Азербайджанский государственный университет нефти и промышленности" class="logo-img">
+          </a>
+        </div>
+      </div>
+    </section>
+
   </main>
   <footer>
 
@@ -264,6 +331,26 @@
             behavior: 'smooth'
           });
         }
+      });
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const partnerLogos = document.querySelectorAll('.partner-logo');
+
+      partnerLogos.forEach(link => {
+        const img = link.querySelector('.logo-img');
+        const originalSrc = img.src;
+        const hoverSrc = img.dataset.hover;
+
+        // При наведении — заменяем на цветную версию
+        link.addEventListener('mouseenter', () => {
+          img.src = hoverSrc;
+        });
+
+        // При уходе мыши — возвращаем чёрно-белую
+        link.addEventListener('mouseleave', () => {
+          img.src = originalSrc;
+        });
       });
     });
 

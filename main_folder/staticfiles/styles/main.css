@@ -629,7 +629,97 @@ main {
 
 
 
-/* Адаптивность — планшеты */
+
+
+/* PARTNERS */
+.section-partners {
+  position: relative;
+  /* min-height: 100vh;  */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* padding: 20px; */
+  box-sizing: border-box;
+  /* overflow: hidden; */
+}
+
+.content-wrapper {
+  max-width: 1720px;
+  width: 100%;
+  background-color: rgb(237, 242, 242);
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+.partners-title {
+  font-family: Raleway;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 30px;
+  line-height: 30px;
+  letter-spacing: 0%;
+  text-align: center;
+  margin-top: 80px;
+  margin-bottom: 50px;
+}
+
+/* Сетка логотипов */
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* ⭐️ 4 колонки на десктопе */
+  gap: 30px 0px;
+  justify-items: center;
+  width: 100%;
+  padding-left: 180px;
+  padding-right: 180px;
+  padding-bottom: 150px;
+  padding: 0px;
+}
+
+/* Контейнер для логотипа */
+.partner-logo {
+  display: block;
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  transition: transform 0.2s ease;
+}
+
+.partner-logo:hover {
+  transform: scale(1.05);
+}
+
+/* Изображение логотипа */
+.logo-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: opacity 0.3s ease;
+}
+
+/* Кружочки внизу справа */
+.partners-grid::before {
+  content: "";
+  position: absolute;
+  bottom: -80px;
+  right: 60px;
+  width: 294px;
+  height: 243px;
+  transform: rotate(0deg);
+  
+  background-image: url('../img/main-page/rounds_partners.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+
+
+
+
+
+
+
+/* Адаптивность — планшеты 1024 */
 @media (max-width: 1024px) and (min-width: 769px) {
   .content-wrapper {
     gap: 30px;
@@ -642,7 +732,6 @@ main {
   }
 
   
-
   .project-logo {
     max-width: 300px;
     margin-right: 0;
@@ -657,6 +746,21 @@ main {
     padding-top: 20px;
   }
 
+  .partners-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 в ряд на планшете */
+    gap: 30px;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .partner-logo {
+    max-width: 180px;
+  }
+
+  .partners-grid::before{
+    bottom: -80px;
+    right: 0px;
+  }
   
 }
 
@@ -755,7 +859,8 @@ main {
 
   .about-us::before,
   .about-us::after,
-  .text-block::before {
+  .text-block::before,
+  .partners-grid::before {
     display: none; /* скрываем декорации на мобильных */
   }
 
@@ -777,12 +882,28 @@ main {
   }
 
   .dotted-line.top {
-  margin-bottom: 20px;
-}
+    margin-bottom: 20px;
+  }
 
   .dotted-line.bottom {
     margin-top: 20px;
   } 
+
+  .partners-title{
+    font-size: 24px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .partners-grid {
+    grid-template-columns: 1fr; /* одна колонка */
+    gap: 30px; /* можно уменьшить отступы */
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .partner-logo {
+    max-width: 150px; /* уменьшаем размер на мобильных */
+  }
 
 }
 
