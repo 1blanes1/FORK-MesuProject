@@ -90,24 +90,26 @@
           <div class="news-wrapper">
             <div class="news-item">
               <a href="https://vk.com/wall-203318144_602">
-                <img src="{% static 'img/main-page/news_1.png' %}" width="362" height="205">
+                <img class="news-img" src="{% static 'img/main-page/news_1.png' %}" width="362" height="205">
                 <h3>5 РЕГИОНОВ РОССИЙСКОЙ ФЕДЕРАЦИИ</h3>
               </a>
             </div>
             <div class="news-item">
               <a href="https://vk.com/wall-203318144_594">
-                <img src="{% static 'img/main-page/news_2.png' %}" width="200" height="205">
+                <img class="news-img" src="{% static 'img/main-page/news_2.png' %}" width="200" height="205">
                 <h3>"Проекты объединились в международный кластер"</h3>
               </a>
             </div>
             <div class="news-item">
               <a href="https://vk.com/wall-203318144_599">
-                <img src="{% static 'img/main-page/news_3.png' %}" width="370" height="211">
+                <img class="news-img" src="{% static 'img/main-page/news_3.png' %}" width="370" height="211">
                 <h3>Прямой эфир "Брестская крепость"</h3>
               </a>
             </div>
           </div>
-          <button>Все новости</button>
+            <a href="#news" class="page-button">
+              <img src="{% static 'img/main-page/news_button.png' %}" width="208" height="45" alt="Все новости">
+            </a>
         </div>
       </section>
     </div>
@@ -185,7 +187,6 @@
               Российская Федерация, Республика Казахстан
             </p>
           </div>
-          <!-- Для примера v -->
           <div class="historical-line">
             <img src="{% static 'img/rocket_icon.png' %}" width="95.07" height="95.07">
             <h3>Тот САМЫЙ полёт</h3>
@@ -194,7 +195,6 @@
               Российская Федерация, Республика Казахстан
             </p>
           </div>
-          <!-- Для примера ^ -->
         </div>
         <button class="lines-btn lines-next-btn" id="nextBtn">
           <img src="{% static 'img/arrow_right.png' %}" alt="Вперёд" width="40" height="25">
