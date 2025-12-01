@@ -25,7 +25,8 @@ header {
   flex-direction: column;
   justify-content: space-between;
   /* padding: 20px; */
-  z-index: 40; /*сделано для кружочков*/
+  z-index: 40;
+  /*сделано для кружочков*/
 }
 
 .intro {
@@ -239,10 +240,13 @@ main {
 /* Контейнер с фоном */
 .fone {
   background-image: url('../img/pattern.png');
-  background-repeat: repeat; /* узор будет повторяться по всей странице */
-  background-size: auto; /* не масштабировать, если это бесшовный паттерн */
+  background-repeat: repeat;
+  /* узор будет повторяться по всей странице */
+  background-size: auto;
+  /* не масштабировать, если это бесшовный паттерн */
   background-position: top left;
-  background-attachment: fixed;   /* ← ЭТО КЛЮЧЕВОЕ СВОЙСТВО */
+  background-attachment: fixed;
+  /* ← ЭТО КЛЮЧЕВОЕ СВОЙСТВО */
   margin: 0;
   padding: 0;
 }
@@ -268,7 +272,7 @@ main {
   z-index: 1;
 }
 
-.about-us{
+.about-us {
   position: relative;
   padding: 160px 60px;
   display: flex;
@@ -285,7 +289,7 @@ main {
   transform: rotate(0deg);
   width: 300px;
   height: 200px;
-  
+
   background-image: url('../img/main-page/rounds.svg');
   background-size: contain;
   background-repeat: no-repeat;
@@ -329,7 +333,7 @@ main {
   max-width: 520px;
   text-align: left;
   margin-left: 180px;
-  
+
 }
 
 .text-block h2 {
@@ -426,7 +430,8 @@ main {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  text-decoration: none; /* убираем подчеркивание ссылки */
+  text-decoration: none;
+  /* убираем подчеркивание ссылки */
 }
 
 .historical-lines {
@@ -586,14 +591,16 @@ main {
 }
 
 .dotted-line.bottom {
-  background-image: url('../img/main-page/line.svg'); /* замените на ваш файл */
+  background-image: url('../img/main-page/line.svg');
+  /* замените на ваш файл */
   margin-top: 80px;
 }
 
 .map-background {
   position: relative;
   width: 100%;
-  max-width: 1200px; /* лучше ограничить, чтобы не растягивалось */
+  max-width: 1200px;
+  /* лучше ограничить, чтобы не растягивалось */
   height: 360px;
   background-image: url('../img/main-page/map.png');
   background-size: contain;
@@ -666,7 +673,8 @@ main {
 /* Сетка логотипов */
 .partners-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* ⭐️ 4 колонки на десктопе */
+  grid-template-columns: repeat(4, 1fr);
+  /* ⭐️ 4 колонки на десктопе */
   gap: 30px 0px;
   justify-items: center;
   width: 100%;
@@ -705,13 +713,52 @@ main {
   width: 294px;
   height: 243px;
   transform: rotate(0deg);
-  
+
   background-image: url('../img/main-page/rounds_partners.png');
   background-size: contain;
   background-repeat: no-repeat;
   z-index: -1;
 }
 
+
+/* FOOTER */
+
+.site-footer {
+  position: relative;
+  background-color: #404040;
+  /* тёмно-серый фон */
+  padding: 100px 0px;
+  text-align: center;
+  color: white;
+  font-family: Raleway, sans-serif;
+  z-index: 40;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer-logo {
+  max-width: 213px;
+  width: 100%;
+  height: auto;
+  /* если логотип не белый — можно сделать ярче */
+}
+
+.footer-copyright {
+  font-family: Raleway;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+
+  margin: 0;
+}
 
 
 
@@ -730,7 +777,7 @@ main {
     margin-left: 0;
   }
 
-  
+
   .project-logo {
     max-width: 300px;
     margin-right: 0;
@@ -746,7 +793,8 @@ main {
   }
 
   .partners-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 в ряд на планшете */
+    grid-template-columns: repeat(2, 1fr);
+    /* 2 в ряд на планшете */
     gap: 30px;
     padding-left: 0px;
     padding-right: 0px;
@@ -756,18 +804,18 @@ main {
     max-width: 180px;
   }
 
-  .partners-grid::before{
+  .partners-grid::before {
     bottom: -80px;
     right: 0px;
   }
-  
+
 }
 
 /* Адаптивность — мобильные устройства */
 @media (max-width: 768px) {
 
 
-  
+
   /* header */
   .hero-title {
     font-size: 2rem;
@@ -807,7 +855,7 @@ main {
   }
 
 
-   /* about-us */
+  /* about-us */
   .background-container {
     padding-left: 15px;
     padding-right: 15px;
@@ -820,14 +868,16 @@ main {
     max-width: 95%;
   }
 
-  .about-us{
+  .about-us {
     padding: 0 5px;
   }
 
-  .text-block{
+  .text-block {
     width: 100%;
-    max-width: none; /* сбрасываем возможные ограничения */
-    padding: 0 10px;   /* если нужно — оставляем отступы */
+    max-width: none;
+    /* сбрасываем возможные ограничения */
+    padding: 0 10px;
+    /* если нужно — оставляем отступы */
     box-sizing: border-box;
     text-align: center;
     margin-left: 0;
@@ -860,7 +910,8 @@ main {
   .about-us::after,
   .text-block::before,
   .partners-grid::before {
-    display: none; /* скрываем декорации на мобильных */
+    display: none;
+    /* скрываем декорации на мобильных */
   }
 
   /* Скрываем декорации на мобильных, если они мешают */
@@ -877,7 +928,7 @@ main {
 
   .map-button img {
     max-width: 270px;
-    padding-top: 20px; 
+    padding-top: 20px;
   }
 
   .dotted-line.top {
@@ -886,24 +937,31 @@ main {
 
   .dotted-line.bottom {
     margin-top: 20px;
-  } 
+  }
 
-  .partners-title{
+  .partners-title {
     font-size: 24px;
     margin-top: 20px;
     margin-bottom: 20px;
   }
+
   .partners-grid {
-    grid-template-columns: 1fr; /* одна колонка */
-    gap: 30px; /* можно уменьшить отступы */
+    grid-template-columns: 1fr;
+    /* одна колонка */
+    gap: 30px;
+    /* можно уменьшить отступы */
     padding: 0px;
   }
 
   .partner-logo {
-    max-width: 150px; /* уменьшаем размер на мобильных */
+    max-width: 150px;
+    /* уменьшаем размер на мобильных */
   }
 
 }
+
+
+
 
 
 
@@ -912,9 +970,12 @@ main {
 @media (max-width: 480px) {
   .hero-content {
     width: 100%;
-    max-width: none; /* сбрасываем возможные ограничения */
-    padding: 20px;   /* если нужно — оставляем отступы */
-    box-sizing: border-box; /* чтобы padding не увеличивал ширину */
+    max-width: none;
+    /* сбрасываем возможные ограничения */
+    padding: 20px;
+    /* если нужно — оставляем отступы */
+    box-sizing: border-box;
+    /* чтобы padding не увеличивал ширину */
   }
 
   .hero-title {
@@ -935,10 +996,12 @@ main {
     font-size: 1rem;
   }
 
-  .text-block{
+  .text-block {
     width: 100%;
-    max-width: none; /* сбрасываем возможные ограничения */
-    padding: 0 5px;   /* если нужно — оставляем отступы */
+    max-width: none;
+    /* сбрасываем возможные ограничения */
+    padding: 0 5px;
+    /* если нужно — оставляем отступы */
     box-sizing: border-box;
   }
 
@@ -953,23 +1016,36 @@ main {
   }
 
 
-  .fone{
+  .fone {
     background-image: none;
     background-color: rgb(237, 242, 242);
   }
 
 
-.map-button img {
+  .map-button img {
     max-width: 180px;
-    padding-top: 20px; /* ограничиваем ширину кнопки */
+    padding-top: 20px;
+    /* ограничиваем ширину кнопки */
   }
 
   .dotted-line.top {
-  margin-bottom: 20px;
-}
+    margin-bottom: 20px;
+  }
 
-.dotted-line.bottom {
-  margin-top: 20px;
-}
+  .dotted-line.bottom {
+    margin-top: 20px;
+  }
+
+  .site-footer {
+    padding: 50px 0px;
+  }
+
+  .footer-logo {
+    max-width: 180px;
+  }
+
+  .footer-copyright {
+    font-size: 16px;
+  }
 
 };
