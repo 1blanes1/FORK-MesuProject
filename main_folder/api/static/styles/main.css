@@ -627,24 +627,27 @@ main {
 
 .lines-wrapper {
   display: flex;
-  flex-direction: row;
   align-items: center;
   position: relative;
   margin-bottom: 200px;
+  width: 100%;
+  justify-content: center;
 }
 
 .slides-container {
-  display: flex;
-  overflow-x: auto;
-  scroll-behavior: smooth;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 100%; /* 1 карточка на мобильных */
   gap: 60px;
   width: 100%;
-  max-width: 960px;
+  max-width: 280px; /* ширина одной карточки */
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  
   /* Убираем стандартный скроллбар */
-  scrollbar-width: none;
-  /* Firefox */
-  -ms-overflow-style: none;
-  /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
 }
 
 /* Скрываем скроллбар в WebKit браузерах */
@@ -653,10 +656,10 @@ main {
 }
 
 .historical-line {
-  flex: 0 0 auto;
-  scroll-snap-align: start;
+  scroll-snap-align: center; /* центрируем карточку при скролле */
   height: 420px;
-  width: 280px;
+  width: 100%; /* теперь занимает 100% доступной ширины */
+  max-width: 280px; /* но не больше оригинальной ширины */
   padding: 15px 22px 15px;
   border-radius: 60px;
   display: flex;
@@ -666,6 +669,7 @@ main {
   color: #fff;
   font-size: 20px;
   text-align: center;
+  box-sizing: border-box;
 }
 
 .historical-line img {
@@ -675,6 +679,7 @@ main {
 .historical-line h3 {
   margin: 0;
   margin-bottom: 20px;
+  font-size: 20px;
 }
 
 .historical-line p {
@@ -691,16 +696,19 @@ main {
   height: 43px;
   width: 58px;
   display: flex;
+  align-items: center;
+  justify-content: center;
   transition: all 0.3s ease;
   cursor: pointer;
+  flex-shrink: 0; /* Предотвращаем сжатие кнопок */
+  position: relative;
+  z-index: 2;
 }
 
 .lines-btn:hover {
   background-color: #669BBD;
   transform: scale(0.94) translateY(1px);
-  /* + смещение вниз */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  /* тень для глубины */
 }
 
 .lines-btn:hover img {
@@ -717,10 +725,129 @@ main {
   padding: 9px 7px 9px 11px;
 }
 
+/* Планшет: 2 карточки */
+@media (min-width: 768px) {
+  .slides-container {
+    grid-auto-columns: calc((100% - 60px) / 2); /* 2 карточки */
+    max-width: calc(280px * 2 + 60px); /* ширина 2 карточек + gap */
+  }
+  
+  .lines-wrapper {
+    justify-content: center;
+  }
+  
+  .historical-line {
+    max-width: 280px; /* фиксируем ширину карточек */
+  }
+}
 
+/* Десктоп: 3 карточки */
+@media (min-width: 1024px) {
+  .slides-container {
+    grid-auto-columns: calc((100% - (2 * 60px)) / 3); /* 3 карточки */
+    max-width: calc(280px * 3 + 60px * 2); /* ширина 3 карточек + 2 gaps */
+  }
+  
+  .historical-line {
+    max-width: 280px;
+  }
+}
 
+/* Большие десктопы */
+@media (min-width: 1200px) {
+  .slides-container {
+    max-width: 960px; /* фиксированная максимальная ширина как в оригинале */
+  }
+}
 
+/* Адаптивность для заголовка */
+@media (max-width: 767px) {
+  .historical-lines h2 {
+    font-size: 24px;
+    margin: 30px 0 40px;
+    text-align: center;
+  }
+  
+  .lines-wrapper {
+    margin-bottom: 100px;
+    padding: 0 15px;
+  }
+  
+  .slides-container {
+    max-width: 280px;
+    gap: 40px;
+  }
+  
+  .lines-prev-btn {
+    margin-right: 15px;
+  }
+  
+  .lines-next-btn {
+    margin-left: 15px;
+  }
+  
+  /* Центрируем контейнер с карточками на мобильных */
+  .slides-container {
+    margin: 0 auto;
+  }
+}
 
+/* Адаптивность карточек для очень маленьких экранов */
+@media (max-width: 480px) {
+  .historical-line {
+    height: 400px;
+    padding: 15px 18px;
+    max-width: 260px;
+  }
+  
+  .slides-container {
+    max-width: 260px;
+    gap: 30px;
+  }
+  
+  .lines-btn {
+    height: 38px;
+    width: 50px;
+  }
+  
+  .lines-prev-btn {
+    margin-right: 10px;
+    padding: 7px 9px 7px 5px;
+  }
+  
+  .lines-next-btn {
+    margin-left: 10px;
+    padding: 7px 5px 7px 9px;
+  }
+  
+  .lines-btn img {
+    width: 30px;
+    height: auto;
+  }
+  
+  .historical-lines h2 {
+    font-size: 22px;
+    margin: 25px 0 35px;
+  }
+}
+
+/* Для очень узких экранов скрываем кнопки и оставляем только скролл */
+@media (max-width: 400px) {
+  .lines-btn {
+    display: none; /* скрываем кнопки на очень маленьких экранах */
+  }
+  
+  .slides-container {
+    max-width: 240px;
+    gap: 20px;
+  }
+  
+  .historical-line {
+    max-width: 240px;
+    height: 380px;
+    padding: 12px 15px;
+  }
+}
 
 /* MAP */
 
