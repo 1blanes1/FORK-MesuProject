@@ -719,7 +719,6 @@ main {
   margin: 0;
   margin-bottom: 15px;
   font-size: 20px;
-  /* Убираем обрезку заголовка */
   display: block;
   overflow: visible;
   text-overflow: clip;
@@ -734,7 +733,6 @@ main {
   font-family: "Exo 2";
   font-size: 16px;
   font-weight: 500;
-  /* Убираем обрезку текста и добавляем скролл */
   overflow-y: auto;
   text-overflow: clip;
   flex: 1;
@@ -743,12 +741,10 @@ main {
   margin-bottom: 10px;
   width: 100%;
   padding-right: 5px;
-  /* Стили для скроллбара текста */
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 255, 255, 0.5) transparent;
 }
 
-/* Стили для скроллбара текста в WebKit браузерах */
 .historical-line p::-webkit-scrollbar {
   width: 4px;
 }
@@ -814,12 +810,11 @@ main {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   }
   
-  /* Полностью отключаем системную подсветку */
   .lines-btn {
     -webkit-tap-highlight-color: transparent;
   }
   
-  /* Для iOS */
+  /* iOS */
   .lines-btn {
     -webkit-touch-callout: none;
   }
@@ -976,7 +971,6 @@ main {
   }
   
   .historical-line h3 {
-    /* Убираем обрезку */
     -webkit-line-clamp: none;
     line-clamp: none;
     max-height: none;
@@ -985,7 +979,6 @@ main {
   }
 
   .historical-line p {
-    /* Убираем обрезку */
     -webkit-line-clamp: none;
     line-clamp: none;
     max-height: none;
@@ -1065,7 +1058,6 @@ main {
   }
 
   .historical-line h3 {
-    /* Убираем обрезку */
     -webkit-line-clamp: none;
     line-clamp: none;
     max-height: none;
@@ -1074,7 +1066,6 @@ main {
   }
 
   .historical-line p {
-    /* Убираем обрезку */
     -webkit-line-clamp: none;
     line-clamp: none;
     max-height: none;
@@ -1480,6 +1471,13 @@ main {
   .partner-logo {
     max-width: 150px;
     /* уменьшаем размер на мобильных */
+  }
+
+
+
+  .fone {
+    background-image: none;
+    background-color: rgb(237, 242, 242);
   }
 
 }
