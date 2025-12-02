@@ -475,6 +475,10 @@ main {
   justify-content: flex-start;
 }
 
+.news-item a:hover {
+  color: #283687;
+}
+
 .news-item h3 {
   width: 100%;
   max-width: 300px;
@@ -607,11 +611,46 @@ main {
   position: relative;
 }
 
+.historical-lines-container::before {
+  content: "";
+  position: absolute;
+  width: 289px;
+  height: 245px;
+  background-image: url('../img/main-page/historical_decor_top.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+
+.historical-lines-container::after {
+  content: "";
+  position: absolute;
+  width: 181px;
+  height: 180px;
+  background-image: url('../img/main-page/historical_decor_bottom_left.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+
 .historical-lines-decor {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.historical-lines-decor::before {
+  content: "";
+  position: absolute;
+  bottom: 60px;
+  right: 100px;
+  width: 170px;
+  height: 172px;
+  background-image: url('../img/main-page/historical_decor_bottom_right.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 0;
 }
 
 .historical-lines h2,
@@ -637,29 +676,27 @@ main {
 .slides-container {
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: 100%; /* 1 карточка на мобильных */
+  grid-auto-columns: 100%;
   gap: 60px;
   width: 100%;
-  max-width: 280px; /* ширина одной карточки */
+  max-width: 280px;
   overflow-x: auto;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
   
-  /* Убираем стандартный скроллбар */
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE and Edge */
 }
 
-/* Скрываем скроллбар в WebKit браузерах */
 .slides-container::-webkit-scrollbar {
   display: none;
 }
 
 .historical-line {
-  scroll-snap-align: center; /* центрируем карточку при скролле */
+  scroll-snap-align: center;
   height: 420px;
-  width: 100%; /* теперь занимает 100% доступной ширины */
-  max-width: 280px; /* но не больше оригинальной ширины */
+  width: 100%;
+  max-width: 280px;
   padding: 15px 22px 15px;
   border-radius: 60px;
   display: flex;
@@ -670,16 +707,25 @@ main {
   font-size: 20px;
   text-align: center;
   box-sizing: border-box;
+  position: relative;
 }
 
 .historical-line img {
   margin-bottom: 20px;
+  flex-shrink: 0;
 }
 
 .historical-line h3 {
   margin: 0;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   font-size: 20px;
+  display: block;
+  overflow: visible;
+  text-overflow: clip;
+  line-height: 1.2;
+  max-height: none;
+  flex-shrink: 0;
+  width: 100%;
 }
 
 .historical-line p {
@@ -687,6 +733,34 @@ main {
   font-family: "Exo 2";
   font-size: 16px;
   font-weight: 500;
+  overflow-y: auto;
+  text-overflow: clip;
+  flex: 1;
+  line-height: 1.4;
+  max-height: none;
+  margin-bottom: 10px;
+  width: 100%;
+  padding-right: 5px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.5) transparent;
+}
+
+.historical-line p::-webkit-scrollbar {
+  width: 4px;
+}
+
+.historical-line p::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 2px;
+}
+
+.historical-line p::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 2px;
+}
+
+.historical-line p::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.7);
 }
 
 .lines-btn {
@@ -700,7 +774,7 @@ main {
   justify-content: center;
   transition: all 0.3s ease;
   cursor: pointer;
-  flex-shrink: 0; /* Предотвращаем сжатие кнопок */
+  flex-shrink: 0;
   position: relative;
   z-index: 2;
 }
@@ -725,27 +799,51 @@ main {
   padding: 9px 7px 9px 11px;
 }
 
-/* Планшет: 2 карточки */
+@media (hover: none) and (pointer: coarse) {
+  .lines-btn:hover {
+    background-color: #fff;
+  }
+  
+  .lines-btn:active {
+    background-color: #669BBD;
+    transform: scale(0.94) translateY(1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .lines-btn {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* iOS */
+  .lines-btn {
+    -webkit-touch-callout: none;
+  }
+}
+
 @media (min-width: 768px) {
+  .historical-lines-container::before {
+    top: 15px;
+    left: -25px;
+  }
+
+  .historical-lines-container::after {
+    bottom: -15px;
+    left: 0px;
+  }
+
+  .historical-lines-decor::before {
+    bottom: 0px;
+    right: 0px;
+  }
+
   .slides-container {
-    grid-auto-columns: calc((100% - 60px) / 2); /* 2 карточки */
-    max-width: calc(280px * 2 + 60px); /* ширина 2 карточек + gap */
+    grid-auto-columns: calc((100% - 60px) / 2);
+    max-width: calc(280px * 2 + 60px);
   }
   
   .lines-wrapper {
     justify-content: center;
-  }
-  
-  .historical-line {
-    max-width: 280px; /* фиксируем ширину карточек */
-  }
-}
-
-/* Десктоп: 3 карточки */
-@media (min-width: 1024px) {
-  .slides-container {
-    grid-auto-columns: calc((100% - (2 * 60px)) / 3); /* 3 карточки */
-    max-width: calc(280px * 3 + 60px * 2); /* ширина 3 карточек + 2 gaps */
+    margin-bottom: 100px;
   }
   
   .historical-line {
@@ -753,15 +851,89 @@ main {
   }
 }
 
-/* Большие десктопы */
-@media (min-width: 1200px) {
+@media (min-width: 1024px) {
+  .historical-lines-container::before {
+    top: 0px;
+    left: 15px;
+  }
+
+  .historical-lines-container::after {
+    bottom: 0px;
+    left: 0px;
+  }
+
+  .historical-lines-decor::before {
+    bottom: 0px;
+    right: 0px;
+  }
+
+  .lines-wrapper {
+    margin-bottom: 100px;
+  }
+  
   .slides-container {
-    max-width: 960px; /* фиксированная максимальная ширина как в оригинале */
+    grid-auto-columns: calc((100% - (2 * 60px)) / 3);
+    max-width: calc(280px * 3 + 60px * 2);
+  }
+  
+  .historical-line {
+    max-width: 280px;
   }
 }
 
-/* Адаптивность для заголовка */
+@media (min-width: 1200px) {
+  .historical-lines-container::before {
+    top: 40px;
+    left: 60px;
+  }
+
+  .historical-lines-container::after {
+    bottom: 30px;
+    left: 15x;
+  }
+
+  .historical-lines-decor::before {
+    bottom: 30px;
+    right: 40px;
+  }
+
+  .lines-wrapper {
+    margin-bottom: 100px;
+  }
+
+  .slides-container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1450px) {
+  .historical-lines-container::before {
+    top: 40px;
+    left: 60px;
+  }
+
+  .historical-lines-container::after {
+    bottom: 50px;
+    left: 90px;
+  }
+
+  .historical-lines-decor::before {
+    bottom: 60px;
+    right: 100px;
+  }
+
+  .lines-wrapper {
+    margin-bottom: 200px;
+  }
+}
+
 @media (max-width: 767px) {
+  .historical-lines-container::before,
+  .historical-lines-container::after,
+  .historical-lines-decor::before {
+    display: none;
+  }
+
   .historical-lines h2 {
     font-size: 24px;
     margin: 30px 0 40px;
@@ -769,7 +941,7 @@ main {
   }
   
   .lines-wrapper {
-    margin-bottom: 100px;
+    margin-bottom: 40px;
     padding: 0 15px;
   }
   
@@ -786,13 +958,11 @@ main {
     margin-left: 15px;
   }
   
-  /* Центрируем контейнер с карточками на мобильных */
   .slides-container {
     margin: 0 auto;
   }
 }
 
-/* Адаптивность карточек для очень маленьких экранов */
 @media (max-width: 480px) {
   .historical-line {
     height: 400px;
@@ -800,11 +970,33 @@ main {
     max-width: 260px;
   }
   
+  .historical-line h3 {
+    -webkit-line-clamp: none;
+    line-clamp: none;
+    max-height: none;
+    margin-bottom: 12px;
+    font-size: 18px;
+  }
+
+  .historical-line p {
+    -webkit-line-clamp: none;
+    line-clamp: none;
+    max-height: none;
+    margin-bottom: 8px;
+    font-size: 15px;
+  }
+
   .slides-container {
     max-width: 260px;
     gap: 30px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
   }
-  
+
+  .slides-container::-webkit-scrollbar {
+    display: none;
+  }
+
   .lines-btn {
     height: 38px;
     width: 50px;
@@ -831,21 +1023,55 @@ main {
   }
 }
 
-/* Для очень узких экранов скрываем кнопки и оставляем только скролл */
 @media (max-width: 400px) {
   .lines-btn {
-    display: none; /* скрываем кнопки на очень маленьких экранах */
+    display: none;
   }
   
   .slides-container {
     max-width: 240px;
     gap: 20px;
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: #404040 #EDF2F2;
   }
   
+  .slides-container::-webkit-scrollbar {
+    display: block;
+    height: 6px;
+  }
+  
+  .slides-container::-webkit-scrollbar-track {
+    background: #EDF2F2;
+    border-radius: 3px;
+    margin: 0 10px;
+  }
+  
+  .slides-container::-webkit-scrollbar-thumb {
+    background: #C2121F;
+    border-radius: 3px;
+  }
+
   .historical-line {
     max-width: 240px;
     height: 380px;
     padding: 12px 15px;
+  }
+
+  .historical-line h3 {
+    -webkit-line-clamp: none;
+    line-clamp: none;
+    max-height: none;
+    margin-bottom: 10px;
+    font-size: 17px;
+  }
+
+  .historical-line p {
+    -webkit-line-clamp: none;
+    line-clamp: none;
+    max-height: none;
+    margin-bottom: 6px;
+    font-size: 14px;
+    line-height: 1.4;
   }
 }
 
