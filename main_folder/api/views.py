@@ -17,27 +17,80 @@ def admin(request):
     return render(request, 'admin.html')
 def history_page(request):
     return render(request, 'history_page.html')
+def team_page(request):
+    return render(request, 'team_page.html')
 
 @csrf_exempt
 def get_partners(request):
     if request.method == 'GET':
-        filepath = os.path.join(settings.BASE_DIR,'media','jsons', 'partners.json')
+        filepath = os.path.join(settings.BASE_DIR,'media', 'jsons', 'partners.json')
         news = read_json(filepath)
         return JsonResponse(news, safe=False)
 
 @csrf_exempt
 def get_news(request):
     if request.method == 'GET':
-        filepath = os.path.join(settings.BASE_DIR,'media','jsons', 'news.json')
+        filepath = os.path.join(settings.BASE_DIR,'media', 'jsons', 'news.json')
         news = read_json(filepath)
         return JsonResponse(news, safe=False)
     
 @csrf_exempt
 def get_history_lines(request):
     if request.method == 'GET':
-        filepath = os.path.join(settings.BASE_DIR,'media','jsons', 'history_lines.json')
+        filepath = os.path.join(settings.BASE_DIR,'media', 'jsons', 'history_lines.json')
         history_line = read_json(filepath)
         return JsonResponse(history_line, safe=False)
+
+@csrf_exempt
+def get_team(request):
+    if request.method == 'GET':
+        filepath = os.path.join(settings.BASE_DIR,'media', 'jsons', 'team_hui.json')
+        team_hui = read_json(filepath)
+        return JsonResponse(team_hui, safe=False)
+
+
+@csrf_exempt
+@require_http_methods(["POST"])
+def post_team_hui(request):
+    try:
+        title = request.POST.get('title', '').strip()
+        status = request.POST.get('status', '').strip()
+        role = request.POST.get('role', '').strip()
+        url = request.POST.get('url', '').strip()
+        image = request.FILES.get('image')
+        
+
+        img_path = ""
+
+        # Сохраняем изображение, если оно есть
+        if image:
+            # Формируем путь: uploads/имя_файла
+            upload_to = 'uploads/team_hui_img'
+            full_path = os.path.join(upload_to, image.name)
+
+            # Безопасность: избегаем перезаписи и путей вроде '../../etc/passwd'
+            full_path = default_storage.get_available_name(full_path)
+
+            # Сохраняем файл
+            path = default_storage.save(full_path, ContentFile(image.read()))
+            img_path = default_storage.url(path)  # Например: '/media/uploads/photo.jpg'
+            real_img_path = "/static/team_hui_img/" + image.name
+        # Подготавливаем данные
+        data = {
+            "title": title,
+            "status": status,
+            "role": role,
+            "url": url,
+            "img_path": real_img_path
+        }
+        filepath = os.path.join(settings.BASE_DIR,'media', 'jsons', 'team_hui.json')
+        # Сохраняем в JSON (твоя функция)
+        add_item_to_json(data, filepath)
+
+        return JsonResponse(data)
+
+    except Exception as e:
+        return JsonResponse({"error": str(e)}, status=500)
 
 @csrf_exempt
 @require_http_methods(["POST"])

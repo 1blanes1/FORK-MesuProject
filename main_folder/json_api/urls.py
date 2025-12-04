@@ -21,8 +21,13 @@ urlpatterns = [
     # ^  api для добавления в history_lines.json
     path('api/post_partners', views.post_partner, name='post_partners'),
     # ^ api для добавления в партнёры
-    path('partners', views.get_partners, name='partners')
+    path('partners', views.get_partners, name='partners'),
     # ^ api для запроса списка партёнров
+    path('api/post_team_hui', views.post_team_hui, name='huila'),
+    # ^  api для добавления в список команды
+    path('team_page/get', views.get_team, name='team'),
+    # ^ api для запроса команды
+    path('team_page', views.team_page, name='team_page')
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
