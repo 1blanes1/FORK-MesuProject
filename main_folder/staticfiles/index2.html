@@ -85,33 +85,17 @@
       </div>
 
       <section class="news">
-        <div class="news-container">
-          <h2>Новости</h2>
-          <div class="news-wrapper">
-            <div class="news-item">
-              <a href="https://vk.com/wall-203318144_602">
-                <img class="news-img" src="{% static 'img/main-page/news_1.png' %}" width="362" height="205">
-                <h3>5 РЕГИОНОВ РОССИЙСКОЙ ФЕДЕРАЦИИ</h3>
-              </a>
-            </div>
-            <div class="news-item">
-              <a href="https://vk.com/wall-203318144_594">
-                <img class="news-img" src="{% static 'img/main-page/news_2.png' %}" width="200" height="205">
-                <h3>"Проекты объединились в международный кластер"</h3>
-              </a>
-            </div>
-            <div class="news-item">
-              <a href="https://vk.com/wall-203318144_599">
-                <img class="news-img" src="{% static 'img/main-page/news_3.png' %}" width="370" height="211">
-                <h3>Прямой эфир "Брестская крепость"</h3>
-              </a>
-            </div>
-          </div>
-          <a href="#news" class="page-button">
-            <img src="{% static 'img/main-page/news_button.png' %}" width="208" height="45" alt="Все новости">
-          </a>
+        <div class="news-container" id="news-container">
+            <h2>Новости</h2>
+            <!-- Контейнер для новостей -->
+            <div class="news-wrapper" id="news-wrapper"></div>
+            
+            <!-- Кнопка "Все новости" (остается статичной) -->
+            <a href="#news" class="page-button">
+                <img src="{% static 'img/main-page/news_button.png' %}" class="all-news" alt="Все новости">
+            </a>
         </div>
-      </section>
+    </section>
 
       <section class="historical-lines">
         <div class="historical-lines-container">
@@ -317,6 +301,78 @@
 
 
   </script>
+  <script>
+        function addNewsCard(title, img_path, url) {
+            // Находим контейнер для новостей
+            const newsWrapper = document.getElementById('news-wrapper');
+            if (!newsWrapper) {
+                console.error('Контейнер .news-wrapper не найден!');
+                return;
+            }
+
+            // Создаем элемент новости с классом news-item
+            const newsItem = document.createElement('div');
+            newsItem.className = 'news-item';
+
+            // Создаем ссылку
+            const link = document.createElement('a');
+            link.href = url || '#';
+
+            // Создаем изображение с классом news-img
+            const img = document.createElement('img');
+            img.className = 'news-img';
+            img.src = img_path;
+            img.alt = title || 'Изображение новости';
+
+            // Создаем заголовок
+            const titleEl = document.createElement('h3');
+            titleEl.textContent = title || 'Без заголовка';
+
+            // Собираем структуру
+            link.appendChild(img);
+            link.appendChild(titleEl);
+            newsItem.appendChild(link);
+            newsWrapper.appendChild(newsItem);
+        }
+
+        async function loadNews() {
+            try {
+                const res = await fetch('/news');
+                if (!res.ok) {
+                    throw new Error(`Ошибка загрузки: ${res.status}`);
+                }
+                
+                const arr = await res.json();
+                console.log(`Загружено ${arr.length} новостей`);
+
+                // Очищаем контейнер перед добавлением новых новостей
+                const newsWrapper = document.getElementById('news-wrapper');
+                if (newsWrapper) {
+                    newsWrapper.innerHTML = '';
+                }
+
+                // Добавляем каждую новость
+                for (let i = 0; i < arr.length; i++) {
+                    addNewsCard(
+                        arr[i].title, 
+                        arr[i].img_path, 
+                        arr[i].url
+                    );
+                }
+                
+            } catch (error) {
+                console.error('Ошибка при загрузке новостей:', error);
+                // Можно показать сообщение об ошибке пользователю
+                const newsWrapper = document.getElementById('news-wrapper');
+                if (newsWrapper) {
+                    newsWrapper.innerHTML = '<p>Не удалось загрузить новости. Попробуйте позже.</p>';
+                }
+            }
+        }
+
+        // Загружаем новости при загрузке страницы
+        document.addEventListener('DOMContentLoaded', loadNews);
+    </script>
   <script src="{% static 'scripts/script.js' %}"></script>
 </body>
 

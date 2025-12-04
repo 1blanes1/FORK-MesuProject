@@ -58,7 +58,7 @@
     <button onclick="login()">Войти</button>
   </div>
 
-  <!-- Форма 1 -->
+  <!-- Форма: Новости -->
   <div id="main-section-news" class="hidden form-section">
     <h2>Добавить новость</h2>
     <input type="text" id="title-news" placeholder="Заголовок">
@@ -79,7 +79,7 @@
     </div>
   </div>
 
-  <!-- Форма 2 -->
+  <!-- Форма: Историческая линия -->
   <div id="main-section-history_line" class="hidden form-section">
     <h2>Добавить историческую линию</h2>
     <input type="text" id="title-history_line" placeholder="Заголовок">
@@ -98,15 +98,24 @@
       <p><strong>Ссылка:</strong> <a id="res-url-history_line" href="#" target="_blank" style="color: #1a0dab; text-decoration: underline;" class="hidden"></a></p>
       <p><strong>Картинка:</strong> <img id="res-img-history_line" style="max-width:100px; display: none;"></p>
     </div>
+  </div>
+
+  <!-- Форма: Партнёры -->
+  <div id="main-section-partners" class="hidden form-section">
+    <h2>Добавить партнёра</h2>
+    <input type="text" id="title-partners" placeholder="Название партнёра">
+    <input type="url" id="url-partners" placeholder="Ссылка на партнёра">
+    <input type="file" id="image-partners" accept="image/*" onchange="previewImage(event, 'image-preview-partners')">
+    <img id="image-preview-partners" class="preview hidden" alt="Предпросмотр">
+
+    <button onclick="submitData('partners')">Отправить</button>
+    <div id="status-partners" class="hidden"></div>
+
     <div id="result-partners" class="hidden" style="margin-top: 20px; padding: 15px; border: 1px solid #ccc;">
       <h3>Отправлено:</h3>
-      <p><strong>Заголовок:</strong> <span id="res-title-partners"></span></p>
-      <p><strong>Описание:</strong> <span id="res-desc-partners"></span></p>
+      <p><strong>Название:</strong> <span id="res-title-partners"></span></p>
       <p><strong>Ссылка:</strong> <a id="res-url-partners" href="#" target="_blank" style="color: #1a0dab; text-decoration: underline;" class="hidden"></a></p>
       <p><strong>Картинка:</strong> <img id="res-img-partners" style="max-width:100px; display: none;"></p>
-    </div>
-    
-
     </div>
   </div>
 
@@ -127,6 +136,7 @@
       document.getElementById('auth-section').classList.add('hidden');
       document.getElementById('main-section-news').classList.remove('hidden');
       document.getElementById('main-section-history_line').classList.remove('hidden');
+      document.getElementById('main-section-partners').classList.remove('hidden');
     }
 
     if (localStorage.getItem('user')) showMain();
@@ -150,7 +160,7 @@
     // === Отправка данных (универсальная по номеру формы) ===
     async function submitData(formNum) {
       const title = document.getElementById(`title-${formNum}`).value.trim();
-      const desc = document.getElementById(`description-${formNum}`).value.trim();
+      const desc = document.getElementById(`description-${formNum}`)?.value?.trim() || '';
       const url = document.getElementById(`url-${formNum}`).value.trim();
       const fileInput = document.getElementById(`image-${formNum}`);
       const file = fileInput.files[0];
@@ -169,7 +179,7 @@
       try {
         showStatus(formNum, 'Отправка...', 'success');
 
-        const response = await fetch('/api/post_'+formNum, {
+        const response = await fetch(`/api/post_${formNum}`, {
           method: 'POST',
           body: formData
         });
@@ -180,35 +190,45 @@
           showStatus(formNum, 'Успешно отправлено!', 'success');
 
           // Отображаем результат
-          document.getElementById(`res-title-${formNum}`).textContent = result.title || '';
-          document.getElementById(`res-desc-${formNum}`).textContent = result.desc || '';
-          
+          if (document.getElementById(`res-title-${formNum}`)) {
+            document.getElementById(`res-title-${formNum}`).textContent = result.title || '';
+          }
+          if (document.getElementById(`res-desc-${formNum}`)) {
+            document.getElementById(`res-desc-${formNum}`).textContent = result.desc || '';
+          }
+
           const resUrlEl = document.getElementById(`res-url-${formNum}`);
-          if (result.url) {
-            resUrlEl.href = result.url;
-            resUrlEl.textContent = result.url;
-            resUrlEl.classList.remove('hidden');
-          } else {
-            resUrlEl.classList.add('hidden');
+          if (resUrlEl) {
+            if (result.url) {
+              resUrlEl.href = result.url;
+              resUrlEl.textContent = result.url;
+              resUrlEl.classList.remove('hidden');
+            } else {
+              resUrlEl.classList.add('hidden');
+            }
           }
 
           const imgEl = document.getElementById(`res-img-${formNum}`);
-          if (result.img_path) {
-            imgEl.src = result.img_path.startsWith('http') 
-              ? result.img_path 
+          if (imgEl && result.img_path) {
+            imgEl.src = result.img_path.startsWith('http')
+              ? result.img_path
               : window.location.origin + result.img_path;
             imgEl.style.display = 'inline';
-          } else {
+          } else if (imgEl) {
             imgEl.style.display = 'none';
           }
-          document.getElementById(`result-${formNum}`).classList.remove('hidden');
+
+          if (document.getElementById(`result-${formNum}`)) {
+            document.getElementById(`result-${formNum}`).classList.remove('hidden');
+          }
 
           // Очистка формы
-          document.getElementById(`title-${formNum}`).value = '';
-          document.getElementById(`description-${formNum}`).value = '';
-          document.getElementById(`url-${formNum}`).value = '';
-          fileInput.value = '';
-          document.getElementById(`image-preview-${formNum}`).classList.add('hidden');
+          if (document.getElementById(`title-${formNum}`)) document.getElementById(`title-${formNum}`).value = '';
+          if (document.getElementById(`description-${formNum}`)) document.getElementById(`description-${formNum}`).value = '';
+          if (document.getElementById(`url-${formNum}`)) document.getElementById(`url-${formNum}`).value = '';
+          if (fileInput) fileInput.value = '';
+          const preview = document.getElementById(`image-preview-${formNum}`);
+          if (preview) preview.classList.add('hidden');
         } else {
           showStatus(formNum, `Ошибка: ${result.error || response.statusText}`, 'error');
         }
@@ -220,9 +240,11 @@
 
     function showStatus(formNum, text, type) {
       const el = document.getElementById(`status-${formNum}`);
-      el.textContent = text;
-      el.className = `status ${type}`;
-      el.classList.remove('hidden');
+      if (el) {
+        el.textContent = text;
+        el.className = `status ${type}`;
+        el.classList.remove('hidden');
+      }
     }
   </script>
 </body>

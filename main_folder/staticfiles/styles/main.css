@@ -589,6 +589,11 @@ main {
   margin-bottom: 10px;
 }
 
+.all-news {
+  width: 208px;
+  height: 45px;
+}
+
 /* Historical lines */
 
 .historical-lines {

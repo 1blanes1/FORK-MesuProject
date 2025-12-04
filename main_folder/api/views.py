@@ -12,7 +12,7 @@ from django.conf import settings
 
 
 def my_page(request):
-    return render(request, 'index.html')
+    return render(request, 'index2.html')
 def admin(request):
     return render(request, 'admin.html')
 def history_page(request):
@@ -53,7 +53,7 @@ def post_partner(request):
         # Сохраняем изображение, если оно есть
         if image:
             # Формируем путь: uploads/имя_файла
-            upload_to = 'uploads'
+            upload_to = 'uploads/partner_img'
             full_path = os.path.join(upload_to, image.name)
 
             # Безопасность: избегаем перезаписи и путей вроде '../../etc/passwd'
@@ -93,7 +93,7 @@ def post_news(request):
         # Сохраняем изображение, если оно есть
         if image:
             # Формируем путь: uploads/имя_файла
-            upload_to = 'uploads'
+            upload_to = 'uploads/news_img'
             full_path = os.path.join(upload_to, image.name)
 
             # Безопасность: избегаем перезаписи и путей вроде '../../etc/passwd'
@@ -102,13 +102,13 @@ def post_news(request):
             # Сохраняем файл
             path = default_storage.save(full_path, ContentFile(image.read()))
             img_path = default_storage.url(path)  # Например: '/media/uploads/photo.jpg'
-
+            real_img_path = "/static/news_img/" + image.name
         # Подготавливаем данные
         data = {
             "title": title,
             "desc": desc,
             "url": url,
-            "img_path": img_path
+            "img_path": real_img_path
         }
         filepath = os.path.join(settings.BASE_DIR,'media','jsons', 'news.json')
         # Сохраняем в JSON (твоя функция)
@@ -134,7 +134,7 @@ def post_history_line(request):
         # Сохраняем изображение, если оно есть
         if image:
             # Формируем путь: uploads/имя_файла
-            upload_to = 'uploads'
+            upload_to = 'uploads/history_img'
             full_path = os.path.join(upload_to, image.name)
 
             # Безопасность: избегаем перезаписи и путей вроде '../../etc/passwd'
