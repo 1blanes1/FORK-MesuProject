@@ -86,16 +86,16 @@
 
       <section class="news">
         <div class="news-container" id="news-container">
-            <h2>Новости</h2>
-            <!-- Контейнер для новостей -->
-            <div class="news-wrapper" id="news-wrapper"></div>
-            
-            <!-- Кнопка "Все новости" (остается статичной) -->
-            <a href="#news" class="page-button">
-                <img src="{% static 'img/main-page/news_button.png' %}" class="all-news" alt="Все новости">
-            </a>
+          <h2>Новости</h2>
+          <!-- Контейнер для новостей -->
+          <div class="news-wrapper" id="news-wrapper"></div>
+
+          <!-- Кнопка "Все новости" (остается статичной) -->
+          <a href="#news" class="page-button">
+            <img src="{% static 'img/main-page/news_button.png' %}" class="all-news" alt="Все новости">
+          </a>
         </div>
-    </section>
+      </section>
 
       <section class="historical-lines">
         <div class="historical-lines-container">
@@ -106,33 +106,9 @@
                 <img src="{% static 'img/arrow_left.png' %}" alt="Назад" width="40" height="25">
               </button>
 
-              <div class="slides-container">
-                <div class="historical-line">
-                  <img src="{% static 'img/oil_icon.png' %}" width="95.07" height="95.07">
-                  <h3>Та САМАЯ нефть</h3>
-                  <p>Рассказывает о истории открытия нефти в Западной Сибири в 60-х годах геологами во главе с Ф.К.
-                    Салмановым.
-                    Реализован в 2021-2023 годах
-                    Российская Федерация, Республика Азербайджан
-                  </p>
-                </div>
-                <div class="historical-line">
-                  <img src="{% static 'img/star_icon.png' %}" width="95.07" height="95.07">
-                  <h3>Те САМЫЕ Города-герои</h3>
-                  <p>Рассказывает о городах, удостоенных высшему званию "Город-герой" в годы Великой Отечественной
-                    войны.
-                    Реализуется с 2025 года
-                    Российская Федерация, Республика Беларусь
-                  </p>
-                </div>
-                <div class="historical-line">
-                  <img src="{% static 'img/rocket_icon.png' %}" width="95.07" height="95.07">
-                  <h3>Тот САМЫЙ полёт</h3>
-                  <p>Рассказывает о людях и событиях, благодаря которым осуществился первый полёт человека в космос.
-                    Будет реализован в 2026 году
-                    Российская Федерация, Республика Казахстан
-                  </p>
-                </div>
+              <!-- Контейнер для слайдов с id для скрипта -->
+              <div class="slides-container" id="slides-container">
+                <!-- Здесь будут добавляться исторические линии через JS -->
               </div>
 
               <button class="lines-btn lines-next-btn" id="nextBtn">
@@ -302,77 +278,166 @@
 
   </script>
   <script>
-        function addNewsCard(title, img_path, url) {
-            // Находим контейнер для новостей
-            const newsWrapper = document.getElementById('news-wrapper');
-            if (!newsWrapper) {
-                console.error('Контейнер .news-wrapper не найден!');
-                return;
-            }
+    function addNewsCard(title, img_path, url) {
+      // Находим контейнер для новостей
+      const newsWrapper = document.getElementById('news-wrapper');
+      if (!newsWrapper) {
+        console.error('Контейнер .news-wrapper не найден!');
+        return;
+      }
 
-            // Создаем элемент новости с классом news-item
-            const newsItem = document.createElement('div');
-            newsItem.className = 'news-item';
+      // Создаем элемент новости с классом news-item
+      const newsItem = document.createElement('div');
+      newsItem.className = 'news-item';
 
-            // Создаем ссылку
-            const link = document.createElement('a');
-            link.href = url || '#';
+      // Создаем ссылку
+      const link = document.createElement('a');
+      link.href = url || '#';
 
-            // Создаем изображение с классом news-img
-            const img = document.createElement('img');
-            img.className = 'news-img';
-            img.src = img_path;
-            img.alt = title || 'Изображение новости';
+      // Создаем изображение с классом news-img
+      const img = document.createElement('img');
+      img.className = 'news-img';
+      img.src = img_path;
+      img.alt = title || 'Изображение новости';
 
-            // Создаем заголовок
-            const titleEl = document.createElement('h3');
-            titleEl.textContent = title || 'Без заголовка';
+      // Создаем заголовок
+      const titleEl = document.createElement('h3');
+      titleEl.textContent = title || 'Без заголовка';
 
-            // Собираем структуру
-            link.appendChild(img);
-            link.appendChild(titleEl);
-            newsItem.appendChild(link);
-            newsWrapper.appendChild(newsItem);
+      // Собираем структуру
+      link.appendChild(img);
+      link.appendChild(titleEl);
+      newsItem.appendChild(link);
+      newsWrapper.appendChild(newsItem);
+    }
+
+    async function loadNews() {
+      try {
+        const res = await fetch('/news');
+        if (!res.ok) {
+          throw new Error(`Ошибка загрузки: ${res.status}`);
         }
 
-        async function loadNews() {
-            try {
-                const res = await fetch('/news');
-                if (!res.ok) {
-                    throw new Error(`Ошибка загрузки: ${res.status}`);
-                }
-                
-                const arr = await res.json();
-                console.log(`Загружено ${arr.length} новостей`);
+        const arr = await res.json();
+        console.log(`Загружено ${arr.length} новостей`);
 
-                // Очищаем контейнер перед добавлением новых новостей
-                const newsWrapper = document.getElementById('news-wrapper');
-                if (newsWrapper) {
-                    newsWrapper.innerHTML = '';
-                }
-
-                // Добавляем каждую новость
-                for (let i = 0; i < arr.length; i++) {
-                    addNewsCard(
-                        arr[i].title, 
-                        arr[i].img_path, 
-                        arr[i].url
-                    );
-                }
-                
-            } catch (error) {
-                console.error('Ошибка при загрузке новостей:', error);
-                // Можно показать сообщение об ошибке пользователю
-                const newsWrapper = document.getElementById('news-wrapper');
-                if (newsWrapper) {
-                    newsWrapper.innerHTML = '<p>Не удалось загрузить новости. Попробуйте позже.</p>';
-                }
-            }
+        // Очищаем контейнер перед добавлением новых новостей
+        const newsWrapper = document.getElementById('news-wrapper');
+        if (newsWrapper) {
+          newsWrapper.innerHTML = '';
         }
 
-        // Загружаем новости при загрузке страницы
-        document.addEventListener('DOMContentLoaded', loadNews);
-    </script>
+        // Добавляем каждую новость
+        for (let i = 0; i < arr.length; i++) {
+          addNewsCard(
+            arr[i].title,
+            arr[i].img_path,
+            arr[i].url
+          );
+        }
+
+      } catch (error) {
+        console.error('Ошибка при загрузке новостей:', error);
+        // Можно показать сообщение об ошибке пользователю
+        const newsWrapper = document.getElementById('news-wrapper');
+        if (newsWrapper) {
+          newsWrapper.innerHTML = '<p>Не удалось загрузить новости. Попробуйте позже.</p>';
+        }
+      }
+    }
+
+    // Загружаем новости при загрузке страницы
+    document.addEventListener('DOMContentLoaded', loadNews);
+  </script>
+  <script>
+    // Функция добавления одной исторической линии
+    function addHistoricalLine(title, desc, url, img_path) {
+      const slidesContainer = document.getElementById('slides-container');
+      if (!slidesContainer) {
+        console.error('Контейнер #slides-container не найден!');
+        return;
+      }
+
+      // Создание карточки
+      const historicalLine = document.createElement('div');
+      historicalLine.className = 'historical-line';
+
+      // Изображение
+      const img = document.createElement('img');
+      img.className = 'historical-img';
+      img.src = img_path || '';
+      img.alt = title || 'Изображение исторической линии';
+
+      // Ссылка
+      const link = document.createElement('a');
+      link.href = url || '#';
+
+      // Заголовок
+      const titleH3 = document.createElement('h3');
+      titleH3.textContent = title || 'Без заголовка';
+
+      // Описание
+      const description = document.createElement('p');
+      description.textContent = desc || 'Без описания';
+
+      // Собираем структуру
+      link.appendChild(titleH3);
+      link.appendChild(description);
+      historicalLine.appendChild(img);
+      historicalLine.appendChild(link);
+
+      // Добавляем в контейнер
+      slidesContainer.appendChild(historicalLine);
+    }
+
+    // Функция загрузки исторических линий с сервера
+    async function loadHistoricalLines() {
+      try {
+        // Здесь должен быть ваш endpoint для загрузки исторических линий
+        // Например: /historical-lines, /api/lines и т.д.
+        const response = await fetch('/historical-lines');
+
+        if (!response.ok) {
+          throw new Error(`Ошибка HTTP: ${response.status}`);
+        }
+
+        const lines = await response.json();
+        console.log(`Загружено ${lines.length} исторических линий`);
+
+        // Очищаем контейнер перед добавлением новых элементов
+        const slidesContainer = document.getElementById('slides-container');
+        if (slidesContainer) {
+          slidesContainer.innerHTML = '';
+        }
+
+        // Добавляем каждую историческую линию
+        lines.forEach(line => {
+          addHistoricalLine(
+            line.title,      // Название линии
+            line.desc, // Описание
+            line.url,        // Ссылка
+            line.img_path    // Путь к изображению
+          );
+        });
+
+      } catch (error) {
+        console.error('Ошибка при загрузке исторических линий:', error);
+
+        // Можно добавить сообщение об ошибке для пользователя
+        const slidesContainer = document.getElementById('slides-container');
+        if (slidesContainer) {
+          slidesContainer.innerHTML = `
+                      <div class="error-message">
+                          <p>Не удалось загрузить исторические линии. Попробуйте обновить страницу.</p>
+                      </div>
+                  `;
+        }
+      }
+    }
+
+    // Загружаем исторические линии при загрузке страницы
+    document.addEventListener('DOMContentLoaded', loadHistoricalLines);
+  </script>
   <script src="{% static 'scripts/script.js' %}"></script>
 </body>
 
