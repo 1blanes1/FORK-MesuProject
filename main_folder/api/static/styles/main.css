@@ -715,9 +715,19 @@ main {
   position: relative;
 }
 
-.historical-line img {
+.historical-img {
+  width: 95px;
+  height: 95px;
   margin-bottom: 20px;
   flex-shrink: 0;
+}
+
+.historical-a {
+  color: white;
+}
+
+.historical-a:hover {
+  color: #283687;
 }
 
 .historical-line h3 {
