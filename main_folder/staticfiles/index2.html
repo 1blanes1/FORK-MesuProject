@@ -318,7 +318,7 @@
           throw new Error(`Ошибка загрузки: ${res.status}`);
         }
 
-        const arr = await res.json();
+        const arr = (await res.json()).slice(0, 3);
         console.log(`Загружено ${arr.length} новостей`);
 
         // Очищаем контейнер перед добавлением новых новостей
@@ -328,7 +328,7 @@
         }
 
         // Добавляем каждую новость
-        for (let i = 0; i < arr.length <= 3; i++) {
+        for (let i = 0; i < arr.length; i++) {
           addNewsCard(
             arr[i].title,
             arr[i].img_path,
