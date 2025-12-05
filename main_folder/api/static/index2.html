@@ -395,7 +395,7 @@
       try {
         // Здесь должен быть ваш endpoint для загрузки исторических линий
         // Например: /historical-lines, /api/lines и т.д.
-        const response = await fetch('/historical-lines');
+        const response = await fetch('/history_page/get');
 
         if (!response.ok) {
           throw new Error(`Ошибка HTTP: ${response.status}`);
