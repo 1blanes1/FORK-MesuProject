@@ -36,7 +36,7 @@ STATICFILES_DIRS = [
     BASE_DIR / 'api/static',
     BASE_DIR / 'media/uploads/'
 ]
-DEBUG = True                                                        
+DEBUG = True                                                    
 
 
 

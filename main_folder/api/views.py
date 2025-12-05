@@ -115,7 +115,7 @@ def post_partner(request):
             # Сохраняем файл
             path = default_storage.save(full_path, ContentFile(image.read()))
             img_path = default_storage.url(path)  # Например: '/media/uploads/photo.jpg'
-
+            real_img_path = "/static/partner_img/" + image.name
         # Подготавливаем данные
         data = {
             "title": title,
@@ -196,13 +196,13 @@ def post_history_line(request):
             # Сохраняем файл
             path = default_storage.save(full_path, ContentFile(image.read()))
             img_path = default_storage.url(path)  # Например: '/media/uploads/photo.jpg'
-
+            real_img_path = "/static/history_img/" + image.name
         # Подготавливаем данные
         data = {
             "title": title,
             "desc": desc,
             "url": url,
-            "img_path": img_path
+            "img_path": real_img_path
         }
         filepath = os.path.join(settings.BASE_DIR,'media','jsons', 'history_lines.json')
         # Сохраняем в JSON (твоя функция)
