@@ -27,7 +27,11 @@ urlpatterns = [
     # ^  api для добавления в список команды
     path('team_page/get', views.get_team, name='team'),
     # ^ api для запроса команды
-    path('team_page', views.team_page, name='team_page')
+    path('team_page', views.team_page, name='team_page'),
+    # ^ страница с командой
+    path('contacts_page', views.contacts_page, name='contacts'),
+    # ^ страница с контактами
+    path('news_page', views.news_page, name='news_page')
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

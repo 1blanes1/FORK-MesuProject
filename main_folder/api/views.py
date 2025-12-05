@@ -19,6 +19,10 @@ def history_page(request):
     return render(request, 'history_page.html')
 def team_page(request):
     return render(request, 'team_page.html')
+def contacts_page(request):
+    return render(request, 'contacts.html')
+def news_page(request):
+    return render(request, 'news_page.html')
 
 @csrf_exempt
 def get_partners(request):
