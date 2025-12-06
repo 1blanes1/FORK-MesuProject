@@ -1,0 +1,210 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Та САМАЯ Россия - Команда</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'styles/team.css' %}">
+</head>
+
+<body>
+  <header>
+    <div class="intro">
+      <div class="video">
+        <img src="{% static 'img/team-page/team.png' %}" alt="Фоновое изображение команды" class="background-image" id="heroImage">
+      </div>
+
+
+      <div class="header-top">
+        <div class="menu-toggle" id="menuToggle">
+          <img src="{% static 'img/menu_button.png' %}" alt="Кнопка меню">
+        </div>
+        <img src="{% static 'img/logo.png' %}" alt="Логотип" class="logo">
+      </div>
+
+      <div class="hero-content">
+        <h1 class="hero-title">КОМАНДА</h1>
+        <p class="hero-subtitle">
+          Те люди, которые создают
+          <span class="force-break">"Ту САМУЮ Россию"</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-header">
+        <span class="close-btn" id="closeBtn">×</span>
+        <img src="{% static 'img/image_in_menu.png' %}" alt="Картинка" class="image-menu">
+      </div>
+      <ul>
+        <li><a href="/">Главная</a></li>
+        <li><a href="/team_page">Команда проекта</a></li>
+        <li><a href="#news">Новости</a></li>
+        <li><a href="#history">Исторические линии</a></li>
+        <li><a href="#map">Интерактивная карта</a></li>
+        <li><a href="#partners">Партнёры</a></li>
+        <li><a href="/contacts_page">Контакты</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <div class="fone">
+      <!-- Основной блок: Команда -->
+      <section class="team-section">
+
+          <div class="content-wrapper">
+            <div class="team-grid">
+              <!-- Карточка 1 -->
+              <div class="team-card">
+                <img src="{% static 'img/team-page/1.png' %}" alt="Похоренко Марина Константиновна" class="team-photo">
+                <h3>Похоренко Марина Константиновна</h3>
+                <p class="position">Специалист отдела молодёжной политики СурГУ</p>
+                <p class="role">Концептуальный директор</p>
+                <a href="#" target="_blank" class="vk-link">
+                  <img src="{% static 'img/team-page/vk.svg' %}" alt="VK" class="vk-icon">
+                </a>
+              </div>
+
+              <!-- Карточка 2 -->
+              <div class="team-card">
+                <img src="{% static 'img/team-page/2.png' %}" alt="Шатон Юлия Борисовна" class="team-photo">
+                <h3>Шатон Юлия Борисовна</h3>
+                <p class="position">Директор музейно-выставочного комплекса УрФУ</p>
+                <p class="role">Руководитель, научный эксперт</p>
+                <a href="#" target="_blank" class="vk-link">
+                  <img src="{% static 'img/team-page/vk.svg' %}" alt="VK" class="vk-icon">
+                </a>
+              </div>
+
+              <!-- Карточка 3 -->
+              <div class="team-card">
+                <img src="{% static 'img/team-page/3.png' %}" alt="Шаров Вячеслав Александрович" class="team-photo">
+                <h3>Шаров Вячеслав Александрович</h3>
+                <p class="position">Студент УрФУ имени Б.Н. Ельцина</p>
+                <p class="role">Менеджер</p>
+                <a href="#" target="_blank" class="vk-link">
+                  <img src="{% static 'img/team-page/vk.svg' %}" alt="VK" class="vk-icon">
+                </a>
+              </div>
+
+              <!-- Карточка 4 -->
+              <div class="team-card">
+                <img src="{% static 'img/team-page/4.png' %}" alt="Ломаева Дарья Сергеевна" class="team-photo">
+                <h3>Ломаева Дарья Сергеевна</h3>
+                <p class="position">Директор волонтёрского центра «Волонтёры Урала»</p>
+                <p class="role">Специалист по работе с партнёрами</p>
+                <a href="#" target="_blank" class="vk-link">
+                  <img src="{% static 'img/team-page/vk.svg' %}" alt="VK" class="vk-icon">
+                </a>
+              </div>
+
+              <!-- Карточка 5 -->
+              <div class="team-card">
+                <img src="{% static 'img/team-page/5.png' %}" alt="Чудинова Мария Александровна" class="team-photo">
+                <h3>Чудинова Мария Александровна</h3>
+                <p class="position">Студент РТУ МИРЭА</p>
+                <p class="role">Специалист по работе с участниками</p>
+                <a href="#" target="_blank" class="vk-link">
+                  <img src="{% static 'img/team-page/vk.svg' %}" alt="VK" class="vk-icon">
+                </a>
+              </div>
+
+              <!-- Карточка 6 -->
+              <div class="team-card">
+                <img src="{% static 'img/team-page/6.png' %}" alt="Пантелеева Анастасия Сергеевна" class="team-photo">
+                <h3>Пантелеева Анастасия Сергеевна</h3>
+                <p class="position">Студент ВятГУ</p>
+                <p class="role">Специалист по медиасопровождению</p>
+                <a href="#" target="_blank" class="vk-link">
+                  <img src="{% static 'img/team-page/vk.svg' %}" alt="VK" class="vk-icon">
+                </a>
+              </div>
+            </div>
+          </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Подвал -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <img src="{% static 'img/footer-logo.png' %}" alt="Логотип проекта Та САМАЯ Россия" class="footer-logo">
+      <p class="footer-copyright">© Та САМАЯ Россия, 2025 год</p>
+    </div>
+  </footer>
+
+
+
+
+
+
+  <script>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const closeBtn = document.getElementById('closeBtn');
+
+    menuToggle.addEventListener('click', function () {
+      mobileMenu.classList.toggle('active');
+    });
+
+    closeBtn.addEventListener('click', function () {
+      mobileMenu.classList.remove('active');
+    });
+
+    // Close menu when clicking on links
+    const menuLinks = document.querySelectorAll('.mobile-menu a');
+    menuLinks.forEach(link => {
+      link.addEventListener('click', function () {
+        mobileMenu.classList.remove('active');
+      });
+    });
+
+    // Замена фото на маленьком экране
+    function updateBackgroundImage() {
+      const img = document.getElementById('heroImage');
+      const isMobile = window.innerWidth <= 1023;
+
+      if (isMobile) {
+        img.src = 'img/team-page/background-main.png'; // узор на мобильных
+      } else {
+        img.src = 'img/team-page/team.png'; // фото команды на десктопе
+      }
+    }
+
+    // Запуск при загрузке страницы
+    document.addEventListener('DOMContentLoaded', updateBackgroundImage);
+
+    // Запуск при изменении размера окна
+    window.addEventListener('resize', updateBackgroundImage);
+
+    // Smooth scrolling for anchor links ПОКА НЕ РЕАЛИЗОВАНО!
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 70,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+  </script>
+  <script src="scripts/script.js"></script>
+</body>
