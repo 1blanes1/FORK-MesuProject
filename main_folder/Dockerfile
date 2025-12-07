@@ -14,7 +14,7 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Копируем исходный код
-COPY . .
+COPY main_folder/ .
 
 # Собираем статику (если нужно)
 RUN python manage.py collectstatic --noinput
@@ -23,4 +23,4 @@ RUN python manage.py collectstatic --noinput
 EXPOSE 8000
 
 # Запуск через Gunicorn
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "json_api.wsgi:application"]
+CMD ["gunicorn", "--bind", "0.0.0.0:{$PORT}", "json_api.wsgi:application"]

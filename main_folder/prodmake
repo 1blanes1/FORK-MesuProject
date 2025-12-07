@@ -3,3 +3,6 @@ build:
 
 run:
 	docker run -p 8000:8000 myapp
+all:
+    build
+    run
