@@ -120,25 +120,25 @@
   </div>
 
   <!-- Форма: Участник команды -->
-  <div id="main-section-team_hui" class="hidden form-section">
+  <div id="main-section-team_member" class="hidden form-section">
     <h2>Добавить участника команды</h2>
-    <input type="text" id="title-team_hui" placeholder="Имя / ФИО">
-    <input type="text" id="status-team_hui" placeholder="Статус (например, студент, магистрант и т.д.)">
-    <input type="text" id="role-team_hui" placeholder="Роль в команде (например, разработчик, дизайнер)">
-    <input type="url" id="url-team_hui" placeholder="Ссылка на профиль (необязательно)">
-    <input type="file" id="image-team_hui" accept="image/*" onchange="previewImage(event, 'image-preview-team_hui')">
-    <img id="image-preview-team_hui" class="preview hidden" alt="Предпросмотр">
+    <input type="text" id="title-team_member" placeholder="Имя / ФИО">
+    <input type="text" id="status-team_member" placeholder="Статус (например, студент, магистрант и т.д.)">
+    <input type="text" id="role-team_member" placeholder="Роль в команде (например, разработчик, дизайнер)">
+    <input type="url" id="url-team_member" placeholder="Ссылка на профиль (необязательно)">
+    <input type="file" id="image-team_member" accept="image/*" onchange="previewImage(event, 'image-preview-team_member')">
+    <img id="image-preview-team_member" class="preview hidden" alt="Предпросмотр">
 
-    <button onclick="submitData('team_hui')">Отправить</button>
-    <div id="status-team_hui" class="hidden"></div>
+    <button onclick="submitData('team_member')">Отправить</button>
+    <div id="status-team_member" class="hidden"></div>
 
-    <div id="result-team_hui" class="hidden" style="margin-top: 20px; padding: 15px; border: 1px solid #ccc;">
+    <div id="result-team_member" class="hidden" style="margin-top: 20px; padding: 15px; border: 1px solid #ccc;">
       <h3>Отправлено:</h3>
-      <p><strong>Имя:</strong> <span id="res-title-team_hui"></span></p>
-      <p><strong>Статус:</strong> <span id="res-status-team_hui"></span></p>
-      <p><strong>Роль:</strong> <span id="res-role-team_hui"></span></p>
-      <p><strong>Ссылка:</strong> <a id="res-url-team_hui" href="#" target="_blank" style="color: #1a0dab; text-decoration: underline;" class="hidden"></a></p>
-      <p><strong>Картинка:</strong> <img id="res-img-team_hui" style="max-width:100px; display: none;"></p>
+      <p><strong>Имя:</strong> <span id="res-title-team_member"></span></p>
+      <p><strong>Статус:</strong> <span id="res-status-team_member"></span></p>
+      <p><strong>Роль:</strong> <span id="res-role-team_member"></span></p>
+      <p><strong>Ссылка:</strong> <a id="res-url-team_member" href="#" target="_blank" style="color: #1a0dab; text-decoration: underline;" class="hidden"></a></p>
+      <p><strong>Картинка:</strong> <img id="res-img-team_member" style="max-width:100px; display: none;"></p>
     </div>
   </div>
 
@@ -186,7 +186,7 @@
       document.getElementById('main-section-news').classList.remove('hidden');
       document.getElementById('main-section-history_line').classList.remove('hidden');
       document.getElementById('main-section-partners').classList.remove('hidden');
-      document.getElementById('main-section-team_hui').classList.remove('hidden');
+      document.getElementById('main-section-team_member').classList.remove('hidden');
     }
 
     if (localStorage.getItem('user')) showMain();

@@ -62,14 +62,14 @@ def get_history_lines(request):
 @csrf_exempt
 def get_team(request):
     if request.method == 'GET':
-        filepath = os.path.join(settings.BASE_DIR,'media', 'jsons', 'team_hui.json')
-        team_hui = read_json(filepath)
-        return JsonResponse(team_hui, safe=False)
+        filepath = os.path.join(settings.BASE_DIR,'media', 'jsons', 'team_member.json')
+        team_member = read_json(filepath)
+        return JsonResponse(team_member, safe=False)
 
 
 @csrf_exempt
 @require_http_methods(["POST"])
-def post_team_hui(request):
+def post_team_member(request):
     try:
         title = request.POST.get('title', '').strip()
         status = request.POST.get('status', '').strip()
@@ -83,7 +83,7 @@ def post_team_hui(request):
         # Сохраняем изображение, если оно есть
         if image:
             # Формируем путь: uploads/имя_файла
-            upload_to = 'uploads/team_hui_img'
+            upload_to = 'uploads/team_member_img'
             full_path = os.path.join(upload_to, image.name)
 
             # Безопасность: избегаем перезаписи и путей вроде '../../etc/passwd'
@@ -92,7 +92,7 @@ def post_team_hui(request):
             # Сохраняем файл
             path = default_storage.save(full_path, ContentFile(image.read()))
             img_path = default_storage.url(path)  # Например: '/media/uploads/photo.jpg'
-            real_img_path = "/static/team_hui_img/" + image.name
+            real_img_path = "/static/team_member_img/" + image.name
         # Подготавливаем данные
         data = {
             "title": title,
@@ -101,7 +101,7 @@ def post_team_hui(request):
             "url": url,
             "img_path": real_img_path
         }
-        filepath = os.path.join(settings.BASE_DIR,'media', 'jsons', 'team_hui.json')
+        filepath = os.path.join(settings.BASE_DIR,'media', 'jsons', 'team_member.json')
         # Сохраняем в JSON (твоя функция)
         add_item_to_json(data, filepath)
 
