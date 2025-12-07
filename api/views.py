@@ -214,7 +214,7 @@ def post_history_line(request):
             # Сохраняем файл
             path = default_storage.save(full_path, ContentFile(image.read()))
             img_path = default_storage.url(path)  # Например: '/media/uploads/photo.jpg'
-            real_img_path = "/static/history_img/" + image.name
+            real_img_path = "/static/img/" + image.name
         # Подготавливаем данные
         data = {
             "title": title,
