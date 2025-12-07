@@ -1,7 +1,7 @@
-# Используем официальный Python-образ
+# Dockerfile
 FROM python:3.11-slim
 
-# Устанавливаем зависимости ОС (если нужны)
+# Устанавливаем системные зависимости
 RUN apt-get update && apt-get install -y --no-install-recommends \
     gcc \
     && rm -rf /var/lib/apt/lists/*
@@ -9,16 +9,16 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # Рабочая директория
 WORKDIR /app
 
-# Копируем зависимости
-COPY main_folder/requirements.txt .
+# Копируем зависимости и устанавливаем их
+COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Копируем код
+# Копируем исходный код
 COPY main_folder/ .
 
-# Собираем статику (если нужно)
-RUN python manage.py collectstatic --noinput
+# Открываем порт (для документации — Railway сам управляет портом)
+EXPOSE $PORT
 
-# Запуск через gunicorn с использованием $PORT
-# ⚠️ Обязательно в shell-форме, чтобы подставилась переменная
-CMD gunicorn --bind 0.0.0.0:$PORT json_api.wsgi:application
+# Собираем статику и запускаем приложение при старте
+CMD python manage.py collectstatic --noinput && \
+    gunicorn --bind 0.0.0.0:$PORT json_api.wsgi:application
