@@ -31,7 +31,9 @@ urlpatterns = [
     # ^ страница с командой
     path('contacts_page', views.contacts_page, name='contacts'),
     # ^ страница с контактами
-    path('news_page', views.news_page, name='news_page')
+    path('news_page', views.news_page, name='news_page'),
+    
+    path('api/login/', views.login_view, name='login'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

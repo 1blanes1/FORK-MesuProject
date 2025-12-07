@@ -1,20 +1,2 @@
 [
-  {
-    "title": "ГОРШОК",
-    "desc": "ПАНКИ ХОЙ",
-    "url": "https://www.youtube.com/watch?v=w9XCutRR9Wc&list=RDw9XCutRR9Wc&start_radio=1",
-    "img_path": "/static/news_img/goshok.webp"
-  },
-  {
-    "title": "ЮРА ХОЙ",
-    "desc": "ПАНКИ ХОЙ",
-    "url": "https://www.youtube.com/watch?v=QMA8tcdxA9g&list=RDQMA8tcdxA9g&start_radio=1",
-    "img_path": "/static/news_img/ura_hoi.jpg"
-  },
-  {
-    "title": "ЕГОР ЛЕТОВ",
-    "desc": "ПАНКИ ХОЙ",
-    "url": "https://www.youtube.com/watch?v=GZLuk3SK-3k&list=RDGZLuk3SK-3k&start_radio=1",
-    "img_path": "/static/news_img/images.webp"
-  }
 ]

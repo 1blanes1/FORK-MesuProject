@@ -143,17 +143,43 @@
   </div>
 
   <script>
-    // === Авторизация ===
-    function login() {
+    async function login() {
       const user = document.getElementById('username').value.trim();
       const pass = document.getElementById('password').value;
       if (!user || !pass) {
         alert('Введите логин и пароль');
         return;
       }
-      localStorage.setItem('user', user);
-      showMain();
+
+      const response = await fetch('/api/login/', {
+        method: 'POST',
+        // headers: { "X-CSRFToken": getCookie('csrftoken') }, // важно для Django!
+        body: new URLSearchParams({ username: user, password: pass })
+      });
+
+      if (response.ok) {
+        showMain();
+      } else {
+        const data = await response.json();
+        alert('Ошибка: ' + (data.error || 'Неизвестная ошибка'));
+      }
     }
+
+    // Функция для получения CSRF-токена (стандартная для Django)
+    function getCookie(name) {
+      let cookieValue = null;
+      if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+          const cookie = cookies[i].trim();
+          if (cookie.substring(0, name.length + 1) === (name + '=')) {
+            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+            break;
+          }
+        }
+      }
+      return cookieValue;
+  }
 
     function showMain() {
       document.getElementById('auth-section').classList.add('hidden');

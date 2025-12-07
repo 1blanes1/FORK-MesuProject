@@ -9,6 +9,7 @@ from api.functions import *
 from .models import UploadedImage
 from django.shortcuts import render
 from django.conf import settings
+from django.contrib.auth import authenticate, login
 
 
 def my_page(request):
@@ -23,6 +24,19 @@ def contacts_page(request):
     return render(request, 'contacts.html')
 def news_page(request):
     return render(request, 'news_page.html')
+
+@csrf_exempt
+def login_view(request):
+    if request.method == "POST":
+        username = request.POST.get("username")
+        password = request.POST.get("password")
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return JsonResponse({"success": True})
+        else:
+            return JsonResponse({"error": "Неверный логин или пароль"}, status=401)
+    return JsonResponse({"error": "Только POST"}, status=405)
 
 @csrf_exempt
 def get_partners(request):
