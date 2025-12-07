@@ -18,7 +18,7 @@ def admin(request):
 def history_page(request):
     return render(request, 'history_page.html')
 def team_page(request):
-    return render(request, 'team_page.html')
+    return render(request, 'team.html')
 def contacts_page(request):
     return render(request, 'contacts.html')
 def news_page(request):
