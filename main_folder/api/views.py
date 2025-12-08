@@ -23,6 +23,8 @@ def contacts_page(request):
     return render(request, 'contacts.html')
 def news_page(request):
     return render(request, 'news_page.html')
+def partners_page(request):
+    return render(request, 'partners.html')
 
 @csrf_exempt
 def get_partners(request):
