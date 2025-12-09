@@ -6,25 +6,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Та САМАЯ Россия - Контакты</title>
+  <title>Та САМАЯ Россия - Исторические линии</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="{% static 'styles/contacts.css' %}">
+  <link rel="stylesheet" href="{% static 'styles/history_lines.css' %}">
 </head>
 
 <body>
   <header>
-    <div class="intro">
-      <div class="video">
-        <img src="{% static 'img/contacts-page/background-main.png' %}" alt="Фоновое изображение для контактов"
-          class="background-image">
-      </div>
-
-
+    
       <div class="header-top">
         <div class="menu-toggle" id="menuToggle">
           <img src="{% static 'img/menu_button.png' %}" alt="Кнопка меню">
@@ -32,11 +26,6 @@
         <img src="{% static 'img/logo.png' %}" alt="Логотип" class="logo">
       </div>
 
-      <div class="hero-content">
-        <h1 class="hero-title">КОНТАКТЫ</h1>
-        <p class="hero-subtitle">Наша команда всегда на связи!</p>
-      </div>
-    </div>
 
     <div class="mobile-menu" id="mobileMenu">
       <div class="mobile-menu-header">
@@ -56,47 +45,15 @@
   </header>
   <main>
     <div class="fone">
-      <section class="section-addres-and-map">
+      <section class="lines-section">
         <div class="content-wrapper">
-          <div class="addres-and-map">
-            <div class="text-block">
-              <h2>Юридический адрес:</h2>
-              <p>
-                Главный учебный корпус УрФУ:<br>
-                620062, Свердловская область,<br>
-                г. Екатеринбург, ул. Мира, д. 19
-              </p>
-            </div>
+          <h2 class="section-title">Исторические линии</h2>
 
-            <!-- Блок с картой -->
-            <div class="map-block">
-              <img src="{% static 'img/contacts-page/map-urfu.png' %}" alt="Карта расположения УрФУ" class="map-image">
-            </div>
-          </div>
         </div>
       </section>
     </div>
-
-    <section class="section-contacts-social">
-      <div class="content-wrapper-social">
-        <div class="contact-info">
-          <p>+7 (922) 658-85-63</p>
-          <p>volural@gmail.com</p>
-          <div class="social-buttons">
-            <a href="https://vk.com/your_vkontakte" target="_blank" class="social-btn vk">
-              <img src="{% static 'img/contacts-page/vk.svg' %}" alt="ВКонтакте">
-            </a>
-            <a href="https://t.me/your_telegram" target="_blank" class="social-btn tg">
-              <img src="{% static 'img/contacts-page/telegram.svg' %}" alt="Telegram">
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
   </main>
-  </div>
+
   <!-- Подвал -->
   <footer class="site-footer">
     <div class="footer-content">
@@ -104,10 +61,6 @@
       <p class="footer-copyright">© Та САМАЯ Россия, 2025 год</p>
     </div>
   </footer>
-
-
-
-
 
 
   <script>
@@ -132,25 +85,6 @@
       });
     });
 
-    // Smooth scrolling for anchor links ПОКА НЕ РЕАЛИЗОВАНО!
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-
-        if (targetElement) {
-          window.scrollTo({
-            top: targetElement.offsetTop - 70,
-            behavior: 'smooth'
-          });
-        }
-      });
-    });
-
   </script>
   <script src="scripts/script.js"></script>
 </body>
-
-</html>
