@@ -501,37 +501,38 @@ main {
     gap: 40px;
     margin-bottom: 34px;
   }
-  
+
   .news-item {
     max-width: 500px;
     margin: 0 auto;
   }
-  
+
   .news-item h3 {
     font-size: 20px;
     line-height: 24px;
     max-width: 350px;
     min-height: 68px;
   }
-  
+
   .news h2 {
     text-align: center;
     padding-left: 0;
     margin-bottom: 50px;
   }
-  
+
   .news-img {
     max-height: 200px;
   }
-  
+
   @media (max-width: 767px) {
+
     .news-item h3 {
       font-size: 18px;
       line-height: 22px;
       max-width: 280px;
       min-height: 66px;
     }
-    
+
     .news-img {
       max-height: 180px;
     }
@@ -541,12 +542,15 @@ main {
       display: none;
     }
   }
-  
+
   @media (min-width: 768px) and (max-width: 1023px) {
+
+
+
     .news-item h3 {
       min-height: 70px;
     }
-    
+
     .news-img {
       max-height: 210px;
     }
@@ -561,15 +565,16 @@ main {
     padding-left: clamp(20px, 5vw, 80px);
     padding-right: clamp(20px, 5vw, 80px);
   }
-  
+
   .news-container {
     padding-left: clamp(20px, 4vw, 60px);
     padding-right: clamp(20px, 4vw, 60px);
   }
-  
+
   .news-img {
     max-height: 205px;
-    max-width: min(370px, 100%); /* Ограничение по ширине, но не более 100% */
+    max-width: min(370px, 100%);
+    /* Ограничение по ширине, но не более 100% */
   }
 }
 
@@ -688,9 +693,11 @@ main {
   overflow-x: auto;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
-  
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE and Edge */
+
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
 }
 
 .slides-container::-webkit-scrollbar {
@@ -818,17 +825,17 @@ main {
   .lines-btn:hover {
     background-color: #fff;
   }
-  
+
   .lines-btn:active {
     background-color: #669BBD;
     transform: scale(0.94) translateY(1px);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   }
-  
+
   .lines-btn {
     -webkit-tap-highlight-color: transparent;
   }
-  
+
   /* iOS */
   .lines-btn {
     -webkit-touch-callout: none;
@@ -836,6 +843,8 @@ main {
 }
 
 @media (min-width: 768px) {
+
+
   .historical-lines-container::before {
     top: 15px;
     left: -25px;
@@ -855,12 +864,12 @@ main {
     grid-auto-columns: calc((100% - 60px) / 2);
     max-width: calc(280px * 2 + 60px);
   }
-  
+
   .lines-wrapper {
     justify-content: center;
     margin-bottom: 100px;
   }
-  
+
   .historical-line {
     max-width: 280px;
   }
@@ -885,12 +894,12 @@ main {
   .lines-wrapper {
     margin-bottom: 100px;
   }
-  
+
   .slides-container {
     grid-auto-columns: calc((100% - (2 * 60px)) / 3);
     max-width: calc(280px * 3 + 60px * 2);
   }
-  
+
   .historical-line {
     max-width: 280px;
   }
@@ -943,6 +952,7 @@ main {
 }
 
 @media (max-width: 767px) {
+
   .historical-lines-container::before,
   .historical-lines-container::after,
   .historical-lines-decor::before {
@@ -954,25 +964,25 @@ main {
     margin: 30px 0 40px;
     text-align: center;
   }
-  
+
   .lines-wrapper {
     margin-bottom: 40px;
     padding: 0 15px;
   }
-  
+
   .slides-container {
     max-width: 280px;
     gap: 40px;
   }
-  
+
   .lines-prev-btn {
     margin-right: 15px;
   }
-  
+
   .lines-next-btn {
     margin-left: 15px;
   }
-  
+
   .slides-container {
     margin: 0 auto;
   }
@@ -984,7 +994,7 @@ main {
     padding: 15px 18px;
     max-width: 260px;
   }
-  
+
   .historical-line h3 {
     -webkit-line-clamp: none;
     line-clamp: none;
@@ -1016,22 +1026,22 @@ main {
     height: 38px;
     width: 50px;
   }
-  
+
   .lines-prev-btn {
     margin-right: 10px;
     padding: 7px 9px 7px 5px;
   }
-  
+
   .lines-next-btn {
     margin-left: 10px;
     padding: 7px 5px 7px 9px;
   }
-  
+
   .lines-btn img {
     width: 30px;
     height: auto;
   }
-  
+
   .historical-lines h2 {
     font-size: 22px;
     margin: 25px 0 35px;
@@ -1042,25 +1052,26 @@ main {
   .lines-btn {
     display: none;
   }
-  
+
   .slides-container {
     max-width: 240px;
     gap: 20px;
-    scrollbar-width: thin; /* Firefox */
+    scrollbar-width: thin;
+    /* Firefox */
     scrollbar-color: #404040 #EDF2F2;
   }
-  
+
   .slides-container::-webkit-scrollbar {
     display: block;
     height: 6px;
   }
-  
+
   .slides-container::-webkit-scrollbar-track {
     background: #EDF2F2;
     border-radius: 3px;
     margin: 0 10px;
   }
-  
+
   .slides-container::-webkit-scrollbar-thumb {
     background: #C2121F;
     border-radius: 3px;
@@ -1451,6 +1462,13 @@ main {
   }
 
 
+  .news {
+    background-color: #669BBD;
+  }
+
+
+
+
   .map-background {
     height: 300px;
   }
@@ -1585,4 +1603,6 @@ main {
     font-size: 16px;
   }
 
-};
+}
+
+;

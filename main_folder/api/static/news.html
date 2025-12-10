@@ -6,25 +6,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Та САМАЯ Россия - Исторические линии</title>
+  <title>Та САМАЯ Россия - Новости</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="{% static 'styles/history_lines.css' %}">
+  <link rel="stylesheet" href="{% static 'styles/news.css' %}">
 </head>
 
 <body>
   <header>
-    
-      <div class="header-top">
-        <div class="menu-toggle" id="menuToggle">
-          <img src="{% static 'img/menu_button.png' %}" alt="Кнопка меню">
-        </div>
-        <img src="{% static 'img/logo.png' %}" alt="Логотип" class="logo">
+
+    <div class="header-top">
+      <div class="menu-toggle" id="menuToggle">
+        <img src="{% static 'img/menu_button.png' %}" alt="Кнопка меню">
       </div>
+      <img src="{% static 'img/logo.png' %}" alt="Логотип" class="logo">
+    </div>
 
 
     <div class="mobile-menu" id="mobileMenu">
@@ -45,10 +45,11 @@
   </header>
   <main>
     <div class="fone">
-      <section class="lines-section">
+      <section class="news-section">
         <div class="content-wrapper">
-          <h2 class="section-title">Исторические линии</h2>
-
+          <h2 class="section-title">Новости
+            <img src="{% static 'img/news/megaphone.png' %}" alt="Мегафон" class="megaphone-icon">
+          </h2>
         </div>
       </section>
     </div>

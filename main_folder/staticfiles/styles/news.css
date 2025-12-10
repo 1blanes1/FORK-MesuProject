@@ -182,7 +182,7 @@ main {
 
 
 /* Общий стиль для любого раздела */
-.lines-section {
+.news-section {
   position: relative;
   /* min-height: 100vh;  */
   display: flex;
@@ -209,6 +209,7 @@ main {
 
 
 
+/* Стили для заголовка + мегафона */
 .section-title {
   font-family: Raleway;
   font-weight: 700;
@@ -217,12 +218,31 @@ main {
   line-height: 100%;
   letter-spacing: 0%;
   text-align: left;
+
+
   padding-left: 100px;
-  margin-bottom: 60px;
-  padding-top: 60px;
+  margin-bottom: 40px;
+  padding-top: 20px;
+  display: flex;
+  /* ← Ключевое: делаем заголовок флекс-контейнером */
+  align-items: center;
+  /* Выравниваем по центру по вертикали */
+  gap: 15px;
+  /* Расстояние между текстом и мегафоном */
 }
 
-.section-title::before {
+.megaphone-icon {
+  max-width: 152px;
+  /* Подберите под размер вашего изображения */
+  height: auto;
+  vertical-align: middle;
+  /* Альтернатива, если не работает flex */
+}
+
+/* Опционально: при наведении — анимация */
+
+
+/* .section-title::before {
   content: "";
   position: absolute;
   top: 20px;
@@ -235,17 +255,7 @@ main {
   background-size: contain;
   background-repeat: no-repeat;
   z-index: -1;
-}
-
-
-
-
-
-
-
-
-
-
+} */
 
 
 /* FOOTER */
@@ -396,20 +406,25 @@ main {
   }
 
   .section-title {
+    padding-top: 0;
     padding-left: 0;
-    padding-bottom: 40px;
-    padding-top: 40px;
-    text-align: center;
+    /* padding-bottom: 40px; */
+    text-align: center; /* ← Центрируем ВЕСЬ контент внутри h2 */
+    display: block; /* ← Отключаем flex */
+    line-height: 1.4;
+    
+  }
+
+  .megaphone-icon {
+    max-width: 120px;
+    display: inline-block; /* ← Чтобы остался рядом с текстом */
+    margin-left: 8px; /* небольшой отступ от текста */
+    vertical-align: middle;
   }
 
   .section-title::before {
     display: none;
     /* скрываем декорации на мобильных */
-  }
-
-  .fone {
-    background-image: none;
-    background-color: rgb(237, 242, 242);
   }
 }
 
@@ -440,13 +455,18 @@ main {
   }
 
   .section-title {
+    padding: 0;
     font-size: 1.5rem;
+    text-align: center; /* ← Центрируем ВЕСЬ контент внутри h2 */
+    display: block;
   }
 
-  .section-content p {
-    font-size: 1rem;
+  .megaphone-icon {
+    max-width: 90px;
+    margin-left: 6px;
+    display: inline-block; /* ← Чтобы остался рядом с текстом */ /* небольшой отступ от текста */
+    vertical-align: middle;
   }
-
 
   .fone {
     background-image: none;
@@ -467,3 +487,7 @@ main {
   }
 
 }
+
+
+
+
