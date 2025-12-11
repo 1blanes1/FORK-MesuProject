@@ -34,6 +34,11 @@ urlpatterns = [
     path('news_page', views.news_page, name='news_page'),
     
     path('api/login/', views.login_view, name='login'),
+
+    path('api/delete/news', views.delete_news, name='delete'),
+    path('api/delete/history_line', views.delete_history_line, name='delete'),
+    path('api/delete/partner', views.delete_partner, name='delete'),
+    path('api/delete/team_member', views.delete_team_member, name='delete'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

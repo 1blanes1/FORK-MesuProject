@@ -71,3 +71,34 @@ def read_json(file_path):
     except json.JSONDecodeError:
         print(f"Ошибка: файл {file_path} содержит некорректный JSON")
         return None
+def delete_from_json_file(filepath, value):
+    """
+    Удаляет из JSON-файла все элементы, у которых field == value.
+
+    :param filepath: путь к JSON-файлу (должен содержать список объектов)
+    :param field: имя поля, по которому искать (например, 'title')
+    :param value: значение, которое должно совпасть
+    """
+    field = "title"
+    if not os.path.exists(filepath):
+        raise FileNotFoundError(f"Файл {filepath} не найден")
+
+    # Чтение данных
+    with open(filepath, 'r', encoding='utf-8') as f:
+        try:
+            data = json.load(f)
+        except json.JSONDecodeError as e:
+            raise ValueError(f"Некорректный JSON в файле {filepath}: {e}")
+
+    if not isinstance(data, list):
+        raise ValueError("JSON-файл должен содержать список объектов")
+
+    # Фильтрация: оставляем только те элементы, где поле НЕ равно value
+    filtered_data = [item for item in data if item.get(field) != value]
+
+    # Запись обратно в файл
+    with open(filepath, 'w', encoding='utf-8') as f:
+        json.dump(filtered_data, f, ensure_ascii=False, indent=2)
+
+    print(f"Удалено {len(data) - len(filtered_data)} записей с {field} = {value!r}")
+    pass

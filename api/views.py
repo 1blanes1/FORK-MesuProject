@@ -10,6 +10,9 @@ from .models import UploadedImage
 from django.shortcuts import render
 from django.conf import settings
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
+import json
+import os
 
 
 def my_page(request):
@@ -25,7 +28,7 @@ def contacts_page(request):
 def news_page(request):
     return render(request, 'news_page.html')
 
-@csrf_exempt
+
 def login_view(request):
     if request.method == "POST":
         username = request.POST.get("username")
@@ -38,36 +41,86 @@ def login_view(request):
             return JsonResponse({"error": "Неверный логин или пароль"}, status=401)
     return JsonResponse({"error": "Только POST"}, status=405)
 
-@csrf_exempt
+
 def get_partners(request):
     if request.method == 'GET':
         filepath = os.path.join(settings.BASE_DIR,'media', 'jsons', 'partners.json')
         news = read_json(filepath)
         return JsonResponse(news, safe=False)
 
-@csrf_exempt
+
 def get_news(request):
     if request.method == 'GET':
         filepath = os.path.join(settings.BASE_DIR,'media', 'jsons', 'news.json')
         news = read_json(filepath)
         return JsonResponse(news, safe=False)
     
-@csrf_exempt
+
 def get_history_lines(request):
     if request.method == 'GET':
         filepath = os.path.join(settings.BASE_DIR,'media', 'jsons', 'history_lines.json')
         history_line = read_json(filepath)
         return JsonResponse(history_line, safe=False)
 
-@csrf_exempt
+
 def get_team(request):
     if request.method == 'GET':
         filepath = os.path.join(settings.BASE_DIR,'media', 'jsons', 'team_member.json')
         team_member = read_json(filepath)
         return JsonResponse(team_member, safe=False)
 
+@login_required
+@require_http_methods(["DELETE"])
+def delete_history_line(request):
+    try:
+        data = json.loads(request.body)
+        title = data.get('title')
+        print(title)
+        delete_from_json_file('media/jsons/history_lines.json', title)
+        return JsonResponse('ok', status=200, safe=False)
+    except Exception as e:
+        return JsonResponse({"error": str(e)}, status=500)
 
-@csrf_exempt
+@login_required
+@require_http_methods(["DELETE"])
+def delete_news(request):
+    try:
+        data = json.loads(request.body)
+        title = data.get('title')
+        print(title)
+        delete_from_json_file('media/jsons/news.json', title)
+        return JsonResponse('ok', status=200, safe=False)
+    except Exception as e:
+        return JsonResponse({"error": str(e)}, status=500)
+
+@login_required
+@require_http_methods(["DELETE"])
+def delete_partner(request):
+    try:
+        data = json.loads(request.body)
+        title = data.get('title')
+        print(title)
+        delete_from_json_file('media/jsons/partners.json', title)
+        return JsonResponse('ok', status=200, safe=False)
+    except Exception as e:
+        return JsonResponse({"error": str(e)}, status=500)
+    pass
+
+@login_required
+@require_http_methods(["DELETE"])
+def delete_team_member(request):
+    try:
+        data = json.loads(request.body)
+        title = data.get('title')
+        print(title)
+        delete_from_json_file('media/jsons/team_member.json', title)
+        return JsonResponse('ok', status=200, safe=False)
+    except Exception as e:
+        return JsonResponse({"error": str(e)}, status=500)
+    pass
+
+
+@login_required
 @require_http_methods(["POST"])
 def post_team_member(request):
     try:
@@ -109,7 +162,7 @@ def post_team_member(request):
     except Exception as e:
         return JsonResponse({"error": str(e)}, status=500)
 
-@csrf_exempt
+@login_required
 @require_http_methods(["POST"])
 def post_partner(request):
     try:
@@ -147,7 +200,7 @@ def post_partner(request):
     except Exception as e:
         return JsonResponse({"error": str(e)}, status=500)
 
-@csrf_exempt
+@login_required
 @require_http_methods(["POST"])
 def post_news(request):
     try:
@@ -187,7 +240,7 @@ def post_news(request):
     except Exception as e:
         return JsonResponse({"error": str(e)}, status=500)
 
-@csrf_exempt
+@login_required
 @require_http_methods(["POST"])    
 def post_history_line(request):
     try:
