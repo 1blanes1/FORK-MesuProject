@@ -1,0 +1,91 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Та САМАЯ Россия - Новости</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'styles/news.css' %}">
+</head>
+
+<body>
+  <header>
+
+    <div class="header-top">
+      <div class="menu-toggle" id="menuToggle">
+        <img src="{% static 'img/menu_button.png' %}" alt="Кнопка меню">
+      </div>
+      <img src="{% static 'img/logo.png' %}" alt="Логотип" class="logo">
+    </div>
+
+
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-header">
+        <span class="close-btn" id="closeBtn">×</span>
+        <img src="{% static 'img/image_in_menu.png' %}" alt="Картинка" class="image-menu">
+      </div>
+      <ul>
+        <li><a href="/">Главная</a></li>
+        <li><a href="/team_page">Команда проекта</a></li>
+        <li><a href="/news_page">Новости</a></li>
+        <li><a href="/history_page">Исторические линии</a></li>
+        <li><a href="#map">Интерактивная карта</a></li>
+        <li><a href="/partners_page">Партнёры</a></li>
+        <li><a href="/contacts_page">Контакты</a></li>
+      </ul>
+    </div>
+  </header>
+  <main>
+    <div class="fone">
+      <section class="news-section">
+        <div class="content-wrapper">
+          <h2 class="section-title">Новости
+            <img src="{% static 'img/news/megaphone.png' %}" alt="Мегафон" class="megaphone-icon">
+          </h2>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Подвал -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <img src="{% static 'img/footer-logo.png' %}" alt="Логотип проекта Та САМАЯ Россия" class="footer-logo">
+      <p class="footer-copyright">© Та САМАЯ Россия, 2025 год</p>
+    </div>
+  </footer>
+
+
+  <script>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const closeBtn = document.getElementById('closeBtn');
+
+    menuToggle.addEventListener('click', function () {
+      mobileMenu.classList.toggle('active');
+    });
+
+    closeBtn.addEventListener('click', function () {
+      mobileMenu.classList.remove('active');
+    });
+
+    // Close menu when clicking on links
+    const menuLinks = document.querySelectorAll('.mobile-menu a');
+    menuLinks.forEach(link => {
+      link.addEventListener('click', function () {
+        mobileMenu.classList.remove('active');
+      });
+    });
+
+  </script>
+  <script src="scripts/script.js"></script>
+</body>

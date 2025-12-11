@@ -20,13 +20,15 @@ def my_page(request):
 def admin(request):
     return render(request, 'admin.html')
 def history_page(request):
-    return render(request, 'history_page.html')
+    return render(request, 'history_lines.html')
 def team_page(request):
     return render(request, 'team.html')
 def contacts_page(request):
     return render(request, 'contacts.html')
 def news_page(request):
-    return render(request, 'news_page.html')
+    return render(request, 'news.html')
+def partners_page(request):
+    return render(request, 'partners.html')
 
 
 def login_view(request):

@@ -35,6 +35,8 @@ urlpatterns = [
     
     path('api/login/', views.login_view, name='login'),
 
+    path('partners_page', views.partners_page, name='partners'),
+
     path('api/delete/news', views.delete_news, name='delete'),
     path('api/delete/history_line', views.delete_history_line, name='delete'),
     path('api/delete/partner', views.delete_partner, name='delete'),
