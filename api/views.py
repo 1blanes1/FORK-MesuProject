@@ -13,10 +13,12 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 import json
 import os
+from django.views.decorators.csrf import ensure_csrf_cookie
 
 
 def my_page(request):
     return render(request, 'index2.html')
+@ensure_csrf_cookie
 def admin(request):
     return render(request, 'admin.html')
 def history_page(request):
