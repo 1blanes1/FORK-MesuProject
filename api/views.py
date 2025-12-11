@@ -92,14 +92,13 @@ def post_team_member(request):
             # Сохраняем файл
             path = default_storage.save(full_path, ContentFile(image.read()))
             img_path = default_storage.url(path)  # Например: '/media/uploads/photo.jpg'
-            real_img_path = "/static/team_member_img/" + image.name
         # Подготавливаем данные
         data = {
             "title": title,
             "status": status,
             "role": role,
             "url": url,
-            "img_path": real_img_path
+            "img_path": img_path
         }
         filepath = os.path.join(settings.BASE_DIR,'media', 'jsons', 'team_member.json')
         # Сохраняем в JSON (твоя функция)
@@ -133,7 +132,6 @@ def post_partner(request):
             # Сохраняем файл
             path = default_storage.save(full_path, ContentFile(image.read()))
             img_path = default_storage.url(path)  # Например: '/media/uploads/photo.jpg'
-            real_img_path = "/static/partner_img/" + image.name
         # Подготавливаем данные
         data = {
             "title": title,
@@ -173,13 +171,12 @@ def post_news(request):
             # Сохраняем файл
             path = default_storage.save(full_path, ContentFile(image.read()))
             img_path = default_storage.url(path)  # Например: '/media/uploads/photo.jpg'
-            real_img_path = "/static/news_img/" + image.name
         # Подготавливаем данные
         data = {
             "title": title,
             "desc": desc,
             "url": url,
-            "img_path": real_img_path
+            "img_path": img_path
         }
         filepath = os.path.join(settings.BASE_DIR,'media','jsons', 'news.json')
         # Сохраняем в JSON (твоя функция)
