@@ -23,8 +23,8 @@ header {
 
 
 .header-top {
-  position: fixed;
-  /* или sticky, если нужно */
+  position: sticky;
+  /* или fixed, если нужно */
   top: 0;
   left: 0;
   right: 0;
@@ -159,7 +159,6 @@ header {
 
 
 main {
-  padding-top: 164px;
   /* = высота .header-top */
   position: relative;
   z-index: 1;
