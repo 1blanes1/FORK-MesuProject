@@ -344,7 +344,28 @@ header {
   margin: 0;
 }
 
+.partners-title {
+  font-family: Raleway;
+  font-weight: 700;
+  font-size: 30px;
+  text-align: center;
+  margin-bottom: 40px;
+  color: #000;
+}
 
+.partner-link {
+  text-decoration: none;
+}
+
+.partner-link:hover {
+  color: #283687;
+}
+
+/* Заставляем заголовки и параграфы наследовать цвет от родительской ссылки при наведении */
+.partner-link:hover h3,
+.partner-link:hover p {
+  color: inherit; /* или напрямую color: #283687; */
+}
 
 /* FOOTER */
 
@@ -477,7 +498,8 @@ header {
                 height: 40px;
             } */
 
-  .section-title {
+  .section-title,
+  .partners-title {
     font-size: 2rem;
   }
 
@@ -514,7 +536,8 @@ header {
     padding-bottom: 40px;
   }
 
-  .section-title {
+  .section-title,
+  .partners-title {
     font-size: 24px;
     padding-top: 30px;
     margin-bottom: 30px;
@@ -567,7 +590,8 @@ header {
     line-height: 1.4;
   }
 
-  .section-title {
+  .section-title,
+  .partners-title {
     font-size: 1.5rem;
   }
 
