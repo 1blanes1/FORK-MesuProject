@@ -23,8 +23,8 @@ header {
 
 
 .header-top {
-  position: fixed;
-  /* или sticky, если нужно */
+  position: sticky;
+  /* или fixed, если нужно */
   top: 0;
   left: 0;
   right: 0;
@@ -159,7 +159,6 @@ header {
 
 
 main {
-  padding-top: 164px;
   /* = высота .header-top */
   position: relative;
   z-index: 1;
@@ -203,8 +202,6 @@ main {
   background-color: rgb(237, 242, 242);
   box-sizing: border-box;
   z-index: 1;
-  height: 100vh;
-  /* Экспериментально ЕСЛИ ЧТО, ТО МОЖНО УБРАТЬ */
 }
 
 
@@ -218,11 +215,7 @@ main {
   line-height: 100%;
   letter-spacing: 0%;
   text-align: left;
-
-
   padding-left: 100px;
-  margin-bottom: 40px;
-  padding-top: 20px;
   display: flex;
   /* ← Ключевое: делаем заголовок флекс-контейнером */
   align-items: center;
@@ -257,6 +250,118 @@ main {
   z-index: -1;
 } */
 
+/* News cards */
+
+.news-item {
+  display: flex;
+  padding: 45px 55px;
+  background-color: #669BBD;
+  font-family: "Exo 2";
+}
+
+.news-item:nth-child(even) {
+  background-color: #EDF2F2;
+}
+
+.news-item:nth-child(even) a:hover {
+  color: #c2121f;
+}
+
+.news-img {
+  height: 210px;
+  width: auto;
+  margin-right: 60px;
+}
+
+.news-card-wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.news-link {
+  display: block;
+  text-decoration: none;
+  color: #273687;
+}
+
+.news-link:hover {
+  color: white;
+}
+
+.news-title {
+  margin-bottom: 20px;
+}
+
+.news-desc {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* Pagination */
+
+#pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 60px;
+  margin-bottom: 80px;
+}
+
+.page-btn {
+  min-width: 35px;
+  height: 44px;
+  border: none;
+  padding: 0 5px;
+  background: transparent;
+  color: #C2121F;
+  font-family: "Raleway";
+  font-weight: 700;
+  font-size: 30px;
+  cursor: pointer;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.page-btn:hover:not(.active) {
+  background-color: rgba(194, 18, 31, 0.1);
+}
+
+.page-btn.active {
+  background-color: #C2121F;
+  color: white;
+}
+
+.dots {
+  color: #C2121F;
+  font-weight: 700;
+  font-size: 30px;
+  padding: 0 5px;
+}
+
+.last-btn {
+  width: 53px;
+  height: 44px;
+  border: none;
+  background: transparent;
+  color: #C2121F;
+  font-size: 28px;
+  letter-spacing: -4px;
+  cursor: pointer;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.last-btn:hover {
+  background-color: rgba(194, 18, 31, 0.1);
+}
 
 /* FOOTER */
 
@@ -297,13 +402,7 @@ main {
   margin: 0;
 }
 
-
-
-
-
-
-
-
+/* Adaptability */
 
 @media (max-width: 1280px) and (min-width: 1025px) {
   .hero-content {
@@ -401,24 +500,27 @@ main {
   .content-wrapper {
     flex-direction: column;
     gap: 30px;
-    padding: 20px 0;
-    max-width: 95%;
+    padding: 0;
+    max-width: 100%;
   }
 
   .section-title {
-    padding-top: 0;
-    padding-left: 0;
+    padding: 15px 0px;
     /* padding-bottom: 40px; */
-    text-align: center; /* ← Центрируем ВЕСЬ контент внутри h2 */
-    display: block; /* ← Отключаем flex */
+    text-align: center;
+    /* ← Центрируем ВЕСЬ контент внутри h2 */
+    display: block;
+    /* ← Отключаем flex */
     line-height: 1.4;
-    
+
   }
 
   .megaphone-icon {
     max-width: 120px;
-    display: inline-block; /* ← Чтобы остался рядом с текстом */
-    margin-left: 8px; /* небольшой отступ от текста */
+    display: inline-block;
+    /* ← Чтобы остался рядом с текстом */
+    margin-left: 8px;
+    /* небольшой отступ от текста */
     vertical-align: middle;
   }
 
@@ -426,9 +528,69 @@ main {
     display: none;
     /* скрываем декорации на мобильных */
   }
+
+  .fone {
+    background-image: none;
+    background-color: rgb(237, 242, 242);
+  }
+
+  .news-item {
+    text-align: center;
+    align-items: center;
+    gap: 16px;
+    padding: 25px 35px;
+  }
+
+  .news-img {
+    height: 150px;
+    width: auto;
+    margin-right: 20px;
+  }
+
+  .news-card-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .news-title {
+    margin-bottom: 0;
+    font-size: 1.4rem;
+  }
+
+  .news-desc {
+    font-size: 1rem;
+    max-width: 90%;
+  }
+
+  /* Пагинация */
+  #pagination {
+    gap: 6px;
+    margin-top: 40px;
+    margin-bottom: 60px;
+    flex-wrap: wrap;
+  }
+
+  .page-btn,
+  .last-btn {
+    min-width: 32px;
+    height: 40px;
+    font-size: 24px;
+    padding: 0 4px;
+  }
+
+  .last-btn {
+    width: 48px;
+    letter-spacing: -3px;
+  }
+
+  .dots {
+    font-size: 24px;
+    padding: 0 4px;
+  }
 }
-
-
 
 /* маленькие экраны */
 @media (max-width: 480px) {
@@ -457,14 +619,17 @@ main {
   .section-title {
     padding: 0;
     font-size: 1.5rem;
-    text-align: center; /* ← Центрируем ВЕСЬ контент внутри h2 */
+    text-align: center;
+    /* ← Центрируем ВЕСЬ контент внутри h2 */
     display: block;
   }
 
   .megaphone-icon {
     max-width: 90px;
     margin-left: 6px;
-    display: inline-block; /* ← Чтобы остался рядом с текстом */ /* небольшой отступ от текста */
+    display: inline-block;
+    /* ← Чтобы остался рядом с текстом */
+    /* небольшой отступ от текста */
     vertical-align: middle;
   }
 
@@ -486,8 +651,49 @@ main {
     font-size: 16px;
   }
 
+  .news-item {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 15px;
+    gap: 12px;
+  }
+
+  .news-img {
+    height: 150px;
+    width: auto;
+    margin-right: 0;
+    object-fit: cover;
+  }
+
+  .news-title {
+    font-size: 1.25rem;
+  }
+
+  .news-desc {
+    font-size: 0.95rem;
+    max-width: 95%;
+  }
+
+  /* Пагинация */
+  #pagination {
+    gap: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .page-btn,
+  .last-btn {
+    min-width: 28px;
+    height: 36px;
+    font-size: 20px;
+  }
+
+  .last-btn {
+    width: 42px;
+    letter-spacing: -2.5px;
+  }
+
+  .dots {
+    font-size: 20px;
+  }
 }
-
-
-
-

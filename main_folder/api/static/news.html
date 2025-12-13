@@ -50,6 +50,8 @@
           <h2 class="section-title">Новости
             <img src="{% static 'img/news/megaphone.png' %}" alt="Мегафон" class="megaphone-icon">
           </h2>
+          <div class="news-wrapper" id="news-wrapper"></div>
+          <div id="pagination"></div>
         </div>
       </section>
     </div>
@@ -87,5 +89,6 @@
     });
 
   </script>
-  <script src="scripts/script.js"></script>
+  <script src="{% static 'scripts/script.js' %}"></script>
+  <script src="{% static 'scripts/news.js' %}"></script>
 </body>
