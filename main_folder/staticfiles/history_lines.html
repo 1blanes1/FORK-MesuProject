@@ -18,13 +18,13 @@
 
 <body>
   <header>
-    
-      <div class="header-top">
-        <div class="menu-toggle" id="menuToggle">
-          <img src="{% static 'img/menu_button.png' %}" alt="Кнопка меню">
-        </div>
-        <img src="{% static 'img/logo.png' %}" alt="Логотип" class="logo">
+
+    <div class="header-top">
+      <div class="menu-toggle" id="menuToggle">
+        <img src="{% static 'img/menu_button.png' %}" alt="Кнопка меню">
       </div>
+      <img src="{% static 'img/logo.png' %}" alt="Логотип" class="logo">
+    </div>
 
 
     <div class="mobile-menu" id="mobileMenu">
@@ -48,7 +48,7 @@
       <section class="lines-section">
         <div class="content-wrapper">
           <h2 class="section-title">Исторические линии</h2>
-
+          <div class="lines-wrapper"></div>
         </div>
       </section>
     </div>
@@ -86,5 +86,6 @@
     });
 
   </script>
-  <script src="scripts/script.js"></script>
+  <script src="{% static 'scripts/script.js' %}"></script>
+  <script src="{% static 'scripts/history_lines.js' %}"></script>
 </body>
