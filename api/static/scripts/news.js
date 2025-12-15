@@ -45,7 +45,7 @@ function renderNewsPage(page) {
         // Описание
         const newDesc = document.createElement('p');
         newDesc.className = 'news-desc';
-        newDesc.textContent = news.description || news.title || 'Без описания';
+        newDesc.textContent = news.description || 'Без описания';
 
         // Сборка
         newsLink.appendChild(newsTitle);
