@@ -202,6 +202,7 @@ main {
   background-color: rgb(237, 242, 242);
   box-sizing: border-box;
   z-index: 1;
+  min-height: 100vh;
   /* Экспериментально ЕСЛИ ЧТО, ТО МОЖНО УБРАТЬ */
 }
 
@@ -246,11 +247,14 @@ main {
 
 .line-card {
   display: flex;
-  justify-content: center;
+  justify-content: left;
   min-width: 80%;
   max-width: 80%;
   margin-bottom: 80px;
+  
+
 }
+
 
 .card-image {
   height: 192px;
@@ -517,6 +521,7 @@ main {
     align-items: center;
     margin-bottom: 60px;
     max-width: 90%;
+    padding-left: 0;
   }
 
   .card-image {

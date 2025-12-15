@@ -271,6 +271,7 @@ main {
   height: 210px;
   width: auto;
   margin-right: 60px;
+  padding-left: 45px;
 }
 
 .news-card-wrapper {
@@ -455,6 +456,8 @@ main {
   }
 
 
+
+
   /* header */
   .hero-title {
     font-size: 4rem;
@@ -545,6 +548,7 @@ main {
     height: 150px;
     width: auto;
     margin-right: 20px;
+    padding-left: 0px;
   }
 
   .news-card-wrapper {
@@ -663,6 +667,7 @@ main {
     width: auto;
     margin-right: 0;
     object-fit: cover;
+    padding-left: 0px;
   }
 
   .news-title {
