@@ -23,8 +23,8 @@ header {
 
 
 .header-top {
-  position: fixed;
-  /* или sticky, если нужно */
+  position: sticky;
+  /* или fixed, если нужно */
   top: 0;
   left: 0;
   right: 0;
@@ -159,7 +159,6 @@ header {
 
 
 main {
-  padding-top: 164px;
   /* = высота .header-top */
   position: relative;
   z-index: 1;
@@ -203,7 +202,7 @@ main {
   background-color: rgb(237, 242, 242);
   box-sizing: border-box;
   z-index: 1;
-  height: 100vh;
+  min-height: 100vh;
   /* Экспериментально ЕСЛИ ЧТО, ТО МОЖНО УБРАТЬ */
 }
 
@@ -237,16 +236,114 @@ main {
   z-index: -1;
 }
 
+/* Lines */
 
+.lines-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
 
+.line-card {
+  display: flex;
+  justify-content: center;
+  min-width: 80%;
+  max-width: 80%;
+  margin-bottom: 80px;
+}
 
+.card-image {
+  height: 192px;
+  background-color: #780001;
+  border: solid #780001;
+  border-width: 21px 25px;
+  border-radius: 20px 0 0 20px;
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.card-image img {
+  width: 150px;
+  height: 150px;
+  border-radius: 20px;
+}
 
+.card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 22px;
+  padding: 50px;
 
+  min-width: 60%;
+  max-width: 70%;
+  min-height: 222px;
 
+  border: 10px solid #780001;
+  border-radius: 20px;
+  border-top-left-radius: 0;
+}
 
+.line-card:nth-child(even) {
+  align-items: flex-end;
+}
 
+.line-card:nth-child(even) .card-content {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 20px;
+}
+
+.card-content-top {
+  display: flex;
+  gap: 15px;
+}
+
+.line-link {
+  text-decoration: none;
+  color: black;
+}
+
+.line-link h3 {
+  font-family: "Raleway";
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 20px;
+  line-height: 20px;
+  letter-spacing: 0%;
+}
+
+.line-view-link {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  text-decoration: none;
+  color: black;
+}
+
+.card-view-icon {
+  color: #C2121F;
+}
+
+.card-view-text {
+  font-family: "Exo 2";
+  font-weight: 300;
+  font-style: Light;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0%;
+}
+
+.card-description {
+  font-family: Exo 2;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0%;
+}
 
 /* FOOTER */
 
@@ -411,6 +508,40 @@ main {
     background-image: none;
     background-color: rgb(237, 242, 242);
   }
+
+  .section-title {
+    margin-bottom: 0;
+  }
+
+  .line-card {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 60px;
+    max-width: 90%;
+  }
+
+  .card-image {
+    height: 162px;
+    border-width: 16px 20px;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 20px;
+    align-self: flex-start;
+  }
+
+  .card-image img {
+    width: 130px;
+    height: 130px;
+  }
+
+  .card-content {
+    padding: 25px;
+    max-width: 100%;
+  }
+
+  .line-card:nth-child(even) .card-content {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 20px;
+  }
 }
 
 
@@ -466,4 +597,17 @@ main {
     font-size: 16px;
   }
 
+  .line-card {
+    margin-bottom: 40px;
+  }
+
+  .card-image {
+    height: 146px;
+    border-width: 13px 17px;
+  }
+
+  .card-image img {
+    width: 120px;
+    height: 120px;
+  }
 }
