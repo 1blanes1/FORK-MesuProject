@@ -1309,7 +1309,7 @@ main {
 
 
 /* Адаптивность — планшеты 1024 */
-@media (max-width: 1024px) and (min-width: 769px) {
+@media (max-width: 1280px) and (min-width: 769px) {
   .content-wrapper {
     gap: 30px;
     padding: 20px 0;
@@ -1322,13 +1322,19 @@ main {
 
 
   .project-logo {
-    max-width: 300px;
+    max-width: 350px;
     margin-right: 0;
   }
 
   .map-background {
     height: 320px;
   }
+
+  .about-us{
+    justify-content: center;
+    gap: 20px;
+  }
+
 
   .map-button img {
     max-width: 320px;
@@ -1412,7 +1418,7 @@ main {
   }
 
   .about-us {
-    padding: 0 5px;
+    padding: 30px 5px;
   }
 
   .text-block {
@@ -1551,6 +1557,10 @@ main {
 
   .section-content p {
     font-size: 1rem;
+  }
+
+  .about-us {
+    padding: 0 5px;
   }
 
   .text-block {
