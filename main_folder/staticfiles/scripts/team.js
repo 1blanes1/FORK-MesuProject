@@ -40,7 +40,7 @@ function addTeamCard(member) {
   // Примечание: путь к иконке VK нужно будет указать валидный
   const vkIcon = document.createElement('img');
   vkIcon.className = 'vk-icon';
-  vkIcon.src = '../img/team-page/vk.svg'; // Измените путь при необходимости
+  vkIcon.src = 'static/img/team-page/vk.svg'; // Измените путь при необходимости
   vkIcon.alt = 'VK';
 
   // Собираем структуру

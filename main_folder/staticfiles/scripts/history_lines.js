@@ -29,14 +29,14 @@ function addLineCard(title, description, imgPath, lineUrl) {
     cardContentTop.className = 'card-content-top';
 
     // Ссылка на линию
-    const lineLink = document.createElement('a');
-    lineLink.href = lineUrl || '#';
-    lineLink.className = 'line-link';
+    // const lineLink = document.createElement('a');
+    // lineLink.href = lineUrl || '#';
+    // lineLink.className = 'line-link';
 
     const titleEl = document.createElement('h3');
     titleEl.textContent = title || 'Без названия';
 
-    lineLink.appendChild(titleEl);
+    // lineLink.appendChild(titleEl);
 
     // Ссылка "Смотреть"
     const viewLink = document.createElement('a');
@@ -55,7 +55,7 @@ function addLineCard(title, description, imgPath, lineUrl) {
     viewLink.appendChild(viewText);
 
     // Собираем верхнюю часть
-    cardContentTop.appendChild(lineLink);
+    cardContentTop.appendChild(titleEl);
     cardContentTop.appendChild(viewLink);
 
     // Описание
@@ -73,6 +73,12 @@ function addLineCard(title, description, imgPath, lineUrl) {
 
     // Добавляем в контейнер
     linesWrapper.appendChild(lineCard);
+
+    // Линия
+    const decorLine = document.createElement('div');
+    decorLine.className = 'dotted-line';
+    
+    linesWrapper.appendChild(decorLine);
 }
 
 async function loadHistoryLines() {
