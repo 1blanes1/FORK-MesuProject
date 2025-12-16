@@ -276,8 +276,10 @@ main {
   position: relative;
   padding: 160px 60px;
   display: flex;
-  justify-content: space-between;
-  gap: 50px;
+  justify-content: center;
+  gap: 400px;
+  /* justify-content: space-between;
+  gap: 50px; */
 }
 
 /* Кружочки сверху слева */
@@ -331,8 +333,8 @@ main {
 .text-block {
   flex: 1;
   max-width: 520px;
-  text-align: left;
-  margin-left: 180px;
+  text-align: center;
+  /* margin-left: 180px; */
 
 }
 
