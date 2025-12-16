@@ -23,7 +23,7 @@ urlpatterns = [
     # ^ api для добавления в партнёры
     path('partners', views.get_partners, name='partners'),
     # ^ api для запроса списка партёнров
-    path('api/post_team_member', views.post_team_member, name='huila'),
+    path('api/post_team_member', views.post_team_member, name='member'),
     # ^  api для добавления в список команды
     path('team_page/get', views.get_team, name='team'),
     # ^ api для запроса команды
