@@ -2,7 +2,7 @@ from django.urls import path
 from api import views
 from django.conf import settings
 from django.conf.urls.static import static
-
+from django.urls import include
 
 urlpatterns = [
     path('', views.my_page, name='page'),
@@ -41,6 +41,7 @@ urlpatterns = [
     path('api/delete/history_line', views.delete_history_line, name='delete'),
     path('api/delete/partner', views.delete_partner, name='delete'),
     path('api/delete/team_member', views.delete_team_member, name='delete'),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
