@@ -1,0 +1,81 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Та САМАЯ Россия - Команда</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'styles/history_line.css' %}">
+</head>
+
+<body>
+  <header>
+    <div class="intro">
+      <div class="video">
+        <img src="line.png" alt="Фоновое изображение команды" class="background-image" id="heroImage">
+      </div>
+
+
+      <div class="header-top">
+        <div class="menu-toggle" id="menuToggle">
+          <img src="{% static 'img/menu_button.png' %}" alt="Кнопка меню">
+        </div>
+        <img src="{% static 'img/logo.png' %}" alt="Логотип" class="logo">
+      </div>
+
+      <div class="hero-content">
+        <h1 class="hero-title">{{ title }}</h1>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-header">
+        <span class="close-btn" id="closeBtn">×</span>
+        <img src="{% static 'img/image_in_menu.png' %}" alt="Картинка" class="image-menu">
+      </div>
+      <ul>
+        <li><a href="/">Главная</a></li>
+        <li><a href="/team_page">Команда проекта</a></li>
+        <li><a href="/news_page">Новости</a></li>
+        <li><a href="/history_page">Исторические линии</a></li>
+        <li><a href="#map">Интерактивная карта</a></li>
+        <li><a href="/partners_page">Партнёры</a></li>
+        <li><a href="/contacts_page">Контакты</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <div class="fone">
+      <section class="team-section">
+        <div class="content-wrapper">
+          <div class="top">
+            <a href="#" class="back-link">
+              Вернуться
+              <img src="{% static img_path %}">
+            </a>
+            <h1 class="page-title">Об исторической линии</h1>
+          </div>
+          <p>{{ desc }}</p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <img src="{% static 'img/footer-logo.png' %}" alt="Логотип проекта Та САМАЯ Россия" class="footer-logo">
+      <p class="footer-copyright">© Та САМАЯ Россия, 2025 год</p>
+    </div>
+  </footer>
+
+  <script src="{% static 'scripts/script.js' %}"></script>
+</body>
