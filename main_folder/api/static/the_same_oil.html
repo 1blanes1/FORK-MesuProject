@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Та САМАЯ Россия - Та САМАЯ нефть</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'styles/the_same_oil.css' %}">
+</head>
+
+<body>
+  <header>
+    <div class="intro">
+      <div class="video">
+        <img src="{% static 'img/the_same_oil/Footage.png' %}" alt="Фоновое изображение" class="background-image" id="heroImage">
+      </div>
+
+
+      <div class="header-top">
+        <div class="menu-toggle" id="menuToggle">
+          <img src="{% static 'img/menu_button.png' %}" alt="Кнопка меню">
+        </div>
+        <img src="{% static 'img/logo.png' %}" alt="Логотип" class="logo">
+      </div>
+
+      <div class="hero-content">
+        <h1 class="hero-title">Та САМАЯ нефть</h1>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-header">
+        <span class="close-btn" id="closeBtn">×</span>
+        <img src="{% static 'img/image_in_menu.png' %}" alt="Картинка" class="image-menu">
+      </div>
+      <ul>
+        <li><a href="/">Главная</a></li>
+        <li><a href="/team_page">Команда проекта</a></li>
+        <li><a href="/news_page">Новости</a></li>
+        <li><a href="/history_page">Исторические линии</a></li>
+        <li><a href="#map">Интерактивная карта</a></li>
+        <li><a href="/partners_page">Партнёры</a></li>
+        <li><a href="/contacts_page">Контакты</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <div class="fone">
+      <!-- Основной блок: Информация -->
+      <section class="team-section">
+        <div class="content-wrapper">
+
+          <!-- Верхняя строка: кнопка + заголовок -->
+          <div class="header-row">
+            <a href="/" class="back-button"><img src="{% static 'img/the_same_oil/return_button.png' %}" alt="Вернуться назад"></a>
+            <h2 class="section-title">Об исторической линии</h2>
+          </div>
+
+          <!-- Синий блок справа -->
+          <div class="blue-box">
+            <p>Мы шли сюда работать, созидать,<br>
+              Искать поэзию средь повседневной прозы.<br>
+              И не сумели нашим планам помешать<br>
+              Болота, гнус и лютые морозы.<br>
+              И в будущее можем мы смотреть,<br>
+              С большими планами, уверенно и гордо.<br>
+              Пока есть в Западно-Сибирских недрах нефть,<br>
+              Есть перспективы для российского народа!<br><br>
+              «Нефть Западной Сибири», Людмила Чернобровкина</p>
+          </div>
+
+          <div class="text-block">
+            <p class="standard-text">
+              Эти строки определяют дух той эпохи, когда люди пришли
+              в северную тайгу Западной Сибири. Болота, гнус, морозы скрывали богатство,
+              способное изменить судьбу страны. Открытие нефти и газа в Тюменской области
+              создало крупнейший в мире энергетический комплекс — основу экономической
+              мощи России на десятилетия вперёд.
+            </p>
+
+            <p class="italic-text">
+              Мы приглашаем вас проследить путь, начинаясь с одного человека, чья вера стала
+              локомотивом этого великого открытия.
+            </p>
+
+            <p class="standard-text">
+              История героического подвига начинается с одной судьбы — Фармана Курбановича Салманова,
+              чья жизнь стала мостом между нефтяными традициями Азербайджана и неосвоенными
+              просторами Сибири.
+            </p>
+          </div>
+
+
+          <div class="photo-grid">
+            <img src="{% static 'img/the_same_oil/1.png' %}" alt="Человек" class="grid-photo">
+          </div>
+
+          <div class="text-block">
+            <p class="standard-text">
+              Родился он 28 июля 1931 года в селе Морул Азербайджанской ССР. В семье жила память о Сибири:
+              его дед Сулейман был сослан туда в 1888 году, участвовал в русско-японской войне и был награждён
+              за храбрость. Деду было что рассказать, и эти рассказы определили
+              судьбу внука – привила любовь к Сибири.
+            </p>
+
+            <p class="standard-text">
+              Встреча с министром нефтяной промышленности СССР Николаем Байбаковым, который сказал:
+              «Нефть — будущее нашей страны», окончательно направила его путь.
+            </p>
+
+            <p class="standard-text">
+              Окончив в 1954 году Азербайджанский индустриальный институт в Баку, Салманов получил направление
+              на Кузбасс. Но работая там, убедился в бесперспективности углеводородных поисков в угольном регионе.
+              Настоящее будущее, был он убежден, в Среднем Приобье, у Сургута. Его рапорты остались без ответа.
+            </p>
+
+            <p class="standard-text">
+              Летом 1957 года Салманов совершил легендарный «побег». Собрав партию геологов
+              и добровольцев — две десятка семей рабочих с буровыми станками, оборудованием
+              и разборными домами — он погрузился на баржи и поплыл по реке Томь. Попытки
+              отстранить его встретили забастовку коллектива. Начальство вынужденно
+              подписало приказ о перебазировании в Сургут.
+            </p>
+          </div>
+
+          <div class="photo-grid">
+            <img src="{% static 'img/the_same_oil/2.png' %}" alt="Вертолёт и человек" class="grid-photo">
+            <img src="{% static 'img/the_same_oil/3.png' %}" alt="Пейзаж" class="grid-photo">
+          </div>
+
+          <div class="text-block">
+            <p class="standard-text">
+              21 марта 1961 года у села Мегион забил первый крупный фонтан западносибирской
+              нефти дебитом 200 тонн. Скептики называли это аномалией. Но 15 октября мощный
+              фонтан дала скважина в Усть-Балыке, а 29 мая 1965 года из первой скважины на
+              Самотлорской структуре получили фонтан более 300 тонн. Салманов отправил
+              телеграмму: «Я нашёл нефть. Вот так. Салманов».
+            </p>
+          </div>
+
+          <div class="photo-grid">
+            <img src="{% static 'img/the_same_oil/4.png' %}" alt="Люди у труб" class="grid-photo">
+            <img src="{% static 'img/the_same_oil/5.png' %}" alt="Документ" class="grid-photo">
+          </div>
+
+          <div class="text-block">
+            <p class="standard-text">
+              17 августа 1961 года Коллегия Министерства геологии СССР высоко оценила
+              работу геологов Тюменской области. Под руководством Салманова было открыто
+              свыше 150 месторождений. С 1970 года, возглавив «Главтюменьгеологию»,
+              Салманов стал стратегом освоения всего региона, позже став первым заместителем
+              министра геологии СССР.
+            </p>
+          </div>
+
+          <div class="photo-grid">
+            <img src="{% static 'img/the_same_oil/6.png' %}" alt="Салманов" class="grid-photo">
+          </div>
+
+          <div class="text-block">
+            <p class="indent-italic-text">
+              Города-участники: свидетели подвига
+            </p>
+
+            <h2 class="underline-text">РОССИЙСКАЯ ФЕДЕРАЦИЯ</h2>
+
+            <h3 class="bold-text">Сургут — опорный центр</h3>
+
+            <p class="standard-text">
+              Город на Оби, где 13 сентября 1957 года прибыла экспедиция Салманова, стал главным
+              администратором освоения Северных месторождений. Здесь концентрировались
+              управленческие, научные и производственные мощности, отсюда координировались
+              работы на всех промыслах. В советских планах Сургут определён как опорный центр
+              нефтяного района. После открытия месторождений город стремительно разрастался,
+              привлекая специалистов со всей страны. В Доме-музее Ф.К. Салманова хранится
+              память о рождении нефтяного величия. Аэропорт города носит имя
+              геолога-первооткрывателя.
+            </p>
+          </div>
+
+          <div class="photo-grid">
+            <img src="{% static 'img/the_same_oil/7.png' %}" alt="Начало освоения" class="grid-photo">
+            <img src="{% static 'img/the_same_oil/8.png' %}" alt="Сургут сейчас" class="grid-photo">
+          </div>
+
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Подвал -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <img src="{% static 'img/footer-logo.png' %}" alt="Логотип проекта Та САМАЯ Россия" class="footer-logo">
+      <p class="footer-copyright">© Та САМАЯ Россия, 2025 год</p>
+      <p class="footer-copyright">volural@gmail.com</p>
+    </div>
+  </footer>
+
+
+
+
+
+
+  <script>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const closeBtn = document.getElementById('closeBtn');
+
+    menuToggle.addEventListener('click', function () {
+      mobileMenu.classList.toggle('active');
+    });
+
+    closeBtn.addEventListener('click', function () {
+      mobileMenu.classList.remove('active');
+    });
+
+    // Close menu when clicking on links
+    const menuLinks = document.querySelectorAll('.mobile-menu a');
+    menuLinks.forEach(link => {
+      link.addEventListener('click', function () {
+        mobileMenu.classList.remove('active');
+      });
+    });
+
+
+
+  </script>
+  <script src="scripts/script.js"></script>
+</body>

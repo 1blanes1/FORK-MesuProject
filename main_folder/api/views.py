@@ -26,6 +26,7 @@ def news_page(request):
 def partners_page(request):
     return render(request, 'partners.html')
 
+
 @csrf_exempt
 def get_partners(request):
     if request.method == 'GET':
