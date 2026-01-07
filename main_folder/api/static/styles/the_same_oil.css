@@ -354,12 +354,11 @@ header {
 
   font-family: Exo 2;
   font-weight: 500;
-  font-style: Medium;
+  tyle: Medium;
   font-size: 18px;
   leading-trim: NONE;
   line-height: 20px;
   letter-spacing: 0%;
-
 }
 
 .text-block .italic-text {
@@ -379,13 +378,13 @@ header {
 
 .photo-grid {
   display: grid;
-  /* grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); */
-  grid-template-columns: repeat(auto-fit, minmax(320px, max-content));
-  justify-content: left;
+  grid-template-columns: repeat(2, minmax(0, 1fr)); /* две колонки на широких экранах */
   gap: 150px;
   margin-top: 40px;
   max-width: 70%;
+  justify-content: flex-start;
 }
+
 
 .grid-photo {
   max-width: 100%;
@@ -443,12 +442,91 @@ header {
 
 }
 
+.under-image {
+  text-align: left;
+  color: #000000;
+  margin-top: 20px;
 
+  font-family: Exo 2;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0%;
+}
 
+.learn-more-container {
+  margin-top: 30px;
+  margin-bottom: 60px;
+}
 
+.learn-more {
+  text-decoration: none;
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #333;
+  text-decoration: none;
+}
 
+.learn-more:hover {
+  color: #c2121f;
+}
 
+.sources {
+  max-width: 70%;
+}
 
+.sources h3 {
+  font-family: "Raleway", sans-serif;
+  margin-bottom: 20px;
+}
+
+.sources ol {
+  margin-bottom: 20px;
+  margin-left: 20px;     /* добавили отступ слева */
+  padding-left: 20px;    /* чтобы текст не прилипал к маркеру */
+}
+
+.sources li {
+  font-weight: 500;
+  margin-bottom: 7px;
+}
+
+.sources p {
+  text-align: left;
+  color: #000000;
+
+  font-family: Exo 2;
+  font-weight: 500;
+  style: Medium;
+  font-size: 18px;
+  leading-trim: NONE;
+  line-height: 20px;
+  letter-spacing: 0%;
+}
+
+.mail {
+  text-align: left;
+  color: #000000;
+  margin-top: 40px;
+
+  font-family: Exo 2;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0%;
+}
+
+.mail a {
+  text-decoration: none;
+  font-weight: 700;
+  color: #333;
+}
+
+.mail a:hover {
+  color: #c2121f;
+}
 
 /* FOOTER */
 
@@ -533,12 +611,20 @@ header {
     /* чтобы padding не увеличивал ширину */
   }
 
+  .content-wrapper {
+    max-width: 96%;
+    padding: 40px 40px;
+  }
 
+  .text-block {
+    max-width: 80%;
+  }
 
-
-
-
-
+  .photo-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 80px; /* было 150px, делаем компактнее */
+    max-width: 100%;
+  }
 }
 
 
@@ -633,7 +719,36 @@ header {
     text-align: left;
   }
 
+  .photo-grid {
+    grid-template-columns: 1fr;  /* одна колонка */
+    gap: 40px;                   /* поменьше отступы */
+    max-width: 100%;
+  }
 
+  .content-wrapper {
+    max-width: 100%;
+    padding: 24px 16px;
+  }
+
+  .text-block,
+  .sources {
+    max-width: 100%;
+  }
+
+  .text-block .standard-text,
+  .text-block .italic-text {
+    font-size: 16px;
+    line-height: 22px;
+    margin-top: 24px;
+  }
+
+  .indent-italic-text,
+  .underline-text,
+  .bold-text {
+    margin-top: 32px;
+    font-size: 18px;
+    line-height: 22px;
+  }
 }
 
 
@@ -668,15 +783,14 @@ header {
     /* немного увеличьте для читаемости */
   }
 
-
-
-
-
   .content-wrapper::before,
   .content-wrapper::after {
     display: none;
     /* скрываем декорации на мобильных */
   }
 
-
+  .photo-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
 }
