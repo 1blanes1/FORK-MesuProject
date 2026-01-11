@@ -11,6 +11,8 @@ from django.shortcuts import render
 from django.conf import settings
 
 
+def oil(request):
+    return render(request, 'oil.html')
 def my_page(request):
     return render(request, 'index2.html')
 def admin(request):
