@@ -1,1 +1,44 @@
-[]
+[
+  {
+    "title": "Похоренко Марина Константиновна",
+    "status": "Специалист отдела молодёжной политики СурГУ",
+    "role": "Концептуальный директор",
+    "url": "",
+    "img_path": "/media/uploads/team_member_img/panteleeva.png"
+  },
+  {
+    "title": "Шатон Юлия Борисовна",
+    "status": "Директор музейно-выставочного комплекса УрФУ",
+    "role": "Руководитель, Научный эксперт",
+    "url": "",
+    "img_path": "/media/uploads/team_member_img/shaton.png"
+  },
+  {
+    "title": "Шаров Вячеслав Александрович",
+    "status": "Студент УрФУ имени Б.Н. Ельцина",
+    "role": "Менеджер",
+    "url": "",
+    "img_path": "/media/uploads/team_member_img/sharov.png"
+  },
+  {
+    "title": "Ломаева Дарья Сергеевна",
+    "status": "Директор волонтёрского центра «Волонтёры Урала»",
+    "role": "Специалист по работе с партнёрами",
+    "url": "",
+    "img_path": "/media/uploads/team_member_img/Lomaeva.png"
+  },
+  {
+    "title": "Чудинова Мария Александровна",
+    "status": "Студент РТУ МИРЭА",
+    "role": "Специалист по работе с участниками",
+    "url": "",
+    "img_path": "/media/uploads/team_member_img/chudinova.png"
+  },
+  {
+    "title": "Пантелеева Анастасия Сергеевна",
+    "status": "Студент ВятГУ",
+    "role": "Специалист по медиасопровождению",
+    "url": "",
+    "img_path": "/media/uploads/team_member_img/Panteleeva.png"
+  }
+]
