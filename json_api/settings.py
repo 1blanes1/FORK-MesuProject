@@ -36,7 +36,7 @@ STATICFILES_DIRS = [
     BASE_DIR / 'api/static',
     BASE_DIR / 'media/uploads/'
 ]
-DEBUG = True                                                    
+DEBUG = False                                                  
 
 
 
@@ -44,8 +44,19 @@ DEBUG = True
 
 CORS_ALLOW_ALL_ORIGINS = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [
+    'ta-samaya-rossiya.ru',
+    'www.ta-samaya-rossiya.ru',
+    '127.0.0.1',
+    'localhost',  # тоже рекомендуется добавить для локальной разработки
+]
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://ta-samaya-rossiya.ru',
+    'https://www.ta-samaya-rossiya.ru',
+]
+USE_X_FORWARDED_HOST = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Application definition
 
