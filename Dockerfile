@@ -1,5 +1,7 @@
 # Dockerfile
 FROM python:3.11-slim
+RUN sed -i 's/deb.debian.org/mirror.yandex.ru/g' /etc/apt/sources.list.d/debian.sources || \
+    sed -i 's/deb.debian.org/mirror.yandex.ru/g' /etc/apt/sources.list
 
 # Устанавливаем системные зависимости
 RUN apt-get update && apt-get install -y --no-install-recommends \
