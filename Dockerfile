@@ -21,4 +21,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 CMD python manage.py makemigrations && \
     python manage.py migrate && \
     python manage.py collectstatic --noinput && \
-    gunicorn --bind 0.0.0.0:8000 json_api.wsgi:application
+    ./admin.sh && \
+     gunicorn --bind 0.0.0.0:8000 json_api.wsgi:application
