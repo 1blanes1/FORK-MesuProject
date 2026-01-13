@@ -2,6 +2,8 @@ version: '3.8'
 
 services:
   web:
+    ports:
+    - "8000:8000"
     build: .
     container_name: django-web-container
     command: >
@@ -12,6 +14,8 @@ services:
             gunicorn --bind 0.0.0.0:8000 json_api.wsgi:application"
     volumes:
       - django_shared_static:/app/staticfiles # Статика Django
+      - ./media:/app/media              # Медиафайлы
+      - ./db.sqlite3:/app/db.sqlite3  
     networks:
       - shared_net # Добавляем в общую сеть
     expose:
@@ -21,7 +25,10 @@ networks:
   shared_net:
     external: true
     name: shared_network
-
+env_file:
+      - .env
 volumes:
+  media_volume:
   django_shared_static:
     external: true
+  db_volume:

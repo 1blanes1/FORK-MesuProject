@@ -19,13 +19,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = '/app/media'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-e669@k4!3mj0+&*=jwmkatq!p6a)a2@u57dyl05s4kfij(b^p8'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'fallback-key-for-local-dev')
+
 
 
 
@@ -35,11 +36,10 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [
     BASE_DIR / 'api/static',
     BASE_DIR / 'media/uploads/'
-]
-DEBUG = False                                                  
+]                                                 
 
 
-
+DEBUF=True
 
 
 CORS_ALLOW_ALL_ORIGINS = True
