@@ -1,6 +1,0 @@
-=== Django Superuser Credentials ===
-Created: Tue Jan 13 17:57:12 +05 2026
-Project: MesuProject
-Username: the-great-admin
-Email: v4n1shnerush@gmail.com
-Password: THEGREATRUSSIA123456789_123456789theend
