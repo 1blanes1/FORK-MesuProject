@@ -32,14 +32,14 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'fallback-key-for-local-dev')
 
 STATIC_URL = '/static/'
 # Путь в файловой системе, куда collectstatic будет собирать все статические файлы
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_ROOT = '/app/staticfiles'
 STATICFILES_DIRS = [
     BASE_DIR / 'api/static',
     BASE_DIR / 'media/uploads/'
 ]                                                 
 
 
-DEBUF=True
+DEBUF=False
 
 
 CORS_ALLOW_ALL_ORIGINS = True

@@ -1,8 +1,11 @@
 *.pyc
 *.cpython-310.pyc
 *.
+db.sqlite3
 .env
 json_api\
 main_folder\api\__pycache__
 main_folder\json_api\__pycache__
 superuser_creds_20260113_175712.txt
+nginx\
+nginx.yml
