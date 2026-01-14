@@ -43,7 +43,7 @@ header {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  /* background-color: rgba(0, 0, 0, 0.5); */
   z-index: 2;
 }
 
@@ -57,12 +57,27 @@ header {
 
 }
 
-.background-image {
+.video::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 2;
+}
+
+.background-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  height: 50%;
+  object-fit: contain;
   display: block;
+  z-index: 1;
 }
 
 .header-top {
@@ -119,16 +134,12 @@ header {
   font-family: Raleway;
   font-weight: 700;
   font-style: Bold;
-  font-size: 80px;
+  font-size: 100px;
   line-height: 100%;
   letter-spacing: 0%;
   text-align: center;
 
-
-
-
   margin: 0;
-  margin-bottom: 1rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
@@ -273,6 +284,7 @@ header {
 .content-wrapper {
   /* max-width: 1720px; */
   max-width: 92%;
+  padding: 60px 80px;
   width: 100%;
   background-color: rgb(237, 242, 242);
   box-sizing: border-box;
@@ -280,155 +292,153 @@ header {
 }
 
 
-
-
-/* Сетка команды */
-.team-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 50px 0px;
-  justify-items: center;
-
-  padding: 150px 190px 200px;
-}
-
-/* Карточка */
-.team-card {
-  display: block;
-  flex-direction: column;
+.header-row {
+  position: relative;
+  display: flex;
   align-items: center;
-  padding: 20px 0px;
+  justify-content: center;
   width: 100%;
-  max-width: 300px;
+  margin: 0 auto;
+  margin-bottom: 40px;
 }
 
-.team-photo {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  margin-bottom: 15px;
+.back-button {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #333;
+  text-decoration: none;
+  padding-left: 80px;
+  /* ← чтобы кнопка не упиралась в край (если нужно) */
 }
 
-.team-card h3 {
+
+.section-title {
   font-family: Raleway;
-  /* margin: 10px 0 5px; */
-  color: #000;
-
-  font-family: Exo 2;
-  font-weight: 500;
-  font-style: Medium;
-  font-size: 20px;
-  line-height: 30px;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 30px;
+  leading-trim: NONE;
+  line-height: 24px;
   letter-spacing: 0%;
+  text-align: center;
+
+  margin: 0;
 
 }
 
-.position {
 
-  color: #666;
-  /* margin: 5px 0; */
+/* === Синий блок справа === */
+.blue-box {
+  width: 100%;
+  max-width: 500px;
+  background-color: #669BBD;
+  color: white;
+  padding: 40px 30px;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-left: auto;
+  /* ← выравниваем вправо */
+}
 
-
+.blue-box p {
   font-family: Exo 2;
-  font-weight: 300;
-  font-style: Light;
-  font-size: 16px;
-  line-height: 30px;
+  font-weight: 700;
+  font-style: Italic;
+  font-size: 18px;
+  leading-trim: NONE;
+  line-height: 20px;
   letter-spacing: 0%;
+  text-align: right;
 
 }
 
-.role {
-
-
-  color: #000;
-  /* margin: 5px 0; */
-  font-family: Exo 2;
-  font-weight: 500;
-  font-style: Medium;
-  font-size: 16px;
-  line-height: 30px;
-  letter-spacing: 0%;
-
-}
-
-.vk-link {
-  margin-top: 10px;
-  display: inline-block;
-}
-
-.vk-icon {
-  width: 40px;
-  height: 40px;
-  filter: grayscale(1) brightness(2);
-  /* иконка VK белая */
-}
-
-
-/* Кружки сверху справа 
-.content-wrapper::before {
-  content: "";
-  position: absolute;
-  top: -110px;
-  right: -100px;
-  transform: rotate(0deg);
-  width: 451.5px;
-  height: 292.5px;
-
-  background-image: url('../img/team-page/rounds.svg');
-  background-size: contain;
-  background-repeat: no-repeat;
-  z-index: -1;
-}
-*/
-
-
-.content-wrapper::before {
-  content: "";
-  position: absolute;
-  top: 500px;
-  left: 30px;
-  transform: rotate(0deg);
-  width: 252px;
-  height: 226.5px;
-
-  background-image: url('../img/team-page/round.svg');
-  background-size: contain;
-  background-repeat: no-repeat;
-  z-index: -1;
-}
-
-.content-wrapper::after {
- content: "";
-  position: absolute;
-  bottom: -50px;
-  right: 150px;
-  transform: rotate(0deg);
-  width: 432px;
-  height: 252px;
-
-  background-image: url('../img/team-page/crystal.svg');
-  background-size: contain;
-  background-repeat: no-repeat;
-  z-index: -1;
-}
 
 .text-block {
   max-width: 70%;
-  margin: auto;
-  margin-bottom: 60px;
 }
 
 .text-block .standard-text {
   text-align: left;
   color: #000000;
-  margin-top: 20px;
+  margin-top: 40px;
 
   font-family: Exo 2;
   font-weight: 500;
+  tyle: Medium;
   font-size: 18px;
+  leading-trim: NONE;
   line-height: 20px;
   letter-spacing: 0%;
+}
+
+.text-block .italic-text {
+  text-align: left;
+  color: #000000;
+  margin-top: 40px;
+
+  font-family: Exo 2;
+  font-weight: 500;
+  font-style: italic;
+  font-size: 18px;
+  leading-trim: NONE;
+  line-height: 20px;
+  letter-spacing: 0%;
+
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr)); /* две колонки на широких экранах */
+  gap: 150px;
+  margin-top: 40px;
+  max-width: 70%;
+  justify-content: flex-start;
+}
+
+
+.grid-photo {
+  max-width: 100%;
+  max-height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.indent-italic-text {
+  margin-top: 80px;
+
+  text-align: left;
+  color: #000000;
+
+  font-family: Exo 2;
+  font-weight: 500;
+  font-style: italic;
+  font-size: 20px;
+  leading-trim: NONE;
+  line-height: 20px;
+  letter-spacing: 0%
+}
+
+.underline-text {
+  margin-top: 60px;
+
+  text-align: left;
+  color: #000000;
+
+  font-family: Exo 2;
+  font-weight: 500;
+  font-style: Medium;
+  text-decoration: underline;
+  font-size: 26px;
+  leading-trim: NONE;
+  line-height: 20px;
+  letter-spacing: 0%
 }
 
 .bold-text {
@@ -441,30 +451,115 @@ header {
   font-weight: 700;
   font-style: Bold;
   font-size: 22px;
+  leading-trim: NONE;
+  line-height: 20px;
+  letter-spacing: 0%;
+
+}
+
+.under-image {
+  text-align: left;
+  color: #000000;
+  margin-top: 20px;
+
+  font-family: Exo 2;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 16px;
   line-height: 20px;
   letter-spacing: 0%;
 }
 
-.text-block .italic-text {
+.learn-more-container {
+  margin-top: 30px;
+  margin-bottom: 60px;
+}
+
+.learn-more {
+  text-decoration: none;
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #333;
+  text-decoration: none;
+}
+
+.learn-more:hover {
+  color: #c2121f;
+}
+
+.sources {
+  max-width: 70%;
+}
+
+.sources h3 {
+  font-family: "Raleway", sans-serif;
+  margin-bottom: 20px;
+}
+
+.sources ol {
+  margin-bottom: 20px;
+  margin-left: 20px;     /* добавили отступ слева */
+  padding-left: 20px;    /* чтобы текст не прилипал к маркеру */
+}
+
+.sources li {
+  font-weight: 500;
+  margin-bottom: 7px;
+}
+
+.sources p {
+  text-align: left;
+  color: #000000;
+
+  font-family: Exo 2;
+  font-weight: 500;
+  style: Medium;
+  font-size: 18px;
+  leading-trim: NONE;
+  line-height: 20px;
+  letter-spacing: 0%;
+}
+
+.mail {
   text-align: left;
   color: #000000;
   margin-top: 40px;
 
   font-family: Exo 2;
-  font-weight: 700;
-  font-style: italic;
-  font-size: 18px;
+  font-weight: 500;
+  font-size: 14px;
   line-height: 20px;
   letter-spacing: 0%;
-
 }
 
+.mail a {
+  text-decoration: none;
+  font-weight: 700;
+  color: #333;
+}
 
+.mail a:hover {
+  color: #c2121f;
+}
 
+.footnote-container {
+  max-width: 80%;
+  margin-top: 40px;
+}
 
+.footnote {
+  text-align: left;
+  color: #000000;
+  margin-top: 0.5em;
 
-
-
+  font-family: Exo 2;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0%;
+}
 
 /* FOOTER */
 
@@ -505,16 +600,28 @@ header {
   margin: 0;
 }
 
+@media(min-width: 2000px) {
+  .blue-box {
+    margin-right: 30%;
+  }
+}
 
-@media(max-width: 1440px){
-    .content-wrapper::before, .content-wrapper::after {
+@media(min-width: 1440px) and (max-width: 2000px) {
+  .blue-box {
+    margin-right: 20%;
+  }
+}
+
+@media(max-width: 1440px) {
+
+  .content-wrapper::before,
+  .content-wrapper::after {
     display: none;
     /* скрываем декорации на мобильных */
   }
 
-  .team-grid {
-    /* можно уменьшить отступы */
-    padding: 60px 20px 120px;
+  .blue-box {
+    margin-right: 10%;
   }
 }
 
@@ -530,18 +637,9 @@ header {
     /* чтобы padding не увеличивал ширину */
   }
 
-  .team-grid {
-    /* можно уменьшить отступы */
-    padding: 60px 0px;
+  .blue-box {
+    margin-right: 7%;
   }
-
-  .content-wrapper::before {
-    display: none;
-    /* скрываем декорации на мобильных */
-  }
-
-
-
 }
 
 
@@ -558,36 +656,19 @@ header {
     /* чтобы padding не увеличивал ширину */
   }
 
-
-  .team-card {
-    text-align: left;
-  }
-
-  .team-grid {
-    grid-template-columns: repeat(2, 1fr);
-    /* одна колонка */
-    gap: 30px;
-    /* можно уменьшить отступы */
-    padding: 60px 0px;
-  }
-
-  .team-photo {
-    max-width: auto;
-    /* уменьшаем размер на мобильных */
-  }
-
-  /* .fone {
-    background-image: none;
-    background-color: rgb(237, 242, 242);
-  } */
-
-  .content-wrapper::before, .content-wrapper::after {
-    display: none;
-    /* скрываем декорации на мобильных */
+  .content-wrapper {
+    max-width: 96%;
+    padding: 40px 40px;
   }
 
   .text-block {
     max-width: 80%;
+  }
+
+  .photo-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 80px; /* было 150px, делаем компактнее */
+    max-width: 100%;
   }
 }
 
@@ -664,23 +745,39 @@ header {
     background-color: rgb(237, 242, 242);
   }
 
-  .team-card {
+  .header-row {
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 0 24px;
+  }
+
+  .back-button {
+    position: static;
+    /* ← отключаем absolute */
+    transform: none;
+    padding-left: 0;
+  }
+
+  .section-title {
     text-align: left;
   }
 
-
-
-  .team-grid {
-    grid-template-columns: 1fr;
-    /* одна колонка */
-    gap: 30px;
-    /* можно уменьшить отступы */
-    padding: 60px 0px;
+  .photo-grid {
+    grid-template-columns: 1fr;  /* одна колонка */
+    gap: 40px;                   /* поменьше отступы */
+    max-width: 100%;
   }
 
-  .team-photo {
-    max-width: auto;
-    /* уменьшаем размер на мобильных */
+  .content-wrapper {
+    max-width: 100%;
+    padding: 24px 16px;
+  }
+
+  .text-block,
+  .sources {
+    max-width: 100%;
   }
 
   .text-block .standard-text,
@@ -690,6 +787,8 @@ header {
     margin-top: 24px;
   }
 
+  .indent-italic-text,
+  .underline-text,
   .bold-text {
     margin-top: 32px;
     font-size: 18px;
@@ -700,7 +799,10 @@ header {
 
 /* маленькие экраны */
 @media (max-width: 480px) {
-
+  .background-image {
+    width: 60%;
+    height: 60%;
+  }
 
   .hero-content {
     width: 100%;
@@ -714,7 +816,7 @@ header {
 
   .hero-title {
     position: relative;
-    font-size: 2.8rem;
+    font-size: 2rem;
 
   }
 
@@ -729,37 +831,14 @@ header {
     /* немного увеличьте для читаемости */
   }
 
-
-  .team-card {
-    text-align: left;
-  }
-
-
-
-  .team-grid {
-    grid-template-columns: 1fr;
-    /* одна колонка */
-    gap: 30px;
-    /* можно уменьшить отступы */
-    padding: 0px;
-  }
-
-  .team-photo {
-    max-width: auto;
-    /* уменьшаем размер на мобильных */
-  }
-
-
-  .content-wrapper::before, .content-wrapper::after {
+  .content-wrapper::before,
+  .content-wrapper::after {
     display: none;
     /* скрываем декорации на мобильных */
   }
 
-  .text-block {
-    max-width: 100%;
-  }
-
-  .text-block .standard-text {
-    margin-top: 10px;
+  .photo-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
   }
 }
