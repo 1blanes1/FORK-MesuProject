@@ -41,6 +41,10 @@ urlpatterns = [
     path('api/delete/history_line', views.delete_history_line, name='delete'),
     path('api/delete/partner', views.delete_partner, name='delete'),
     path('api/delete/team_member', views.delete_team_member, name='delete'),
+
+    path('oil', views.oil, name='oil'),
+    path('sity', views.sity),
+    path('fly', views.fly)
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -413,13 +413,51 @@ header {
   z-index: -1;
 }
 
+.text-block {
+  max-width: 70%;
+  margin: auto;
+  margin-bottom: 60px;
+}
 
+.text-block .standard-text {
+  text-align: left;
+  color: #000000;
+  margin-top: 20px;
 
+  font-family: Exo 2;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 20px;
+  letter-spacing: 0%;
+}
 
+.bold-text {
+  margin-top: 60px;
 
+  text-align: left;
+  color: #000000;
 
+  font-family: Raleway;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 22px;
+  line-height: 20px;
+  letter-spacing: 0%;
+}
 
+.text-block .italic-text {
+  text-align: left;
+  color: #000000;
+  margin-top: 40px;
 
+  font-family: Exo 2;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 18px;
+  line-height: 20px;
+  letter-spacing: 0%;
+
+}
 
 
 
@@ -548,9 +586,9 @@ header {
     /* скрываем декорации на мобильных */
   }
 
-
-
-
+  .text-block {
+    max-width: 80%;
+  }
 }
 
 
@@ -645,8 +683,18 @@ header {
     /* уменьшаем размер на мобильных */
   }
 
+  .text-block .standard-text,
+  .text-block .italic-text {
+    font-size: 16px;
+    line-height: 22px;
+    margin-top: 24px;
+  }
 
-
+  .bold-text {
+    margin-top: 32px;
+    font-size: 18px;
+    line-height: 22px;
+  }
 }
 
 
@@ -707,5 +755,11 @@ header {
     /* скрываем декорации на мобильных */
   }
 
+  .text-block {
+    max-width: 100%;
+  }
 
+  .text-block .standard-text {
+    margin-top: 10px;
+  }
 }

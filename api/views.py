@@ -15,7 +15,12 @@ import json
 import os
 from django.views.decorators.csrf import ensure_csrf_cookie
 
-
+def sity(request):
+    return render(request, 'sities.html')
+def fly(request):
+    return render(request, 'flying.html')
+def oil(request):
+    return render(request, 'oil.html')
 def my_page(request):
     return render(request, 'index2.html')
 @ensure_csrf_cookie
