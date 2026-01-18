@@ -34,7 +34,9 @@ urlpatterns = [
     path('contacts_page', views.contacts_page, name='contacts'),
     # ^ страница с контактами
     path('news_page', views.news_page, name='news_page'),
-    path('the_oil', views.oil, name='oil')
+    path('oil', views.oil, name='oil'),
+    path('sity', views.sity),
+    path('fly', views.fly)
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

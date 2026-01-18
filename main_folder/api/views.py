@@ -11,6 +11,10 @@ from django.shortcuts import render
 from django.conf import settings
 
 
+def sity(request):
+    return render(request, 'sities.html')
+def fly(request):
+    return render(request, 'flying.html')
 def oil(request):
     return render(request, 'oil.html')
 def my_page(request):
