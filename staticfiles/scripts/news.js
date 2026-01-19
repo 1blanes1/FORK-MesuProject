@@ -4,9 +4,11 @@ const ITEMS_PER_PAGE = 10;
 let currentPage = 1;
 
 function renderNewsPage(page) {
+    const reversedNews = [...allNews].reverse();
+
     const startIndex = (page - 1) * ITEMS_PER_PAGE;
     const endIndex = startIndex + ITEMS_PER_PAGE;
-    const pageNews = allNews.slice(startIndex, endIndex);
+    const pageNews = reversedNews.slice(startIndex, endIndex);
 
     const newsWrapper = document.getElementById('news-wrapper');
     if (!newsWrapper) {

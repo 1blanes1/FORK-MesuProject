@@ -322,7 +322,7 @@
           throw new Error(`Ошибка загрузки: ${res.status}`);
         }
 
-        const arr = (await res.json()).slice(0, 3);
+        const arr = (await res.json()).slice(-3).reverse();
         console.log(`Загружено ${arr.length} новостей`);
 
         // Очищаем контейнер перед добавлением новых новостей
