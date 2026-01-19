@@ -14,8 +14,8 @@ services:
             gunicorn --bind 0.0.0.0:8000 json_api.wsgi:application"
     volumes:
       - django_shared_static:/app/staticfiles # Статика Django
-      - ./media:/app/media              # Медиафайлы
-      # - ./db.sqlite3:/app/db.sqlite3  
+      - django_shared_media:/app/media              # Медиафайлы
+      # - ./db.sqlite3:/app/db.sqlite3
     networks:
       - shared_net # Добавляем в общую сеть
     expose:
@@ -27,5 +27,7 @@ networks:
     name: shared_network
 
 volumes:
+  django_shared_media:
+    external: true
   django_shared_static:
     external: true
