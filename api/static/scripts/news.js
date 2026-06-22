@@ -42,12 +42,12 @@ function renderNewsPage(page) {
         // Название 
         const newsTitle = document.createElement('h3');
         newsTitle.className = 'news-title';
-        newsTitle.textContent = news.title || 'Без названия';
+        newsTitle.textContent = news.title || '';
 
         // Описание
         const newDesc = document.createElement('p');
         newDesc.className = 'news-desc';
-        newDesc.textContent = news.desc || 'Без описания';
+        newDesc.textContent = news.desc || '';
 
         // Сборка
         newsLink.appendChild(newsTitle);

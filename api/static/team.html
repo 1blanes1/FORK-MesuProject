@@ -50,7 +50,7 @@
         <li><a href="/team_page">Команда проекта</a></li>
         <li><a href="/news_page">Новости</a></li>
         <li><a href="/history_page">Исторические линии</a></li>
-        <li><a href="/map">Интерактивная карта</a></li>
+        <li><a href="#map">Интерактивная карта</a></li>
         <li><a href="/partners_page">Партнёры</a></li>
         <li><a href="/contacts_page">Контакты</a></li>
       </ul>
@@ -64,13 +64,14 @@
 
           <div class="content-wrapper">
             <!-- Контейнер для карточек команды -->
+             <img src="./static/img/team-page/glitter.png" width="100" height="100" class="glitter_team-page">
             <div class="team-grid"></div>
 
             <div class="text-block">
               <h3 class="bold-text">Команда проекта выражает благодарность командам студентов и их руководителям проектного практикума Уральского федерального университета имени первого Президента России Б.Н. Ельцина:</h3>
               <p class="italic-text">Разработчики сайта:</p>
               <p class="standard-text">
-                Василенко Александр, Ситников Андрей, Бороденко Никита, Субботин Егор, Неруш Иван.
+                Дубинин Богдан, Алехин Владислав, Василенко Александр, Ситников Андрей, Бороденко Никита, Субботин Егор, Неруш Иван.
               </p>
 
               <p class="italic-text">Разработчики интерактивной карты:</p>
@@ -80,7 +81,7 @@
 
               <p class="italic-text">Дизайнеры:</p>
               <p class="standard-text">
-                Маматкулова Сабрина, Гордеева Анна, Ели Карина, Мезенцева Елизавета, Алтышева Алиса, Амбарцумян Гаянэ.
+                Маматкулова Сабрина, Гордеева Анна, Ели Карина, Мезенцева Елизавета, Алтышева Алиса, Амбарцумян Гаянэ, Новиков Виктор.
               </p>
 
               <p class="italic-text">Руководители и кураторы:</p>
@@ -88,9 +89,15 @@
                 Зорина Анна Юрьевна, Тараненко Лидия Николаевна, Ананьева Алена Борисовна, Симонова Ирина Александровна.
               </p>
             </div>
-
           </div>
       </section>
+    </div>
+
+  <!-- Графический элемент в правом нижнем углу -->
+    <div style="position: relative;">
+        <div style="position: absolute; bottom: 20px; right: 100px; z-index: 10;">
+            <img src="{% static 'img/main-page/star.svg' %}" alt="Звезда" style="width: 100px; height: auto;">
+        </div>
     </div>
   </main>
 
@@ -98,7 +105,7 @@
   <footer class="site-footer">
     <div class="footer-content">
       <img src="{% static 'img/footer-logo.png' %}" alt="Логотип проекта Та САМАЯ Россия" class="footer-logo">
-      <p class="footer-copyright">© Та САМАЯ Россия, 2025 год</p>
+      <p class="footer-copyright">© Та САМАЯ Россия, 2026 год</p>
       <p class="footer-copyright">TaSAMAYARossiya@mail.ru</p>
     </div>
   </footer>

@@ -51,7 +51,7 @@
         <li><a href="/team_page">Команда проекта</a></li>
         <li><a href="/news_page">Новости</a></li>
         <li><a href="/history_page">Исторические линии</a></li>
-        <li><a href="/map">Интерактивная карта</a></li>
+        <li><a href="#map">Интерактивная карта</a></li>
         <li><a href="/partners_page">Партнёры</a></li>
         <li><a href="/contacts_page">Контакты</a></li>
       </ul>
@@ -66,35 +66,62 @@
         <div class="content-wrapper">
           <h2 class="section-title">Организаторы</h2>
 
-          <div class="organizers-grid">
-            <!-- Организатор 1 -->
-            <a href="https://urfu.ru/ru/" class="organizer-card">
-              <img src="{% static 'img/partners-page/organizers/urfu.png' %}" alt="УрФУ" class="organizer-logo">
-              <h3>УрФУ</h3>
-              <p>Уральский федеральный <br>
-                 университет имени первого <br>
-                  Президента России Б.Н. Ельцина</p>
-            </a>
+<div class="organizers-grid">
+    <!-- Организатор 1 -->
+    <a href="https://urfu.ru/ru/" class="organizer-card org-card">
+        <img src="{% static 'img/partners-page/organizers/urfu.png' %}" alt="УрФУ" class="organizer-logo">
+        <h3>УрФУ</h3>
+    </a>
 
-            <!-- Организатор 2 -->
-            <a href="https://volural.ru/web/index.html" class="organizer-card">
-              <img src="{% static 'img/partners-page/organizers/volural.png' %}" alt="VOLURAL" class="organizer-logo">
-              <h3>Волонтёры Урала</h3>
-              <p>Волонтерский центр <br>
-                 «Волонтёры Урала»</p>
-            </a>
+    <!-- Организатор 2 -->
+    <a href="https://volural.ru/web/index.html" class="organizer-card org-card">
+        <img src="{% static 'img/partners-page/organizers/volural.png' %}" alt="VOLURAL" class="organizer-logo">
+        <h3>Волонтёры Урала</h3>
+    </a>
 
-            <!-- Организатор 3 -->
-            <a href="https://posurfu.ru/" class="organizer-card">
-              <img src="{% static 'img/partners-page/organizers/souz-students.png' %}" alt="ППОС УрФУ" class="organizer-logo">
-              <h3>ППОС УрФУ</h3>
-              <p>ППО студентов УрФУ <br>
-                 Общероссийского Профсоюза <br>
-                 Образования</p>
-            </a>
+    <!-- Организатор 3 -->
+    <a href="https://posurfu.ru/" class="organizer-card org-card">
+        <img src="{% static 'img/partners-page/organizers/souz-students.png' %}" alt="ППОС УрФУ" class="organizer-logo">
+        <h3>ППОС УрФУ</h3>
+    </a>
+</div>
+          <div class="partners-title-wrapper">
+            <h2 class="partners-title">Партнеры</h2>
           </div>
-          <h2 class="partners-title">Партнеры</h2>
-          <div class="organizers-grid" id="partners-wrapper"></div>
+          <div class="organizers-grid" id="partners-wrapper" style="background: rgb(255, 255, 255) !important; padding: 40px 30px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px 30px;">
+    <!-- Тестовые партнеры -->
+            <a href="#" class="partner-link" style="text-decoration: none;">
+            <div class="organizer-card" style="transition: all 0.3s ease; background: white; border-radius: 16px; padding: 25px; text-align: center; cursor: pointer;">
+              <img src="/static/partner_img/placeholder.png" class="organizer-logo" style="transition: transform 0.3s ease; max-width: 150px; margin: 0 auto 15px; display: block;">
+              <h3 style="font-size: 18px; color: #333;">Белорусский государственный музей</h3>
+              <p style="color: #666;">Партнер проекта</p>
+            </div>
+            </a>
+            <a href="#" class="partner-link" style="text-decoration: none;">
+            <div class="organizer-card" style="transition: all 0.3s ease; background: white; border-radius: 16px; padding: 25px; text-align: center; cursor: pointer;">
+              <img src="/static/partner_img/placeholder.png" class="organizer-logo" style="transition: transform 0.3s ease; max-width: 150px; margin: 0 auto 15px; display: block;">
+              <h3 style="font-size: 18px; color: #333;">Эколого-краеведческий музей</h3>
+              <p style="color: #666;">Партнер проекта</p>
+            </div>
+          </a>
+          <a href="#" class="partner-link" style="text-decoration: none;">
+          <div class="organizer-card" style="transition: all 0.3s ease; background: white; border-radius: 16px; padding: 25px; text-align: center; cursor: pointer;">
+            <img src="/static/partner_img/placeholder.png" class="organizer-logo" style="transition: transform 0.3s ease; max-width: 150px; margin: 0 auto 15px; display: block;">
+            <h3 style="font-size: 18px; color: #333;">Азербайджанский университет</h3>
+            <p style="color: #666;">Партнер проекта</p>
+          </div>
+          </a>
+          </div>
+
+<style>
+    .organizer-card:hover {
+        transform: scale(1.05) !important;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.15) !important;
+    }
+    .organizer-card:hover img {
+        transform: scale(1.08) !important;
+    }
+</style>
         </div>
       </section>
   </main>
@@ -103,7 +130,7 @@
   <footer class="site-footer">
     <div class="footer-content">
       <img src="{% static 'img/footer-logo.png' %}" alt="Логотип проекта Та САМАЯ Россия" class="footer-logo">
-      <p class="footer-copyright">© Та САМАЯ Россия, 2025 год</p>
+      <p class="footer-copyright">© Та САМАЯ Россия, 2026 год</p>
       <p class="footer-copyright">TaSAMAYARossiya@mail.ru</p>
     </div>
   </footer>
@@ -173,4 +200,85 @@
   </script>
   <script src="{% static 'scripts/script.js' %}"></script>
   <script src="{% static 'scripts/partners.js' %}"></script>
+  <style>
+    /* ТОЛЬКО ДЛЯ ОРГАНИЗАТОРОВ */
+    .org-card {
+        min-height: 320px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 0px;
+        padding: 25px;
+        text-align: center;
+        box-sizing: border-box;
+        text-decoration: none;
+    }
+    
+    .org-card .organizer-logo {
+        max-width: 150px;
+        height: 120px;
+        object-fit: contain;
+        margin: 0 auto 0px !important;
+    }
+    
+    .org-card h3 {
+        font-size: 20px;
+        color: #333;
+        margin: 5px 0 0 0 !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .org-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        transition: all 0.3s ease;
+    }
+    
+    .org-card:hover .organizer-logo {
+        transform: scale(1.08);
+    }
+</style>
 </body>
+
+<style>
+    /* ЗАКРУГЛЕНИЕ И ФИКСИРОВАННЫЙ РАЗМЕР ДЛЯ ВСЕХ КАРТОЧЕК */
+    #partners-wrapper .organizer-card {
+        border-radius: 30px !important;
+        overflow: hidden !important;
+        min-height: 320px;
+        height: 100%;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+    }
+    
+    /* Логотип фиксированного размера */
+    #partners-wrapper .organizer-logo {
+        max-width: 150px;
+        height: 120px;
+        object-fit: contain;
+        margin: 0 auto 15px;
+    }
+    
+    /* Заголовок фиксированной высоты */
+    #partners-wrapper h3 {
+        font-size: 18px;
+        color: #333;
+        margin: 0 0 10px 0;
+        min-height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* Описание фиксированной высоты */
+    #partners-wrapper p {
+        color: #666;
+        margin: 0;
+        min-height: 40px;
+    }
+</style>

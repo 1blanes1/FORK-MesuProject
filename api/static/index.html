@@ -45,6 +45,9 @@
             // Создаем ссылку
             const link = document.createElement('a');
             link.href = url || '#';
+            link.className = 'news-link';
+            link.target = '_blank';
+            link.rel = 'noopener noreferrer';
 
             // Создаем изображение с классом news-img
             const img = document.createElement('img');
@@ -55,6 +58,8 @@
             // Создаем заголовок
             const titleEl = document.createElement('h3');
             titleEl.textContent = title || 'Без заголовка';
+            titleEl.className = 'news-title';
+            
 
             // Собираем структуру
             link.appendChild(img);

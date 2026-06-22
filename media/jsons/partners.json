@@ -1,1 +1,142 @@
-[]
+[
+  {
+    "title": "Белорусский государственный музей истории Великой Отечественной войны",
+    "img_path": "/static/img/partners-page/partners/Belorusskaya.png",
+    "url": "https://www.warmuseum.by/"
+  },
+  {
+    "title": "Эколого-краеведческий музей города Муравленко",
+    "img_path": "/static/img/partners-page/partners/muravlenko.png",
+    "url": "https://ekm.yanao.ru/"
+  },
+  {
+    "title": "Азербайджанский университет нефти и промышленности",
+    "img_path": "/static/img/partners-page/partners/baku.png",
+    "url": "https://yandex.ru/maps/org/azerbaydzhanskiy_gosudarstvenny_universitet_nefti_i_promyshlennosti/146462805223/?indoorLevel=1&ll=49.847983%2C40.378560&z=17"
+  },
+  {
+    "title": "Музейный комплекс им В.Я. Словцова",
+    "img_path": "/static/img/partners-page/partners/tumen.svg",
+    "url": "https://museum72.ru/"
+  },
+  {
+    "title": "Мемориальный комплекс \"Дом-музея Ф.К. Салманова\"",
+    "img_path": "/static/img/partners-page/partners/SKM-Photoroom.png",
+    "url": "https://skmuseum.ru/"
+  },
+  {
+    "title": "Библиотечная система п. Горноправдинск",
+    "img_path": "/static/img/partners-page/partners/gornopravdinsk.png",
+    "url": "https://bookgp.ru/"
+  },
+  {
+    "title": "Молодёжный парламент при думе ХМАО-Югры",
+    "img_path": "/static/img/partners-page/partners/MP XMAO.png",
+    "url": "https://www.dumahmao.ru/publicyouthchamber/"
+  },
+  {
+    "title": "Музейный комплекс Нефтеюганск",
+    "img_path": "/static/img/partners-page/partners/nefteugansk.jpg",
+    "url": "https://museum86.ru/"
+  },
+  {
+    "title": "Музейно-выставочный комплекс г. Салехард",
+    "img_path": "/static/img/partners-page/partners/MBK.png",
+    "url": "https://mvk.yanao.ru/"
+  },
+  {
+    "title": "Тазовский районный краеведческий музей",
+    "img_path": "/static/img/partners-page/partners/taz.png",
+    "url": "https://museumtasuyava.yanao.ru/"
+  },
+  {
+    "title": "Центр детского творчества г. Сургут",
+    "img_path": "/static/img/partners-page/partners/cdt.jpg",
+    "url": "http://cdt.admsurgut.ru/"
+  },
+  {
+    "title": "Мемориальный комплекс \"Брестская крепость-герой\"",
+    "img_path": "/static/img/partners-page/partners/brest.png",
+    "url": "https://brest-fortress.by/"
+  },
+  {
+    "title": "Корпоративный музей ООО \"Газпром добыча Надым\"",
+    "img_path": "/static/img/partners-page/partners/nadim.png",
+    "url": "https://nadymdobycha.gazprom.ru/social/kultura/"
+  },
+  {
+    "title": "Корпоративный музей ООО \"Газпром добыча Ямбург\"",
+    "img_path": "/static/img/partners-page/partners/yamburg.png",
+    "url": "https://corporate-museum.ru/project/a75ea6e4/#:~:text=Музей%20был%20открыт%201%20октября%201994%20года%20и%20работает%20уже%2030%20лет.&text=Музей%20истории%20предприятия%20расположен%20в,название%20от%20Ямбургского%20нефтегазоконденсатного%20месторождения."
+  },
+  {
+    "title": "Корпоративный музей ООО \"Газпром добыча Уренгой\"",
+    "img_path": "/static/img/partners-page/partners/urengoi.png",
+    "url": "https://urengoy-dobycha.gazprom.ru/press/muzej-istorii/"
+  },
+  {
+    "title": "МАУ Экоцентр г. Мегион",
+    "img_path": "/static/img/partners-page/partners/megion.png",
+    "url": "https://ecocentr-megion.gosuslugi.ru/"
+  },
+  {
+    "title": "Музей геологии нефти и газа г. Ханты-Мансийск",
+    "img_path": "/static/img/partners-page/partners/mgng.png",
+    "url": "https://muzgeo.ru/"
+  },
+  {
+    "title": "Губкинский музей освоения Севера",
+    "img_path": "/static/img/partners-page/partners/gubkinski.png",
+    "url": "https://muzeyos.yanao.ru/"
+  },
+  {
+    "title": "Нижневартовский краеведческий музей имени Т.Д. Шуваева",
+    "img_path": "/static/img/partners-page/partners/shuvaev.png",
+    "url": "https://nkmus.ru/"
+  },
+  {
+    "title": "Музей космонавтики г. Москва",
+    "img_path": "/static/img/partners-page/partners/moscow.png",
+    "url": "https://kosmo-museum.ru/"
+  },
+  {
+    "title": "ФГКУ 123 Дом офицеров(гарнизона)",
+    "img_path": "/static/img/partners-page/partners/fgku.jpg",
+    "url": "https://clubvks.ru/123-дом-офицеров/"
+  },
+  {
+    "title": "МВЦ ЗАТО г. Железногорск",
+    "img_path": "/static/img/partners-page/partners/zato.jpg",
+    "url": "https://mig26.ru/"
+  },
+  {
+    "title": "ЦПК им. Ю.А. Гагарина",
+    "img_path": "/static/img/partners-page/partners/cpk.jpg",
+    "url": "https://www.gctc.ru/"
+  },
+  {
+    "title": "Музей истории космодрома Байконур",
+    "img_path": "/static/img/partners-page/partners/baikonur.png",
+    "url": "https://vk.com/museumbaikonur"
+  },
+  {
+    "title": "Государственный музей истории космонавтики имени К.Э. Циолковского",
+    "img_path": "/static/img/partners-page/partners/kaluga.png",
+    "url": "https://gmik.ru/"
+  },
+  {
+    "title": "ПАО \"Ракетно-космическая компания имени С.П. Королёва\"",
+    "img_path": "/static/img/partners-page/partners/energy.png",
+    "url": "https://www.energia.ru/"
+  },
+  {
+    "title": "Ракетно-космический центр «Прогресс»",
+    "img_path": "/static/img/partners-page/partners/progress.jpg",
+    "url": "https://www.samspace.ru/"
+  },
+  {
+    "title": "ФГБУК Музей-заповедник Ю.А. Гагарина",
+    "img_path": "/static/img/partners-page/partners/fgbu.jpg",
+    "url": "https://museumgagarin.ru/"
+  } 
+]

@@ -22,7 +22,7 @@ function addPartnerCard(title, img_path, url) {
 
     // Создаём абзац с описанием (в текущих данных его нет, оставим пустым или можно позже расширить)
     const descEl = document.createElement('p');
-    descEl.textContent = 'ОПИСАНИЕОПИСАНИЕ'; // чтобы карточка не "схлопывалась", если описания нет
+    descEl.textContent = ''; // чтобы карточка не "схлопывалась", если описания нет
 
     // Собираем структуру карточки
     partnerCard.appendChild(img);

@@ -7,7 +7,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Та САМАЯ Россия</title>
-  <link rel="icon" type="image/x-icon" href="{% static 'img/favico.png' %}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
@@ -51,7 +50,7 @@
         <li><a href="/team_page">Команда проекта</a></li>
         <li><a href="/news_page">Новости</a></li>
         <li><a href="/history_page">Исторические линии</a></li>
-        <li><a href="/map">Интерактивная карта</a></li>
+        <li><a href="#map">Интерактивная карта</a></li>
         <li><a href="/partners_page">Партнёры</a></li>
         <li><a href="/contacts_page">Контакты</a></li>
       </ul>
@@ -79,7 +78,10 @@
               </a>
             </div>
             <div class="logo-container">
-              <img src="{% static 'img/main-page/embleme1.png' %}" alt="Логотип" class="project-logo">
+              <iframe src="https://vk.com/video_ext.php?oid=-203318144&id=456239122&hash=d0987bbdf39b9c3e&hd=4" 
+                width="640" height="360" allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;" 
+                frameborder="0" allowfullscreen class="about-us-video">
+              </iframe>
             </div>
           </div>
         </div>
@@ -134,7 +136,7 @@
           <div class="map-background">
             <!-- Кнопка поверх фона -->
             <div class="map-button">
-              <a href="/map" class="map-button">
+              <a href="#map" class="map-button">
                 <img src="{% static 'img/main-page/map_button.png' %}" alt="Интерактивная карта">
               </a>
             </div>
@@ -159,10 +161,10 @@
             </a>
 
             <!-- Логотип 2 -->
-            <a href="https://victorymuseum.ru/publicyouthchamber/" target="_blank" class="partner-logo">
-              <img src="{% static 'img/main-page/partners/muzei_pobedi.png' %}"
-                data-hover="{% static 'img/main-page/partners/muzei_pobedi-color.png' %}" alt="Музей победы"
-                class="logo-img">
+            <a href="https://www.gctc.ru/" target="_blank" class="partner-logo">
+              <img src="{% static 'img/main-page/partners/gagarin.png' %}"
+                data-hover="{% static 'img/main-page/partners/gagarin-color.png' %}" alt="ЦПК Гагарина"
+                class="logo-img gagarin-img">
             </a>
 
             <!-- Логотип 3 -->
@@ -173,9 +175,9 @@
             </a>
 
             <!-- Логотип 4 -->
-            <a href="https://warmuseum.by/publicyouthchamber/" target="_blank" class="partner-logo">
-              <img src="{% static 'img/main-page/partners/muzei_VOV.png' %}"
-                data-hover="{% static 'img/main-page/partners/muzei_VOV-color.png' %}" alt="Музей ВОВ" class="logo-img">
+            <a href="https://amcos.ru/" target="_blank" class="partner-logo">
+              <img src="{% static 'img/main-page/partners/amkos.png' %}"
+                data-hover="{% static 'img/main-page/partners/amkos-color.png' %}" alt="Ассоциация Музеев Космонавтики" class="logo-img">
             </a>
 
             <!-- Логотип 5 -->
@@ -216,7 +218,7 @@
   <footer class="site-footer">
     <div class="footer-content">
       <img src="{% static 'img/footer-logo.png' %}" alt="Логотип проекта Та САМАЯ Россия" class="footer-logo">
-      <p class="footer-copyright">© Та САМАЯ Россия, 2025 год</p>
+      <p class="footer-copyright">© Та САМАЯ Россия, 2026 год</p>
       <p class="footer-copyright">TaSAMAYARossiya@mail.ru</p>
     </div>
   </footer>
@@ -298,6 +300,9 @@
       // Создаем ссылку
       const link = document.createElement('a');
       link.href = url || '#';
+      link.className = 'news-link';
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
 
       // Создаем изображение с классом news-img
       const img = document.createElement('img');
@@ -308,6 +313,7 @@
       // Создаем заголовок
       const titleEl = document.createElement('h3');
       titleEl.textContent = title || 'Без заголовка';
+      titleEl.className = 'news-title';
 
       // Собираем структуру
       link.appendChild(img);

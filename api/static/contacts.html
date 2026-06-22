@@ -57,7 +57,7 @@
   <main>
     <div class="fone">
       <section class="section-addres-and-map">
-        <div class="content-wrapper">
+        <div class="content-wrapper" style="max-width: 100% !important; padding: 0 !important;">
           <div class="addres-and-map">
             <div class="text-block">
               <h2>Юридический адрес:</h2>
@@ -70,7 +70,18 @@
 
             <!-- Блок с картой -->
             <div class="map-block">
-              <img src="{% static 'img/contacts-page/map-urfu.png' %}" alt="Карта расположения УрФУ" class="map-image">
+              <div style="position:relative;overflow:hidden;">
+                <a href="https://yandex.ru/maps/54/yekaterinburg/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Екатеринбург</a>
+                <a href="https://yandex.ru/maps/54/yekaterinburg/house/ulitsa_mira_19/YkkYcAJkSUIAQFtsfXR1dXxgZw==/?ll=60.654078%2C56.844033&utm_medium=mapframe&utm_source=maps&z=16" style="color:#eee;font-size:12px;position:absolute;top:14px;">Улица Мира, 19 на карте Екатеринбурга — Яндекс Карты</a>
+                <iframe 
+                  src="https://yandex.ru/map-widget/v1/?ll=60.654078%2C56.844033&mode=whatshere&utm_source=share&whatshere%5Bpoint%5D=60.654077%2C56.844033&whatshere%5Bzoom%5D=17&z=16" 
+                  width="400" 
+                  height="400" 
+                  frameborder="0" 
+                  allowfullscreen="true" 
+                  style="position:relative; border: 0; display: block;">
+                </iframe>
+              </div>
             </div>
           </div>
         </div>
@@ -86,6 +97,9 @@
             <a href="https://vk.com/ta_samay_russia" target="_blank" class="social-btn vk">
               <img src="{% static 'img/contacts-page/vk.svg' %}" alt="ВКонтакте">
             </a>
+            <a href="https://t.me/your_telegram" target="_blank" class="social-btn tg">
+              <img src="{% static 'img/contacts-page/telegram.svg' %}" alt="Telegram">
+            </a>
           </div>
         </div>
       </div>
@@ -98,7 +112,7 @@
   <footer class="site-footer">
     <div class="footer-content">
       <img src="{% static 'img/footer-logo.png' %}" alt="Логотип проекта Та САМАЯ Россия" class="footer-logo">
-      <p class="footer-copyright">© Та САМАЯ Россия, 2025 год</p>
+      <p class="footer-copyright">© Та САМАЯ Россия, 2026 год</p>
       <p class="footer-copyright">TaSAMAYARossiya@mail.ru</p>
     </div>
   </footer>

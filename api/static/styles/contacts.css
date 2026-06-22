@@ -244,7 +244,7 @@ header {
 
 
 .fone {
-  background-image: url('../img/pattern.png');
+  
   background-repeat: repeat;
   /* узор будет повторяться по всей странице */
   background-size: auto;

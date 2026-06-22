@@ -239,16 +239,17 @@ main {
 
 /* Контейнер с фоном */
 .fone {
-  background-image: url('../img/pattern.png');
+  
   background-repeat: repeat;
   /* узор будет повторяться по всей странице */
   background-size: auto;
   /* не масштабировать, если это бесшовный паттерн */
-  background-position: top left;
   background-attachment: fixed;
   /* ← ЭТО КЛЮЧЕВОЕ СВОЙСТВО */
   margin: 0;
   padding: 0;
+  width: 100%;
+  
 }
 
 /* Общий стиль для любого раздела */
@@ -261,11 +262,12 @@ main {
   /* padding: 20px; */
   box-sizing: border-box;
   /* overflow: hidden; */
+  width: 100%;
 }
 
 /* Контент-блок — белый/светлый прямоугольник поверх фона */
 .content-wrapper {
-  max-width: 92%;
+  
   width: 100%;
   background-color: rgb(237, 242, 242);
   box-sizing: border-box;
@@ -277,7 +279,7 @@ main {
   padding: 160px 60px;
   display: flex;
   justify-content: center;
-  gap: 300px;
+  gap: 100px;
   /* justify-content: space-between;
   gap: 50px; */
 }
@@ -332,10 +334,11 @@ main {
 /* Стили текста, кнопки, логотипа — оставьте как есть */
 .text-block {
   flex: 1;
-  max-width: 520px;
-  text-align: left;
-  margin-left: 150px;
-
+  width: 100%;
+  text-align: center;
+  margin: auto;
+  display: grid;
+  gap: 25px;
 }
 
 .text-block h2 {
@@ -376,6 +379,7 @@ main {
 .logo-container {
   flex: 0 0 auto;
   text-align: center;
+  
 }
 
 .project-logo {
@@ -395,17 +399,18 @@ main {
   align-items: center;
   box-sizing: border-box;
   overflow: hidden;
+  width: 100%;
+  
 }
 
 .news-container {
-  max-width: 92%;
   width: 100%;
   background-color: #669BBD;
   box-sizing: border-box;
   z-index: 1;
-  padding: 30px 20px 15px;
   color: white;
   position: relative;
+  text-align: center;
 }
 
 .news-container::before {
@@ -438,7 +443,7 @@ main {
   font-size: 30px;
   line-height: 24px;
   margin-bottom: 60px;
-  padding-left: 100px;
+  margin-top: 20px;
 }
 
 .news-wrapper {
@@ -447,6 +452,8 @@ main {
   margin-bottom: 64px;
   gap: 40px;
   align-items: stretch;
+  width: 100%;
+
 }
 
 .news-item {
@@ -611,10 +618,10 @@ main {
   align-items: center;
   box-sizing: border-box;
   overflow: hidden;
+  width: 100%;
 }
 
 .historical-lines-container {
-  max-width: 92%;
   width: 100%;
   box-sizing: border-box;
   z-index: 1;
@@ -1222,7 +1229,7 @@ main {
 }
 
 .content-wrapper {
-  max-width: 92%;
+  
   width: 100%;
   background-color: rgb(237, 242, 242);
   box-sizing: border-box;
@@ -1269,10 +1276,17 @@ main {
 
 /* Изображение логотипа */
 .logo-img {
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: 100%;
   display: block;
   transition: opacity 0.3s ease;
+}
+
+.gagarin-img {
+  width: 150px;
+  height: 150px;
+  margin: 30px auto;
+  
 }
 
 /* Кружочки внизу справа */
@@ -1344,7 +1358,6 @@ main {
   }
 
   .text-block {
-    max-width: 500px;
     margin-left: 0;
   }
 
@@ -1442,7 +1455,7 @@ main {
     flex-direction: column;
     gap: 30px;
     padding: 20px 0;
-    max-width: 95%;
+   
   }
 
   .about-us {
@@ -1451,7 +1464,6 @@ main {
 
   .text-block {
     width: 100%;
-    max-width: none;
     /* сбрасываем возможные ограничения */
     padding: 0 10px;
     /* если нужно — оставляем отступы */
@@ -1476,7 +1488,9 @@ main {
   }
 
   .logo-container {
-    display: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .project-logo {
@@ -1593,7 +1607,6 @@ main {
 
   .text-block {
     width: 100%;
-    max-width: none;
     /* сбрасываем возможные ограничения */
     padding: 0 5px;
     /* если нужно — оставляем отступы */
@@ -1642,5 +1655,12 @@ main {
   .footer-copyright {
     font-size: 16px;
   }
+
+}
+
+.about-us-video {
+  margin: 0;
+  padding: 0;
+  display: grid;
 
 }

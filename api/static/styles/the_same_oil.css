@@ -255,7 +255,7 @@ header {
 
 
 .fone {
-  background-image: url('../img/pattern.png');
+  background-image: url('/static/img/main-page/background.jpg');
   background-repeat: repeat;
   /* узор будет повторяться по всей странице */
   background-size: auto;
@@ -265,6 +265,9 @@ header {
   /* ← ЭТО КЛЮЧЕВОЕ СВОЙСТВО */
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 
@@ -282,12 +285,11 @@ header {
 
 .content-wrapper {
   /* max-width: 1720px; */
-  max-width: 92%;
-  padding: 60px 80px;
-  width: 100%;
+  max-width: 90%;
   background-color: rgb(237, 242, 242);
   box-sizing: border-box;
   z-index: 1;
+  margin: 0 auto;
 }
 
 
@@ -325,9 +327,7 @@ header {
   line-height: 24px;
   letter-spacing: 0%;
   text-align: center;
-
-  margin: 0;
-
+  margin-top: 30px;
 }
 
 
@@ -340,7 +340,7 @@ header {
   padding: 40px 30px;
   border-radius: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-left: auto;
+  margin-left: 58%;
   /* ← выравниваем вправо */
 }
 
@@ -358,14 +358,17 @@ header {
 
 
 .text-block {
-  max-width: 70%;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
+
 .text-block .standard-text {
-  text-align: left;
+  text-align: center;
   color: #000000;
   margin-top: 40px;
-
   font-family: Exo 2;
   font-weight: 500;
   tyle: Medium;
@@ -376,10 +379,9 @@ header {
 }
 
 .text-block .italic-text {
-  text-align: left;
+  text-align: center;
   color: #000000;
   margin-top: 40px;
-
   font-family: Exo 2;
   font-weight: 500;
   font-style: italic;
@@ -391,30 +393,36 @@ header {
 }
 
 .photo-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr)); /* две колонки на широких экранах */
+  display: flex;
+  flex-wrap: wrap;
   gap: 150px;
   margin-top: 40px;
-  max-width: 70%;
-  justify-content: flex-start;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  align-items: center;
 }
 
 
 .grid-photo {
   max-width: 100%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
   max-height: auto;
   object-fit: cover;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
+  display: block;
+  margin: 0 auto;
 }
 
 .indent-italic-text {
   margin-top: 80px;
-
-  text-align: left;
   color: #000000;
-
+  text-align: center;
   font-family: Exo 2;
   font-weight: 500;
   font-style: italic;
@@ -427,7 +435,7 @@ header {
 .underline-text {
   margin-top: 60px;
 
-  text-align: left;
+  text-align: center;
   color: #000000;
 
   font-family: Exo 2;
@@ -443,7 +451,7 @@ header {
 .bold-text {
   margin-top: 60px;
 
-  text-align: left;
+  text-align: center;
   color: #000000;
 
   font-family: Raleway;
@@ -457,10 +465,12 @@ header {
 }
 
 .under-image {
-  text-align: left;
+  text-align: center;
+  max-width: 90%;
   color: #000000;
   margin-top: 20px;
-
+  margin-left: auto;
+  margin-right: auto;
   font-family: Exo 2;
   font-weight: 500;
   font-style: Medium;
@@ -472,6 +482,10 @@ header {
 .learn-more-container {
   margin-top: 30px;
   margin-bottom: 60px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  max-width: 90%;
 }
 
 .learn-more {
@@ -488,18 +502,24 @@ header {
 }
 
 .sources {
-  max-width: 70%;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
+
 
 .sources h3 {
   font-family: "Raleway", sans-serif;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  text-align: center;
 }
 
 .sources ol {
   margin-bottom: 20px;
   margin-left: 20px;     /* добавили отступ слева */
-  padding-left: 20px;    /* чтобы текст не прилипал к маркеру */
+  padding-left: 20px;
+  text-align: left;    /* чтобы текст не прилипал к маркеру */
 }
 
 .sources li {
@@ -508,9 +528,10 @@ header {
 }
 
 .sources p {
-  text-align: left;
+  text-align: center;
   color: #000000;
-
+  margin-left: auto;
+  margin-right: auto;
   font-family: Exo 2;
   font-weight: 500;
   style: Medium;
@@ -521,10 +542,11 @@ header {
 }
 
 .mail {
-  text-align: left;
+  text-align: center;
   color: #000000;
   margin-top: 40px;
-
+  margin-left: auto;
+  margin-right: auto;
   font-family: Exo 2;
   font-weight: 500;
   font-size: 14px;
@@ -617,7 +639,7 @@ header {
     /* чтобы padding не увеличивал ширину */
   }
 
-  .blue-box {
+  .x {
     margin-right: 7%;
   }
 }
@@ -748,6 +770,7 @@ header {
     grid-template-columns: 1fr;  /* одна колонка */
     gap: 40px;                   /* поменьше отступы */
     max-width: 100%;
+    margin: 0 auto;
   }
 
   .content-wrapper {
@@ -755,9 +778,11 @@ header {
     padding: 24px 16px;
   }
 
+
   .text-block,
   .sources {
     max-width: 100%;
+    text-align: center;
   }
 
   .text-block .standard-text,
@@ -773,6 +798,9 @@ header {
     margin-top: 32px;
     font-size: 18px;
     line-height: 22px;
+    margin-left: auto;
+    margin-right: auto;  
+    text-align: center; 
   }
 }
 
@@ -821,3 +849,18 @@ header {
     gap: 32px;
   }
 }
+
+.fond-photo {
+  max-width: 90%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sources-list {
+  max-width: 90%;
+  text-align: left;
+  
+}
+
+

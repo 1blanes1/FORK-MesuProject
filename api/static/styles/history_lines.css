@@ -166,7 +166,7 @@ main {
 
 
 .fone {
-  background-image: url('../img/pattern.png');
+  width: 100%;
   background-repeat: repeat;
   /* узор будет повторяться по всей странице */
   background-size: auto;
@@ -190,6 +190,7 @@ main {
   /*padding: 20px; */
   box-sizing: border-box;
   /* overflow: hidden; */
+  width: 100%;
 }
 
 
@@ -197,7 +198,7 @@ main {
 /* Контент-блок — белый/светлый прямоугольник поверх фона */
 .content-wrapper {
   /* max-width: 1720px; */
-  max-width: 92%;
+  
   width: 100%;
   background-color: rgb(237, 242, 242);
   box-sizing: border-box;
@@ -215,8 +216,7 @@ main {
   font-size: 30px;
   line-height: 100%;
   letter-spacing: 0%;
-  text-align: left;
-  padding-left: 100px;
+  text-align: center;
   margin-bottom: 60px;
   padding-top: 60px;
 }
@@ -248,8 +248,7 @@ main {
 .line-card {
   display: flex;
   justify-content: center;
-  min-width: 80%;
-  max-width: 80%;
+  width: 100%;
   margin-bottom: 37px;
 }
 
@@ -507,7 +506,7 @@ h3 {
     flex-direction: column;
     gap: 30px;
     padding: 20px 0;
-    max-width: 95%;
+    
   }
 
   .section-title {
