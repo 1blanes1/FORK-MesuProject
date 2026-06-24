@@ -138,5 +138,15 @@
     "title": "ФГБУК Музей-заповедник Ю.А. Гагарина",
     "img_path": "/static/img/partners-page/partners/fgbu.jpg",
     "url": "https://museumgagarin.ru/"
-  } 
+  },
+  {
+    "title": "Научно-исследовательский испытательный центр подготовки космонавтов имени Ю.А.Гагарина",
+    "img_path": "/static/img/partners-page/partners/gagarin-color.png",
+    "url": "https://www.gctc.ru/"
+  },
+  {
+    "title": "Ассоциация музеев космонавтики России",
+    "img_path": "/static/img/partners-page/partners/amkos-color.png",
+    "url": "https://amcos.ru/"
+  }
 ]
