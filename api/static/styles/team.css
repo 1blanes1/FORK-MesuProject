@@ -297,6 +297,12 @@ header {
   margin-top: 40px;
 }
 
+@media (max-width: 480px), (max-width: 768px), (max-width: 1024px), (max-width: 1280px) {
+  .team_page-star, .glitter_team-page {
+    display: none;
+  }
+}
+
 /* Карточка */
 .team-card {
   display: block;
@@ -403,6 +409,20 @@ header {
   z-index: -1;
 }
 
+.content-wrapper::after {
+ content: "";
+  position: absolute;
+  bottom: -50px;
+  right: 150px;
+  transform: rotate(0deg);
+  width: 432px;
+  height: 252px;
+
+  background-image: url('../img/team-page/crystal.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
 
 .text-block {
   max-width: 70%;

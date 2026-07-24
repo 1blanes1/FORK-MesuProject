@@ -294,11 +294,13 @@ header {
 .organizers-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 50px 0px;
+  gap: 40px 30px;
   justify-items: center;
   width: 100%;
-  padding: 10px 150px 100px;
+  padding: 40px 30px;
 }
+
+
 
 /* Карточка организатора */
 .organizer-card {
@@ -457,7 +459,7 @@ header {
 
 
   .organizers-grid {
-    grid-template-columns: 1fr; /* одна колонка */
+    grid-template-columns: repeat(3, 1fr); /* одна колонка */
     gap: 30px;
   }
 
@@ -548,9 +550,11 @@ header {
 
 
 
-  .organizers-grid{
+  .organizers-grid {
+    gap: 30px;
     padding: 0;
     padding-bottom: 40px;
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .section-title,
@@ -558,11 +562,6 @@ header {
     font-size: 24px;
     padding-top: 30px;
     margin-bottom: 30px;
-  }
-
-  .organizers-grid {
-    grid-template-columns: 1fr; /* одна колонка */
-    gap: 30px;
   }
 
   .organizer-card {
@@ -622,6 +621,12 @@ header {
     background-color: rgb(237, 242, 242);
   }
 
+  .organizers-grid {
+    gap: 30px;
+    padding: 0;
+    padding-bottom: 40px;
+    grid-template-columns: repeat(1, 1fr);
+  }
 
   .site-footer {
     padding: 50px 0px;
@@ -636,4 +641,3 @@ header {
   }
 
 }
-

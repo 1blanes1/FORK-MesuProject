@@ -346,6 +346,56 @@ header {
   /* ← выравниваем вправо */
 }
 
+@media (max-width: 1024px) {
+  .blue-box {
+    margin-left: 53%;
+    width: 320px;
+    height: 410px;
+  }
+
+  .back-button {
+    margin-left: -80px;
+    margin-top: -20px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 820px) {
+  .blue-box {
+    margin-left: 44%;
+    width: 320px;
+    height: 370px;
+  }
+}
+
+@media (max-width: 768px) {
+  .blue-box {
+    margin-left: 50%;
+    width: 370px;
+    height: 450px;
+  }
+
+  .section-title {
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .back-button {
+    margin: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .blue-box {
+    margin-left: 0%;
+    width: 100%;
+    height: auto;
+  }
+
+  .back-button {
+    margin: 0;
+  }
+}
+
 .blue-box p {
   font-family: Exo 2;
   font-weight: 700;
@@ -356,6 +406,27 @@ header {
   letter-spacing: 0%;
   text-align: right;
 
+}
+
+@media (min-width: 821px) and (max-width: 1024px) {
+  .blue-box p {
+    font-size: 14px;
+    line-height: 16px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 820px) {
+  .blue-box p {
+    font-size: 14px;
+    line-height: 14px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .blue-box p {
+    font-size: 18px;
+    line-height: 18px;
+  }
 }
 
 
@@ -790,7 +861,7 @@ header {
   }
 
   .section-title {
-    text-align: left;
+    text-align: center;
   }
 
   .photo-grid {
@@ -871,4 +942,3 @@ header {
     gap: 32px;
   }
 }
-
