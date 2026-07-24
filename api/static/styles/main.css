@@ -1664,3 +1664,474 @@ main {
   display: grid;
 
 }
+
+/* ========== АДАПТИВНОСТЬ ДЛЯ ПЛАНШЕТОВ (1024px и меньше) ========== */
+@media (max-width: 1024px) {
+  /* О нас - текст сверху, видео снизу */
+  .about-us {
+    flex-direction: column;
+    padding: 80px 30px;
+    gap: 40px;
+  }
+
+  .text-block {
+    order: 1;
+  }
+
+  .logo-container {
+    order: 2;
+    width: 100%;
+  }
+
+  .about-us-video {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+  }
+
+  .about-us::before,
+  .about-us::after,
+  .about-us .text-block::before {
+    display: none;
+  }
+
+  /* Исторические линии - карусель с 2 элементами */
+  .slides-container {
+    grid-auto-columns: calc((100% - 40px) / 2);
+    max-width: calc(280px * 2 + 40px);
+  }
+
+  .historical-line {
+    max-width: 280px;
+  }
+
+  .lines-wrapper {
+    gap: 15px;
+  }
+
+  .lines-prev-btn {
+    margin-right: 10px;
+  }
+
+  .lines-next-btn {
+    margin-left: 10px;
+  }
+
+  /* Интерактивная карта */
+  .map-background {
+    height: 300px;
+    background-size: contain;
+  }
+
+  .map-button img {
+    max-width: 280px;
+  }
+
+  .dotted-line.top {
+    margin-bottom: 40px;
+  }
+
+  .dotted-line.bottom {
+    margin-top: 40px;
+  }
+
+  /* Партнеры - 3 колонки */
+  .partners-grid {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0 40px 80px;
+    gap: 30px 20px;
+  }
+
+  .partner-logo {
+    max-width: 150px;
+  }
+
+  .gagarin-img {
+    width: 120px;
+    height: 120px;
+    margin: 20px auto;
+  }
+
+  .partners-title {
+    margin-top: 40px;
+    margin-bottom: 30px;
+  }
+
+  .partners-grid::before {
+    display: none;
+  }
+}
+
+/* ========== АДАПТИВНОСТЬ ДЛЯ ПЛАНШЕТОВ (768px и меньше) ========== */
+@media (max-width: 768px) {
+  /* О нас */
+  .about-us {
+    padding: 50px 20px;
+    gap: 30px;
+  }
+
+  .text-block h2 {
+    font-size: 26px;
+    margin-bottom: 20px;
+  }
+
+  .text-block p {
+    font-size: 18px;
+    line-height: 28px;
+    margin-bottom: 20px;
+  }
+
+  .team-button img {
+    width: 180px;
+    height: auto;
+  }
+
+  /* Исторические линии - карусель с 1 элементом */
+  .slides-container {
+    grid-auto-columns: 100%;
+    max-width: 280px;
+    gap: 30px;
+  }
+
+  .historical-line {
+    max-width: 280px;
+    height: 400px;
+  }
+
+  .lines-wrapper {
+    gap: 10px;
+    padding: 0 10px;
+  }
+
+  .lines-prev-btn,
+  .lines-next-btn {
+    width: 50px;
+    height: 38px;
+  }
+
+  .lines-prev-btn img,
+  .lines-next-btn img {
+    width: 30px;
+    height: auto;
+  }
+
+  .historical-lines h2 {
+    font-size: 26px;
+    margin: 30px 0 40px;
+  }
+
+  .historical-lines-container::before,
+  .historical-lines-container::after,
+  .historical-lines-decor::before {
+    display: none;
+  }
+
+  /* Интерактивная карта */
+  .map-background {
+    height: 250px;
+  }
+
+  .map-button img {
+    max-width: 220px;
+  }
+
+  .dotted-line.top {
+    margin-bottom: 30px;
+  }
+
+  .dotted-line.bottom {
+    margin-top: 30px;
+  }
+
+  /* Партнеры - 2 колонки */
+  .partners-grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 20px 60px;
+    gap: 25px 15px;
+  }
+
+  .partner-logo {
+    max-width: 130px;
+  }
+
+  .gagarin-img {
+    width: 100px;
+    height: 100px;
+    margin: 15px auto;
+  }
+
+  .partners-title {
+    font-size: 26px;
+    margin-top: 30px;
+    margin-bottom: 25px;
+  }
+}
+
+/* ========== АДАПТИВНОСТЬ ДЛЯ МОБИЛЬНЫХ (480px и меньше) ========== */
+@media (max-width: 480px) {
+  /* Шапка */
+  .hero-title {
+    font-size: 36px;
+  }
+
+  .hero-subtitle {
+    font-size: 18px;
+  }
+
+  .header-top {
+    padding: 20px 15px;
+  }
+
+  .menu-toggle {
+    margin-left: 15px;
+    margin-top: 10px;
+    width: 30px;
+  }
+
+  .logo {
+    max-width: 130px;
+    margin-top: 10px;
+  }
+
+  /* Мобильное меню */
+  .mobile-menu {
+    width: 100%;
+    left: -100%;
+  }
+
+  /* О нас */
+  .about-us {
+    padding: 30px 15px;
+    gap: 20px;
+  }
+
+  .text-block h2 {
+    font-size: 22px;
+    line-height: 26px;
+    margin-bottom: 15px;
+  }
+
+  .text-block p {
+    font-size: 15px;
+    line-height: 22px;
+    margin-bottom: 15px;
+  }
+
+  .team-button img {
+    width: 150px;
+    height: auto;
+  }
+
+  .about-us-video {
+    aspect-ratio: 16/9;
+  }
+
+  /* Новости */
+  .news-container {
+    padding: 20px 10px;
+  }
+
+  .news h2 {
+    font-size: 22px;
+    margin-bottom: 30px;
+    margin-top: 10px;
+  }
+
+  .news-wrapper {
+    gap: 25px;
+    margin-bottom: 30px;
+  }
+
+  .news-item h3 {
+    font-size: 16px;
+    line-height: 20px;
+    min-height: 60px;
+    max-width: 250px;
+  }
+
+  .news-img {
+    max-height: 150px;
+  }
+
+  .news-container::before,
+  .news-container::after {
+    display: none;
+  }
+
+  .all-news {
+    width: 160px;
+    height: auto;
+  }
+
+  /* Исторические линии - карусель с 1 элементом */
+  .historical-lines-container {
+    padding: 20px 10px 10px;
+  }
+
+  .historical-lines h2 {
+    font-size: 22px;
+    margin: 20px 0 30px;
+  }
+
+  .slides-container {
+    max-width: 240px;
+    gap: 20px;
+  }
+
+  .historical-line {
+    max-width: 240px;
+    height: 380px;
+    padding: 12px 15px;
+    border-radius: 40px;
+  }
+
+  .historical-line h3 {
+    font-size: 17px;
+    margin-bottom: 10px;
+  }
+
+  .historical-line p {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .historical-img {
+    width: 75px;
+    height: 75px;
+    margin-bottom: 15px;
+  }
+
+  .lines-wrapper {
+    gap: 8px;
+    padding: 0 5px;
+  }
+
+  .lines-prev-btn,
+  .lines-next-btn {
+    width: 40px;
+    height: 32px;
+    border-radius: 15px;
+  }
+
+  .lines-prev-btn img,
+  .lines-next-btn img {
+    width: 24px;
+    height: auto;
+  }
+
+  .lines-prev-btn {
+    margin-right: 5px;
+    padding: 6px 7px 6px 5px;
+  }
+
+  .lines-next-btn {
+    margin-left: 5px;
+    padding: 6px 5px 6px 7px;
+  }
+
+  .all-lines {
+    width: 200px;
+    height: auto;
+  }
+
+  .historical-lines .page-button {
+    margin-bottom: 30px;
+  }
+
+  /* Интерактивная карта */
+  .map-background {
+    height: 180px;
+  }
+
+  .map-button img {
+    max-width: 160px;
+  }
+
+  .dotted-line.top {
+    margin-bottom: 20px;
+    height: 16px;
+  }
+
+  .dotted-line.bottom {
+    margin-top: 20px;
+    height: 16px;
+  }
+
+  .dotted-line {
+    background-size: auto 100%;
+  }
+
+  /* Партнеры - 2 колонки */
+  .partners-grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 10px 40px;
+    gap: 20px 10px;
+  }
+
+  .partner-logo {
+    max-width: 100px;
+  }
+
+  .gagarin-img {
+    width: 80px;
+    height: 80px;
+    margin: 10px auto;
+  }
+
+  .partners-title {
+    font-size: 22px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  /* Подвал */
+  .site-footer {
+    padding: 40px 15px;
+  }
+
+  .footer-logo {
+    max-width: 140px;
+  }
+
+  .footer-copyright {
+    font-size: 14px;
+  }
+}
+
+/* ===== Партнеры ===== */
+
+
+
+/* Планшет */
+@media (max-width: 1024px) {
+    .partners-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .gagarin-img {
+      margin: 40px 50px;
+    }
+}
+
+/* Телефон */
+@media (max-width: 768px) {
+    .partners-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+
+    .logo-img {
+        max-width: 200px;  
+    }
+}
+
+/* Очень маленькие экраны */
+@media (max-width: 480px) {
+  
+    .partners-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .logo-img {
+        max-width: 180px;
+    }
+}
